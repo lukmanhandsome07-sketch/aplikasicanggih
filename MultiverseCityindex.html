@@ -1,0 +1,900 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>real MULTIVERSE CITY FINAL</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+overflow:hidden;
+font-family:Arial,sans-serif;
+background:#020617;
+color:white;
+}
+
+/* ================= SKY ================= */
+
+.sky{
+position:fixed;
+width:100%;
+height:100%;
+background:
+linear-gradient(to top,#020617,#0f172a,#1e3a8a);
+overflow:hidden;
+transition:1s;
+}
+
+/* ================= STARS ================= */
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:blink 2s infinite;
+}
+
+@keyframes blink{
+0%{opacity:.2;}
+50%{opacity:1;}
+100%{opacity:.2;}
+}
+
+/* ================= SUN ================= */
+
+.sun{
+position:absolute;
+top:60px;
+right:120px;
+width:120px;
+height:120px;
+border-radius:50%;
+background:gold;
+box-shadow:0 0 100px gold;
+}
+
+/* ================= CITY ================= */
+
+.city{
+position:absolute;
+bottom:180px;
+width:100%;
+height:260px;
+display:flex;
+align-items:flex-end;
+gap:20px;
+padding:20px;
+}
+
+.building{
+width:120px;
+background:#111827;
+border:2px solid #374151;
+position:relative;
+}
+
+.window{
+width:14px;
+height:14px;
+background:gold;
+position:absolute;
+}
+
+/* ================= HOUSE ================= */
+
+.house{
+position:absolute;
+bottom:180px;
+left:50%;
+width:180px;
+height:130px;
+background:#dc2626;
+border-radius:10px;
+}
+
+.house::before{
+content:'';
+position:absolute;
+top:-70px;
+left:0;
+border-left:90px solid transparent;
+border-right:90px solid transparent;
+border-bottom:70px solid #7f1d1d;
+}
+
+/* ================= GROUND ================= */
+
+.ground{
+position:absolute;
+bottom:0;
+width:100%;
+height:200px;
+background:
+linear-gradient(to top,#111827,#1f2937);
+}
+
+/* ================= ROAD ================= */
+
+.road{
+position:absolute;
+bottom:70px;
+width:100%;
+height:80px;
+background:#111;
+}
+
+.line{
+position:absolute;
+top:50%;
+width:100%;
+height:8px;
+
+background:
+repeating-linear-gradient(
+to right,
+white 0,
+white 60px,
+transparent 60px,
+transparent 120px
+);
+
+animation:roadMove 1.2s linear infinite;
+}
+
+@keyframes roadMove{
+0%{transform:translateX(0);}
+100%{transform:translateX(-120px);}
+}
+
+/* ================= CHARACTER ================= */
+
+.character{
+position:absolute;
+bottom:150px;
+width:120px;
+height:240px;
+transition:.3s;
+z-index:10;
+}
+
+/* PLAYER */
+
+#player{
+left:150px;
+}
+
+/* BOT */
+
+#bot{
+right:150px;
+transform:scaleX(-1);
+}
+
+/* HEAD */
+
+.head{
+position:absolute;
+top:0;
+left:35px;
+width:50px;
+height:50px;
+border-radius:50%;
+background:#f5d0a9;
+}
+
+/* BODY */
+
+.body{
+position:absolute;
+top:50px;
+left:28px;
+width:64px;
+height:90px;
+background:#2563eb;
+border-radius:12px;
+}
+
+/* ARMS */
+
+.arm{
+position:absolute;
+top:60px;
+width:18px;
+height:75px;
+background:#f5d0a9;
+border-radius:20px;
+transform-origin:top center;
+transition:.3s;
+}
+
+.left-arm{
+left:0;
+}
+
+.right-arm{
+right:0;
+}
+
+/* LEGS */
+
+.leg{
+position:absolute;
+top:135px;
+width:22px;
+height:95px;
+background:#1f2937;
+border-radius:20px;
+transform-origin:top center;
+transition:.3s;
+}
+
+.left-leg{
+left:30px;
+}
+
+.right-leg{
+right:30px;
+}
+
+/* ================= VEHICLES ================= */
+
+.vehicle{
+position:absolute;
+bottom:90px;
+padding:12px 18px;
+border-radius:16px;
+font-weight:bold;
+color:white;
+animation:drive linear infinite;
+}
+
+.car{
+background:#06b6d4;
+animation-duration:10s;
+}
+
+.bus{
+background:#f59e0b;
+animation-duration:18s;
+}
+
+.bike{
+background:#22c55e;
+animation-duration:7s;
+}
+
+.plane{
+background:#9333ea;
+top:140px;
+bottom:auto;
+animation-duration:25s;
+}
+
+@keyframes drive{
+0%{
+left:-300px;
+}
+100%{
+left:130%;
+}
+}
+
+/* ================= PANEL ================= */
+
+.panel{
+position:fixed;
+top:12px;
+left:12px;
+width:460px;
+max-height:95vh;
+overflow:auto;
+
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(10px);
+
+padding:16px;
+border-radius:20px;
+
+border:1px solid #38bdf8;
+
+z-index:999;
+}
+
+.title{
+font-size:26px;
+font-weight:bold;
+color:#38bdf8;
+margin-bottom:10px;
+}
+
+.info{
+font-size:13px;
+line-height:1.8;
+}
+
+.rank{
+margin-top:10px;
+padding:10px;
+background:#111827;
+border-radius:12px;
+font-weight:bold;
+color:#facc15;
+}
+
+/* ================= BUTTONS ================= */
+
+.controls{
+margin-top:15px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+}
+
+button{
+padding:12px;
+border:none;
+border-radius:12px;
+background:#2563eb;
+color:white;
+font-weight:bold;
+cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#3b82f6;
+}
+
+/* ================= EFFECT ================= */
+
+.hit{
+animation:shake .4s;
+}
+
+@keyframes shake{
+0%{transform:translateX(0);}
+25%{transform:translateX(-10px);}
+50%{transform:translateX(10px);}
+75%{transform:translateX(-10px);}
+100%{transform:translateX(0);}
+}
+
+.jump{
+animation:jump .8s;
+}
+
+@keyframes jump{
+0%{bottom:150px;}
+50%{bottom:320px;}
+100%{bottom:150px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sky" id="sky">
+
+<div class="sun" id="sun"></div>
+
+<!-- STARS -->
+
+<script>
+for(let i=0;i<120;i++){
+
+let s=document.createElement('div');
+
+s.className='star';
+
+s.style.left=Math.random()*100+'%';
+s.style.top=Math.random()*100+'%';
+
+document.write(s.outerHTML);
+
+}
+</script>
+
+<!-- CITY -->
+
+<div class="city">
+
+<div class="building" style="height:180px"></div>
+<div class="building" style="height:240px"></div>
+<div class="building" style="height:160px"></div>
+<div class="building" style="height:280px"></div>
+<div class="building" style="height:200px"></div>
+
+</div>
+
+<!-- HOUSE -->
+
+<div class="house"></div>
+
+<!-- VEHICLES -->
+
+<div class="vehicle car">🚗 MOBIL AI</div>
+<div class="vehicle bus">🚌 BUS FUTURE</div>
+<div class="vehicle bike">🏍 MOTOR</div>
+<div class="vehicle plane">✈ PESAWAT AI</div>
+
+<!-- PLAYER -->
+
+<div class="character" id="player">
+
+<div class="head"></div>
+
+<div class="body" id="body"></div>
+
+<div class="arm left-arm" id="leftArm"></div>
+<div class="arm right-arm" id="rightArm"></div>
+
+<div class="leg left-leg" id="leftLeg"></div>
+<div class="leg right-leg" id="rightLeg"></div>
+
+</div>
+
+<!-- BOT -->
+
+<div class="character" id="bot">
+
+<div class="head"></div>
+
+<div class="body" style="background:#ef4444"></div>
+
+<div class="arm left-arm"></div>
+<div class="arm right-arm"></div>
+
+<div class="leg left-leg"></div>
+<div class="leg right-leg"></div>
+
+</div>
+
+<div class="ground">
+
+<div class="road">
+<div class="line"></div>
+</div>
+
+</div>
+
+</div>
+
+<!-- PANEL -->
+
+<div class="panel">
+
+<div class="title">
+🌍 AI MULTIVERSE CITY FINAL
+</div>
+
+<div class="info">
+
+🎮 Open World Futuristik<br>
+🤖 AI bot otomatis melawan<br>
+🏙 Kota hidup & kendaraan<br>
+🧠 Sandbox AI modern<br>
+🌌 Ganti dunia realtime<br>
+🦸 Hero transformation<br>
+🏆 Rank tanpa batas<br><br>
+<div class="rank" id="motto">
+🌌 “Setiap aksi kecil mengubah dunia digital ini”
+</div>
+
+<div class="rank">
+🧠 STATUS DUNIA:
+<span id="worldState">Stabil</span>
+</div>
+
+<div class="rank">
+💡 MOTIVASI:
+<span id="motivation">Terus jelajahi dunia ini</span>
+</div>
+
+<div class="rank">
+🌍 KOTA AI:
+<span id="cityState">Hidup Normal</span>
+</div>
+<div class="rank">
+📖 MAKNA DUNIA DIGITAL:
+<br>
+Dunia ini bukan hanya game,
+tapi simulasi untuk belajar:
+
+✔ Strategi
+✔ Refleks
+✔ Kreativitas
+✔ Kesabaran
+✔ Logika
+</div>
+✨ “Teknologi membantu manusia
+membangun masa depan lebih baik.”<br>
+
+</div>
+
+<div class="rank" id="rank">
+🏆 Rank: 1
+</div>
+
+<div class="controls">
+
+<button onclick="kick()">🦵 Tendang</button>
+<button onclick="punch()">👊 Pukul</button>
+<button onclick="jump()">⬆ Lompat</button>
+
+<button onclick="moveLeft()">⬅ Kiri</button>
+<button onclick="moveRight()">➡ Kanan</button>
+<button onclick="changeWorld()">🌌 Dunia</button>
+
+<button onclick="moveArm()">✋ Tangan</button>
+<button onclick="moveLeg()">🦵 Kaki</button>
+<button onclick="botAttack()">🤖 AI Lawan</button>
+
+<button onclick="hero()">🦸 Hero</button>
+<button onclick="saitama()">💥 Saitama</button>
+<button onclick="herobrine()">🧊 Herobrine</button>
+
+<button onclick="muscle()">💪 Otot</button>
+<button onclick="changeShirt()">👕 Baju</button>
+<button onclick="changePants()">👖 Celana</button>
+<button onclick="triggerPolice()">🚓 Polisi AI</button>
+</div>
+
+</div>
+
+<script>
+    
+    let vehicleSpeed = 10;
+
+function driveCar(){
+  pos += vehicleSpeed;
+  player.style.left = pos + "px";
+  randomMotivation();
+}
+
+    function worldEvents(){
+
+let events=[
+"🌌 Meteor lewat di langit",
+"⚡ Petir menyambar kota",
+"🛸 UFO terlihat",
+"🌍 Gempa kecil terjadi",
+"🔥 Kebakaran jauh di kota",
+"💫 Bintang jatuh"
+];
+
+worldState.innerText=
+events[Math.floor(Math.random()*events.length)];
+}
+
+setInterval(worldEvents,6000);
+
+let policeAlert = false;
+
+function triggerPolice(){
+  policeAlert = true;
+  cityState.innerText = "🚓 POLISI MENYERANG!";
+
+  bot.style.background = "#1f2937";
+
+  setTimeout(()=>{
+    policeAlert = false;
+    cityState.innerText = "🏙 Kota aman kembali";
+  },5000);
+}
+
+let worldState=document.getElementById("worldState");
+let motivation=document.getElementById("motivation");
+let cityState=document.getElementById("cityState");
+
+function randomMotivation(){
+let msgs=[
+"🔥 Kamu sedang membangun dunia digital",
+"🌍 Setiap klik mengubah masa depan",
+"🧠 AI belajar dari setiap tindakanmu",
+"🚀 Dunia ini berkembang bersamamu",
+"💡 Tidak ada batas di dunia ini",
+"⚡ Kamu adalah pengubah sistem"
+];
+
+motivation.innerText=
+msgs[Math.floor(Math.random()*msgs.length)];
+}
+
+setInterval(randomMotivation,4000);
+
+function botAttack(){
+
+player.classList.add("hit");
+
+worldState.innerText="🔥 Perang kecil terjadi";
+
+cityState.innerText="⚠ Kota dalam mode konflik";
+
+setTimeout(()=>{
+
+player.classList.remove("hit");
+
+worldState.innerText="🌍 Stabil kembali";
+
+cityState.innerText="🏙 Kota normal";
+
+},800);
+}
+
+function cityLife(){
+
+let states=[
+"🚗 Jalan ramai",
+"🌧 Cuaca berubah",
+"🌙 Malam datang",
+"☀ Siang cerah",
+"🚓 Polisi patroli",
+"🚌 Transport aktif"
+];
+
+cityState.innerText=
+states[Math.floor(Math.random()*states.length)];
+}
+
+setInterval(cityLife,5000);
+
+let player=document.getElementById("player");
+let bot=document.getElementById("bot");
+
+let body=document.getElementById("body");
+
+let leftArm=document.getElementById("leftArm");
+let rightArm=document.getElementById("rightArm");
+
+let leftLeg=document.getElementById("leftLeg");
+let rightLeg=document.getElementById("rightLeg");
+
+let pos=150;
+let rank=1;
+let world=0;
+
+/* MOVE */
+
+function moveLeft(){
+
+pos-=20;
+
+player.style.left=pos+"px";
+
+}
+
+function moveRight(){
+
+pos+=20;
+
+player.style.left=pos+"px";
+
+}
+
+/* JUMP */
+
+function jump(){
+
+player.classList.add("jump");
+
+setTimeout(()=>{
+
+player.classList.remove("jump");
+
+},800);
+
+}
+
+/* ATTACK */
+
+function kick(){
+
+bot.classList.add("hit");
+
+rank++;
+
+updateRank();
+
+leftLeg.style.transform="rotate(-70deg)";
+
+setTimeout(()=>{
+
+leftLeg.style.transform="rotate(0deg)";
+bot.classList.remove("hit");
+
+botAttack();
+
+},300);
+
+}
+
+function punch(){
+
+bot.classList.add("hit");
+
+rank++;
+
+updateRank();
+
+rightArm.style.transform="rotate(-90deg)";
+
+setTimeout(()=>{
+
+rightArm.style.transform="rotate(0deg)";
+bot.classList.remove("hit");
+
+botAttack();
+
+},300);
+
+}
+
+/* BOT */
+
+function botAttack(){
+
+player.classList.add("hit");
+
+setTimeout(()=>{
+
+player.classList.remove("hit");
+
+},400);
+
+}
+
+/* ARM */
+
+function moveArm(){
+
+rightArm.style.transform="rotate(-120deg)";
+
+setTimeout(()=>{
+
+rightArm.style.transform="rotate(0deg)";
+
+},500);
+
+}
+
+/* LEG */
+
+function moveLeg(){
+
+rightLeg.style.transform="rotate(50deg)";
+
+setTimeout(()=>{
+
+rightLeg.style.transform="rotate(0deg)";
+
+},500);
+
+}
+
+/* RANK */
+
+function updateRank(){
+
+document.getElementById("rank").innerHTML=
+"🏆 Rank: "+rank;
+
+}
+
+/* HERO */
+
+function hero(){
+
+body.style.background="#2563eb";
+
+alert("🦸 MODE HERO!");
+
+}
+
+/* SAITAMA */
+
+function saitama(){
+
+body.style.background="#facc15";
+
+alert("💥 MODE SAITAMA!");
+
+}
+
+/* HEROBRINE */
+
+function herobrine(){
+
+body.style.background="#6b7280";
+
+alert("🧊 MODE HEROBRINE!");
+
+}
+
+/* MUSCLE */
+
+function muscle(){
+
+player.style.transform="scale(1.2)";
+
+alert("💪 MODE BEROTOT!");
+
+}
+
+/* SHIRT */
+
+function changeShirt(){
+
+let colors=[
+"#2563eb",
+"#dc2626",
+"#16a34a",
+"#9333ea",
+"#f59e0b"
+];
+
+body.style.background=
+colors[Math.floor(Math.random()*colors.length)];
+
+}
+
+/* PANTS */
+
+function changePants(){
+
+document.querySelectorAll(".leg").forEach(l=>{
+
+l.style.background=
+"#"+Math.floor(Math.random()*999999);
+
+});
+
+}
+
+/* WORLD */
+
+function changeWorld(){
+
+world++;
+
+let sky=document.getElementById("sky");
+
+if(world%3==0){
+
+sky.style.background=
+"linear-gradient(to top,#020617,#7c3aed,#0f172a)";
+
+}
+
+else if(world%3==1){
+
+sky.style.background=
+"linear-gradient(to top,#60a5fa,#dbeafe)";
+
+}
+
+else{
+
+sky.style.background=
+"linear-gradient(to top,#000,#111827,#1e1b4b)";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
