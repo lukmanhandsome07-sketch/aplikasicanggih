@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AppCanggih24 | @MasLukih</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#0ea5e9,#0f172a);
+  color:white;
+  min-height:100vh;
+}
+
+/* LOGIN */
+.loginWrap{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.loginCard,.homeCard{
+  width:95%;
+  max-width:450px;
+  padding:25px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
+  animation:fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.title{
+  font-size:28px;
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  opacity:0.8;
+  margin-bottom:20px;
+}
+
+input,button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  margin-top:12px;
+  font-size:15px;
+}
+
+input{
+  background:rgba(255,255,255,0.12);
+  color:white;
+}
+
+button{
+  background:#0ea5e9;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.03);
+}
+
+#app{
+  display:none;
+  padding:20px;
+}
+
+.box{
+  background:rgba(255,255,255,0.08);
+  padding:15px;
+  border-radius:18px;
+  margin-top:15px;
+}
+
+.insightBox{
+  background:rgba(0,0,0,0.2);
+  border-left:4px solid #38bdf8;
+  padding:15px;
+  border-radius:15px;
+  margin-top:15px;
+}
+
+.big{
+  font-size:24px;
+  font-weight:bold;
+}
+
+.small{
+  opacity:0.85;
+  font-size:14px;
+}
+
+.moodButtons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:15px;
+}
+
+.moodBtn{
+  background:rgba(255,255,255,0.12);
+}
+
+.focusCard{
+  margin-top:20px;
+  padding:20px;
+  border-radius:22px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  text-align:center;
+  animation:fadeUp 0.8s ease;
+}
+
+.focusSub{
+  font-size:14px;
+  opacity:0.85;
+  margin-top:10px;
+  line-height:1.6;
+}
+
+.timerBox{
+  margin:20px auto;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:52px;
+  font-weight:bold;
+  background:rgba(255,255,255,0.08);
+  border:4px solid #38bdf8;
+  box-shadow:0 0 30px rgba(56,189,248,0.4);
+}
+
+#focusInsight{
+  margin-top:15px;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.focusButtons{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.focusButtons button{
+  flex:1;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI,sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#0ea5e9,#020617);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+.container{
+  width:100%;
+  padding:20px;
+}
+
+.card{
+  max-width:500px;
+  margin:auto;
+  padding:30px;
+  border-radius:28px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
+  animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+h1{
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  opacity:0.85;
+  margin-bottom:25px;
+  line-height:1.6;
+}
+
+.uploadBox{
+  text-align:center;
+}
+
+#preview{
+  width:220px;
+  height:220px;
+  border-radius:20px;
+  object-fit:cover;
+  display:block;
+  margin:0 auto 15px;
+  background:rgba(255,255,255,0.08);
+  border:3px solid #38bdf8;
+}
+
+.uploadBtn{
+  display:inline-block;
+  padding:14px 20px;
+  background:#0284c7;
+  border-radius:14px;
+  cursor:pointer;
+}
+
+input{
+  display:none;
+}
+
+button{
+  width:100%;
+  margin-top:18px;
+  padding:15px;
+  border:none;
+  border-radius:16px;
+  background:#38bdf8;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+button:hover{
+  transform:scale(1.03);
+}
+
+.resultBox{
+  margin-top:25px;
+  padding:18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.06);
+  line-height:1.8;
+}
+
+.timeline-box{
+  margin-top:40px;
+  padding:25px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+  text-align:center;
+  box-shadow:0 0 30px rgba(0,255,255,0.25);
+}
+
+#timelineSlider{
+  width:80%;
+  margin:20px 0;
+  cursor:pointer;
+}
+
+#timelineLabel{
+  font-size:24px;
+  font-weight:bold;
+  color:#00ffff;
+  margin-bottom:20px;
+  text-shadow:0 0 10px cyan;
+}
+
+#projectionResult{
+  margin-top:25px;
+  padding:20px;
+  border-radius:20px;
+  background:rgba(0,0,0,0.3);
+  animation:fadeIn 1s ease;
+  line-height:1.8;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+.chatgpt-box{
+    position:relative;
+    margin:60px auto;
+    max-width:900px;
+    padding:45px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    box-shadow:0 0 40px rgba(0,255,255,0.25);
+    text-align:center;
+    overflow:hidden;
+    animation:fadeUp 1.2s ease;
+}
+
+.chatgpt-glow{
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle,#00ffff55,transparent);
+    top:-80px;
+    right:-80px;
+    border-radius:50%;
+    animation:floatGlow 5s infinite alternate;
+}
+
+.chatgpt-box h2{
+    color:#00ffff;
+    letter-spacing:3px;
+    font-size:16px;
+    margin-bottom:10px;
+}
+
+.chatgpt-box h1{
+    font-size:60px;
+    background:linear-gradient(90deg,#00ffff,#6a5cff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:20px;
+}
+
+.main-text{
+    font-size:24px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.main-text span{
+    color:#00ffff;
+    font-weight:bold;
+}
+
+.desc{
+    opacity:0.9;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.features-chat{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin:30px 0;
+}
+
+.features-chat div{
+    padding:18px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.06);
+    transition:0.4s;
+}
+
+.features-chat div:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px cyan;
+}
+
+blockquote{
+    margin:35px 0;
+    font-size:20px;
+    font-style:italic;
+    color:#00ffff;
+}
+
+.chat-btn{
+    display:inline-block;
+    padding:18px 35px;
+    border-radius:20px;
+    background:linear-gradient(45deg,#00ffff,#6a5cff);
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.4s;
+}
+
+.chat-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px cyan;
+}
+
+@keyframes floatGlow{
+    from{transform:translateY(0);}
+    to{transform:translateY(30px);}
+}
+
+.school-project-box{
+    position:relative;
+    margin:60px auto;
+    max-width:1000px;
+    padding:50px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    box-shadow:0 0 45px rgba(106,92,255,0.25);
+    text-align:center;
+    overflow:hidden;
+}
+
+.project-glow{
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:radial-gradient(circle,#6a5cff55,transparent);
+    top:-120px;
+    left:-100px;
+    border-radius:50%;
+    animation:floatProject 6s infinite alternate;
+}
+
+.school-project-box h2{
+    color:#00ffff;
+    letter-spacing:3px;
+}
+
+.school-project-box h1{
+    font-size:52px;
+    background:linear-gradient(90deg,#00ffff,#6a5cff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.project-main{
+    font-size:22px;
+    line-height:1.8;
+    margin:25px 0;
+}
+
+.project-main span{
+    color:#00ffff;
+    font-weight:bold;
+}
+
+.project-desc{
+    font-size:18px;
+    opacity:0.9;
+    margin-bottom:35px;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.project-card{
+    padding:22px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.06);
+    transition:0.4s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px cyan;
+}
+
+.project-card h3{
+    color:#00ffff;
+    margin-bottom:12px;
+}
+
+blockquote{
+    margin:35px 0;
+    font-size:20px;
+    color:#00ffff;
+    font-style:italic;
+}
+
+.project-btn{
+    display:inline-block;
+    padding:18px 35px;
+    border-radius:18px;
+    background:linear-gradient(45deg,#00ffff,#6a5cff);
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.4s;
+}
+
+.project-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 25px cyan;
+}
+
+@keyframes floatProject{
+    from{transform:translateY(0);}
+    to{transform:translateY(35px);}
+}
+
+.learning-router {
+    padding: 50px;
+    background: linear-gradient(135deg, #0b1220, #020617);
+    color: white;
+    border-radius: 25px;
+    font-family: system-ui, sans-serif;
+}
+
+.learning-router h1 {
+    font-size: 40px;
+    text-align: center;
+    color: #38bdf8;
+}
+
+.intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 15px auto 40px;
+    opacity: 0.75;
+    line-height: 1.6;
+}
+
+.subject-box {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.subject-box h2 {
+    margin-bottom: 15px;
+}
+
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.link-grid a {
+    background: rgba(255,255,255,0.06);
+    padding: 15px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.link-grid a span {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.link-grid a:hover {
+    transform: translateY(-6px);
+    background: rgba(56,189,248,0.18);
+}
+
+.insight, .philosophy {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 18px;
+    background: rgba(139,92,246,0.12);
+    line-height: 1.6;
+}
+
+.insight h2, .philosophy h2 {
+    margin-bottom: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* GRID APP */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 20px;
+}
+
+/* ICON APP */
+.app {
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.app:hover {
+  transform: scale(1.15) rotate(2deg);
+}
+
+/* SCREEN LOADING */
+.screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+}
+
+/* ANIMASI LOADER */
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #fff;
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0);}
+  100% {transform: rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="loginWrap" id="loginWrap">
+  <div class="loginCard">
+    <h1 class="title">HumanOS real (Sistem Operasi Sejati untuk Evolusi Manusia)</h1>
+    <p class="subtitle">Sistem fokus, emosi, dan pertumbuhan masa depan</p>
+    <input id="name" placeholder="Masukkan nama kamu">
+    <button onclick="startSystem()">Masuk ke Beranda</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="homeCard">
+
+    <p class="big">🏠 Beranda HumanOS</p>
+    <p id="aiStatus" class="small">Sistem belum aktif...</p>
+
+    <div class="box">
+      <p>👤 Pengguna: <b id="userShow">User</b></p>
+      <p>🔥 Beruntun: <span id="streakShow">0</span></p>
+      <p>🚀 Tingkat: <span id="levelShow">1</span></p>
+      <p>🧠 Suasana: <b id="moodShow">stabil</b></p>
+    </div>
+    
+    <div class="insightBox">
+      <p><b>🤖 AI Insight Hari Ini</b></p>
+      <p id="dailyInsight" class="small">Mulai satu langkah kecil hari ini.</p>
+    </div>
+
+    <div class="moodButtons">
+      <button class="moodBtn" onclick="setMood('sangat baik')">Sangat Baik</button>
+      <button class="moodBtn" onclick="setMood('baik')">Baik</button>
+      <button class="moodBtn" onclick="setMood('stabil')">Stabil</button>
+      <button class="moodBtn" onclick="setMood('biasa')">Biasa</button>
+      <button class="moodBtn" onclick="setMood('lelah')">Lelah</button>
+      <button class="moodBtn" onclick="setMood('cemas')">Cemas</button>
+      <button class="moodBtn" onclick="setMood('sedih')">Sedih</button>
+      <button class="moodBtn" onclick="setMood('buruk')">Buruk</button>
+      <button class="moodBtn" onclick="setMood('krisis')">Krisis</button>
+    </div>
+
+    <button onclick="refreshHome()">🔄 Perbarui Sistem</button>
+
+    <div class="focusCard">
+  <h2>🧠 Deep Focus Engine</h2>
+  <p class="focusSub">
+    Sistem fokus cerdas berbasis metode produktivitas modern.
+    Fokus terarah membantu otak bekerja lebih optimal, meningkatkan konsentrasi,
+    dan membangun kebiasaan disiplin yang berdampak besar untuk masa depan.
+  </p>
+
+  <div class="timerBox">
+    <span id="timer">25:00</span>
+  </div>
+
+  <p id="focusInsight">
+    🚀 Mode fokus siap diaktifkan.  
+    Satu sesi penuh dapat meningkatkan kualitas perhatian dan memperkuat konsistensi.
+  </p>
+
+  <div class="focusButtons">
+    <button onclick="startFocus()">🔥 Mulai Fokus</button>
+    <button onclick="resetFocus()">🔄 Reset Sistem</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="card">
+
+    <h1>🚀 FutureMe AR</h1>
+    <p class="subtitle">
+      Lihat simulasi masa depanmu berdasarkan keputusan hari ini
+    </p>
+
+    <div class="uploadBox">
+      <img id="preview" src="" alt="Preview Foto">
+      <label for="photoInput" class="uploadBtn">
+        📸 Klik Foto Anda
+      </label>
+      <input type="file" id="photoInput" accept="image/*">
+    </div>
+
+    <button onclick="scanFuture()">✨ Scan Future</button>
+
+    <div id="result" class="resultBox">
+      <h2>🧠 AI Menunggu Scan</h2>
+      <p>
+        Unggah fotomu lalu aktifkan sistem prediksi masa depan.
+      </p>
+    </div>
+
+  </div>
+
+  <section class="timeline-box">
+  <h2>⏳ Timeline Projection</h2>
+  <p>Geser timeline dan lihat bagaimana keputusan kecilmu membentuk masa depan.</p>
+
+  <input type="range" id="timelineSlider" min="1" max="4" value="1">
+
+  <div id="timelineLabel">30 Hari</div>
+
+  <button onclick="showProjection()">🔮 Lihat Efek Keputusanmu</button>
+
+  <div id="projectionResult"></div>
+</section>
+
+</div>
+
+<section class="learning-router">
+
+    <h1>🎯 Learning Router System</h1>
+    <p class="intro">
+        Satu pelajaran tidak punya satu cara belajar.  
+        HumanOS menghubungkan kamu ke berbagai sumber terbaik di internet agar kamu bisa belajar sesuai gaya berpikirmu.
+    </p>
+
+    <div class="subject-box">
+
+    <h2>1. 📐 Matematika — Logic System</h2>
+
+    <p class="intro">
+        Matematika adalah bahasa dasar untuk memahami pola, struktur, dan logika dunia. 
+        Ini bukan sekadar angka, tapi cara berpikir.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        Matematika adalah fondasi semua teknologi modern — dari AI, sains, sampai ekonomi. 
+        Menguasainya berarti menguasai cara berpikir dunia.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.khanacademy.org/math" target="_blank">
+            🧠 Khan Academy
+            <span>Belajar dari dasar sampai mahir (paling sistematis di dunia)</span>
+        </a>
+
+        <a href="https://www.youtube.com/@3blue1brown" target="_blank">
+            🎬 3Blue1Brown
+            <span>Matematika visual — membuat konsep “terlihat”</span>
+        </a>
+
+        <a href="https://www.edx.org/learn/math" target="_blank">
+            🎓 edX Mathematics
+            <span>Materi universitas dunia (MIT, Harvard, Stanford)</span>
+        </a>
+
+        <a href="https://www.ruangguru.com" target="_blank">
+            🇮🇩 Ruangguru
+            <span>Kurikulum sekolah + latihan ujian</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.brilliant.org" target="_blank">
+            🧠 Brilliant
+            <span>Problem solving interaktif & logika tingkat lanjut</span>
+        </a>
+
+        <a href="https://tutorial.math.lamar.edu" target="_blank">
+            📊 Paul's Online Math Notes
+            <span>Penjelasan detail aljabar & kalkulus</span>
+        </a>
+
+        <a href="https://www.youtube.com/@numberphile" target="_blank">
+            🎥 Numberphile
+            <span>Matematika unik, aneh, tapi menarik</span>
+        </a>
+
+        <a href="https://mathworld.wolfram.com" target="_blank">
+            📘 Wolfram MathWorld
+            <span>Ensiklopedia matematika paling lengkap</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        Matematika bukan tentang menghafal rumus, tapi tentang membangun cara berpikir yang benar dan terstruktur.
+    </div>
+
+</div>
+
+<div class="subject-box">
+
+    <h2>2. 🔬 IPA — Science System</h2>
+
+    <p class="intro">
+        Ilmu Pengetahuan Alam (IPA) adalah cara manusia memahami hukum-hukum dasar yang mengatur alam semesta: 
+        dari partikel terkecil hingga galaksi terbesar.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        IPA bukan hafalan. IPA adalah cara berpikir ilmiah untuk memahami “mengapa” dan “bagaimana” sesuatu terjadi.  
+        Semua fenomena alam memiliki pola, sebab, dan hubungan yang bisa dijelaskan melalui observasi, eksperimen, dan logika.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.ruangguru.com" target="_blank">
+            🇮🇩 Ruangguru
+            <span>Pembelajaran sains terstruktur sesuai kurikulum sekolah</span>
+        </a>
+
+        <a href="https://phet.colorado.edu" target="_blank">
+            ⚗️ PhET Simulations
+            <span>Simulasi eksperimen sains interaktif (fisika, kimia, biologi)</span>
+        </a>
+
+        <a href="https://www.nationalgeographic.com" target="_blank">
+            🌍 National Geographic
+            <span>Eksplorasi bumi, alam, ekosistem, dan fenomena dunia nyata</span>
+        </a>
+
+        <a href="https://www.khanacademy.org/science" target="_blank">
+            🔬 Khan Academy Science
+            <span>IPA dari dasar sampai universitas (fisika, kimia, biologi)</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.youtube.com/@crashcourse" target="_blank">
+            🧪 CrashCourse Science
+            <span>Penjelasan sains cepat, jelas, dan visual</span>
+        </a>
+
+        <a href="https://www.biointeractive.org" target="_blank">
+            🧬 HHMI BioInteractive
+            <span>Biologi tingkat lanjut dengan animasi & simulasi</span>
+        </a>
+
+        <a href="https://www.nasa.gov" target="_blank">
+            🔭 NASA
+            <span>Eksplorasi luar angkasa, planet, dan galaksi</span>
+        </a>
+
+        <a href="https://www.youtube.com/@veritasium" target="_blank">
+            🧠 Veritasium
+            <span>Menjelaskan “kenapa dunia bekerja seperti itu”</span>
+        </a>
+
+        <a href="http://hyperphysics.phy-astr.gsu.edu" target="_blank">
+            ⚛️ HyperPhysics
+            <span>Peta konsep fisika dari dasar sampai kompleks</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        IPA adalah cara memahami realitas — bukan menghafal fakta, tetapi memahami hukum alam yang mengatur dunia.
+    </div>
+</div>
+
+<div class="subject-box">
+
+    <h2>3. 🌍 IPS — Society System</h2>
+
+    <p class="intro">
+        IPS adalah cara manusia memahami dunia sosial: sejarah, ekonomi, budaya, dan hubungan antar manusia.  
+        Ini bukan sekadar hafalan peristiwa, tetapi pemahaman bagaimana dunia bergerak sebagai sistem.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        Dunia tidak bergerak secara acak.  
+        Setiap peristiwa sosial memiliki pola, sebab, dan dampak.  
+        IPS adalah cara memahami “logika dunia manusia”.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.ruangguru.com" target="_blank">
+            🇮🇩 Ruangguru
+            <span>Pembelajaran sejarah & sosial terstruktur sesuai kurikulum</span>
+        </a>
+
+        <a href="https://www.bbc.com/news" target="_blank">
+            📰 BBC News
+            <span>Berita global, isu dunia, dan perkembangan sosial real-time</span>
+        </a>
+
+        <a href="https://www.history.com" target="_blank">
+            🏛 History.com
+            <span>Sejarah dunia, peradaban, perang, dan tokoh penting</span>
+        </a>
+
+        <a href="https://www.khanacademy.org/humanities" target="_blank">
+            🌍 Khan Academy Humanities
+            <span>Sejarah, ekonomi, dan budaya global</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://ourworldindata.org" target="_blank">
+            🧭 Our World in Data
+            <span>Data global: ekonomi, populasi, kemiskinan, perkembangan dunia</span>
+        </a>
+
+        <a href="https://www.youtube.com/@crashcourse" target="_blank">
+            🧠 CrashCourse History
+            <span>Sejarah dunia visual, cepat, dan mudah dipahami</span>
+        </a>
+
+        <a href="https://www.nationalgeographic.org" target="_blank">
+            🌐 National Geographic Society
+            <span>Budaya, geografi, dan eksplorasi manusia</span>
+        </a>
+
+        <a href="https://data.worldbank.org" target="_blank">
+            📊 World Bank Data
+            <span>Data ekonomi & perkembangan negara secara real</span>
+        </a>
+
+        <a href="https://earth.google.com" target="_blank">
+            🧭 Google Earth
+            <span>Eksplorasi dunia secara visual & geografis</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        IPS bukan hafalan sejarah, tetapi pemahaman sistem dunia manusia dan cara masyarakat berkembang.
+    </div>
+</div>
+
+<div class="subject-box">
+
+    <h2>4. 📖 Bahasa Indonesia — Communication System</h2>
+
+    <p class="intro">
+        Bahasa Indonesia bukan hanya pelajaran membaca dan menulis.  
+        Ini adalah sistem untuk membangun cara berpikir, menyusun ide, dan menyampaikan gagasan secara jelas, logis, dan terstruktur.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        Orang yang menguasai bahasa dengan baik akan lebih mudah menguasai cara berpikir.  
+        Bahasa adalah alat untuk membentuk ide, dan ide adalah dasar untuk mempengaruhi dunia.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.ruangguru.com" target="_blank">
+            🇮🇩 Ruangguru
+            <span>Literasi, struktur bahasa, dan pembelajaran kurikulum</span>
+        </a>
+
+        <a href="https://kbbi.kemdikbud.go.id" target="_blank">
+            📚 KBBI
+            <span>Kamus resmi bahasa Indonesia (standar nasional)</span>
+        </a>
+
+        <a href="https://www.grammarly.com/blog" target="_blank">
+            ✍️ Grammarly Blog
+            <span>Writing skill, grammar, dan penulisan profesional</span>
+        </a>
+
+        <a href="https://www.coursera.org/learn/academic-english-writing" target="_blank">
+            🎓 Academic Writing
+            <span>Menulis akademik tingkat universitas</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.youtube.com/@crashcourse" target="_blank">
+            🧠 CrashCourse
+            <span>Penjelasan komunikasi, literasi, dan cara berpikir</span>
+        </a>
+
+        <a href="https://www.youtube.com/@teded" target="_blank">
+            🎬 TED-Ed
+            <span>Ide, storytelling, dan cara menyampaikan gagasan</span>
+        </a>
+
+        <a href="https://www.youtube.com/@charismaoncommand" target="_blank">
+            🗣 Charisma on Command
+            <span>Komunikasi, ekspresi, dan pengaruh sosial</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        Bahasa bukan hanya aturan, tetapi sistem untuk membangun pikiran dan menyampaikan ide secara efektif.
+    </div>
+</div>
+
+<div class="subject-box">
+
+    <h2>5. 🇬🇧 Bahasa Inggris — Global Communication System</h2>
+
+    <p class="intro">
+        Bahasa Inggris adalah bahasa global yang digunakan untuk komunikasi, teknologi, pendidikan, dan dunia profesional.  
+        Menguasainya berarti membuka akses ke dunia tanpa batas.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        Bahasa bukan hanya aturan grammar.  
+        Bahasa adalah alat berpikir dan alat untuk mempengaruhi dunia.  
+        Menguasai English = menguasai cara berkomunikasi secara global.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.ruangguru.com" target="_blank">
+            🇮🇩 Ruangguru
+            <span>English learning system sesuai kurikulum</span>
+        </a>
+
+        <a href="https://www.duolingo.com" target="_blank">
+            🟢 Duolingo
+            <span>Latihan harian interaktif berbasis game</span>
+        </a>
+
+        <a href="https://www.bbc.co.uk/learningenglish" target="_blank">
+            🎧 BBC Learning English
+            <span>Belajar dari native speaker & real-world English</span>
+        </a>
+
+        <a href="https://www.grammarly.com/blog" target="_blank">
+            ✍️ Grammarly Blog
+            <span>Grammar, writing, dan English improvement</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.youtube.com/@TED-Ed" target="_blank">
+            🎬 TED-Ed
+            <span>Storytelling, ide, dan listening skill</span>
+        </a>
+
+        <a href="https://www.youtube.com/@bbclearningenglish" target="_blank">
+            🎧 BBC English YouTube
+            <span>English nyata dari media profesional</span>
+        </a>
+
+        <a href="https://www.youtube.com/@EnglishAddictwithMrDuncan" target="_blank">
+            🧠 English Addict
+            <span>Belajar English dengan cara natural</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        Bahasa Inggris adalah jembatan ke dunia global — bukan hanya pelajaran, tetapi skill kehidupan.
+    </div>
+</div>
+
+<div class="subject-box">
+
+    <h2>6. ⚡ Informatika — Technology System</h2>
+
+    <p class="intro">
+        Informatika adalah ilmu yang mempelajari bagaimana manusia berinteraksi dengan teknologi, data, dan sistem komputasi.  
+        Ini bukan hanya tentang coding, tapi tentang cara berpikir sistem digital.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        Teknologi bukan sekadar alat.  
+        Teknologi adalah cara baru manusia berpikir, bekerja, dan menciptakan solusi.  
+        Inti: semua sistem digital dibangun dari logika, algoritma, dan struktur data yang bisa dipahami manusia.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.ruangguru.com" target="_blank">
+            🇮🇩 Ruangguru
+            <span>Dasar teknologi, logika, dan konsep informatika</span>
+        </a>
+
+        <a href="https://www.freecodecamp.org" target="_blank">
+            💻 FreeCodeCamp
+            <span>Belajar coding dari dasar sampai proyek nyata</span>
+        </a>
+
+        <a href="https://developer.mozilla.org" target="_blank">
+            🌐 MDN Web Docs
+            <span>Referensi resmi web development & programming</span>
+        </a>
+
+        <a href="https://www.khanacademy.org/computing" target="_blank">
+            🧠 Khan Academy Computing
+            <span>Dasar komputer, algoritma, dan pemrograman</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.youtube.com/@freecodecamp" target="_blank">
+            🎥 FreeCodeCamp YouTube
+            <span>Full course coding & software development</span>
+        </a>
+
+        <a href="https://www.youtube.com/@fireship" target="_blank">
+            ⚡ Fireship
+            <span>Programming cepat, modern, dan sistem AI</span>
+        </a>
+
+        <a href="https://www.youtube.com/@sentdex" target="_blank">
+            🧠 Sentdex
+            <span>AI, machine learning, dan Python programming</span>
+        </a>
+
+        <a href="https://www.geeksforgeeks.org" target="_blank">
+            📘 GeeksforGeeks
+            <span>Algoritma, data structure, dan teori coding</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        Informatika adalah cara memahami dan membangun dunia digital melalui logika, struktur, dan algoritma.
+    </div>
+</div>
+
+<div class="subject-box">
+
+    <h2>7. 🧠 Critical Thinking — Thinking System</h2>
+
+    <p class="intro">
+        Critical Thinking adalah kemampuan untuk menganalisis informasi secara objektif, membedakan fakta dan opini, serta membuat keputusan berdasarkan logika yang jelas dan terstruktur.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        Berpikir kritis bukan tentang cepat menjawab, tetapi tentang tepat memahami masalah.  
+        Inti: keputusan yang benar lahir dari kemampuan memecah masalah, mengevaluasi informasi, dan melihat berbagai perspektif sebelum bertindak.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.coursera.org/learn/critical-thinking" target="_blank">
+            🎓 Coursera Critical Thinking
+            <span>Pelatihan akademik berpikir kritis</span>
+        </a>
+
+        <a href="https://www.edx.org/learn/critical-thinking" target="_blank">
+            📘 edX Critical Thinking
+            <span>Course universitas tentang logical thinking</span>
+        </a>
+
+        <a href="https://www.khanacademy.org/computing/computer-science/algorithms" target="_blank">
+            🧠 Khan Academy Logic
+            <span>Dasar logika & problem solving terstruktur</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced Thinking System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.youtube.com/@TED" target="_blank">
+            🎬 TED Talks
+            <span>Ide, perspektif, dan cara berpikir global</span>
+        </a>
+
+        <a href="https://www.youtube.com/@harvard" target="_blank">
+            🎓 Harvard University
+            <span>Diskusi akademik & pemikiran tingkat tinggi</span>
+        </a>
+
+        <a href="https://fs.blog/blog/" target="_blank">
+            🧠 Farnam Street Blog
+            <span>Decision making & mental models</span>
+        </a>
+
+        <a href="https://www.youtube.com/@veritasium" target="_blank">
+            🔬 Veritasium
+            <span>Science thinking & logical reasoning</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        Critical Thinking adalah fondasi semua kemampuan lain — tanpa ini, informasi tidak berubah menjadi kebijaksanaan.
+    </div>
+</div>
+
+<div class="subject-box">
+
+    <h2>8. 💰 Financial Literacy — Money System</h2>
+
+    <p class="intro">
+        Financial Literacy adalah kemampuan untuk memahami bagaimana uang bekerja: mengelola, menyimpan, mengembangkan, dan menggunakannya secara bijak dalam kehidupan nyata.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        Uang bukan tujuan akhir, tetapi alat.  
+        Orang yang memahami sistem uang akan lebih bebas dalam hidup.  
+        Inti: kebebasan finansial dimulai dari kontrol pengeluaran, pemahaman risiko, dan kebiasaan keuangan yang sehat.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.investopedia.com" target="_blank">
+            📊 Investopedia
+            <span>Pengetahuan lengkap tentang keuangan & investasi</span>
+        </a>
+
+        <a href="https://www.khanacademy.org/college-careers-more/personal-finance" target="_blank">
+            🎓 Khan Academy Personal Finance
+            <span>Dasar keuangan pribadi dari nol sampai mahir</span>
+        </a>
+
+        <a href="https://www.coursera.org/learn/financial-markets" target="_blank">
+            🏦 Coursera Financial Markets
+            <span>Memahami cara kerja pasar keuangan global</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced Money System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.youtube.com/@grahamstephan" target="_blank">
+            💸 Graham Stephan
+            <span>Real-life personal finance & investing</span>
+        </a>
+
+        <a href="https://www.youtube.com/@andreijikh" target="_blank">
+            📈 Andrei Jikh
+            <span>Investasi, saham, dan strategi keuangan modern</span>
+        </a>
+
+        <a href="https://www.youtube.com/@marktilbury" target="_blank">
+            🧠 Mark Tilbury
+            <span>Business mindset & money thinking</span>
+        </a>
+
+        <a href="https://www.youtube.com/@theplainbagel" target="_blank">
+            📊 The Plain Bagel
+            <span>Penjelasan investasi yang objektif & rasional</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        Financial Literacy adalah kemampuan membaca “aturan permainan dunia nyata” — siapa yang menguasainya, menguasai pilihan hidupnya.
+    </div>
+</div>
+
+<div class="subject-box">
+
+    <h2>9. 🗣 Communication & Public Speaking — Influence System</h2>
+
+    <p class="intro">
+        Communication & Public Speaking adalah kemampuan untuk menyampaikan ide, gagasan, dan pemikiran secara jelas, terstruktur, dan meyakinkan kepada orang lain.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        Ide yang kuat tidak akan berdampak jika tidak bisa dikomunikasikan dengan baik.  
+        Cara berbicara menentukan seberapa jauh ide itu bisa mempengaruhi dunia.  
+        Inti: komunikasi adalah gabungan antara logika, emosi, dan pemahaman manusia.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.toastmasters.org" target="_blank">
+            🎤 Toastmasters
+            <span>Latihan public speaking & leadership global</span>
+        </a>
+
+        <a href="https://www.coursera.org/learn/public-speaking" target="_blank">
+            🎓 Coursera Public Speaking
+            <span>Dasar komunikasi dan presentasi efektif</span>
+        </a>
+
+        <a href="https://www.youtube.com/results?search_query=public+speaking+skills" target="_blank">
+            🎬 YouTube Learning
+            <span>Materi public speaking dari berbagai expert</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced Influence System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.youtube.com/@charismaoncommand" target="_blank">
+            🧠 Charisma on Command
+            <span>Psikologi komunikasi & daya tarik sosial</span>
+        </a>
+
+        <a href="https://www.youtube.com/@ted" target="_blank">
+            🎬 TED Talks
+            <span>Contoh terbaik storytelling & idea delivery</span>
+        </a>
+
+        <a href="https://fs.blog/communication/" target="_blank">
+            📘 Farnam Street
+            <span>Thinking, clarity, dan komunikasi tingkat tinggi</span>
+        </a>
+
+        <a href="https://www.youtube.com/@ImprovementPill" target="_blank">
+            🧠 Improvement Pill
+            <span>Self-improvement & communication psychology</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        Komunikasi bukan hanya berbicara, tetapi kemampuan untuk memindahkan pikiran dari satu orang ke orang lain dengan jelas dan berdampak.
+    </div>
+</div>
+
+<div class="subject-box">
+
+    <h2>10. 🎨 Creative Design — Visual System</h2>
+
+    <p class="intro">
+        Creative Design adalah kemampuan untuk mengubah ide menjadi bentuk visual yang dapat dipahami, dirasakan, dan digunakan oleh orang lain.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        Desain adalah bahasa tanpa kata.  
+        Sebelum seseorang membaca isi, mereka sudah merasakan visual terlebih dahulu.  
+        Inti: desain yang baik tidak hanya indah, tetapi juga membantu manusia berpikir lebih jelas dan mengambil keputusan lebih cepat.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.figma.com/resources/learn-design/" target="_blank">
+            🧩 Figma Learn
+            <span>UI/UX design dari dasar sampai profesional</span>
+        </a>
+
+        <a href="https://www.canva.com/designschool/" target="_blank">
+            🎨 Canva Design School
+            <span>Desain cepat, modern, dan praktis</span>
+        </a>
+
+        <a href="https://www.behance.net" target="_blank">
+            🖼 Behance
+            <span>Inspirasi & portofolio desain global</span>
+        </a>
+
+        <a href="https://www.adobe.com/creativecloud/design.html" target="_blank">
+            🧠 Adobe Design System
+            <span>Tools profesional desain grafis & digital</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced Visual System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.youtube.com/@FluxAcademy" target="_blank">
+            🎬 Flux Academy
+            <span>UI/UX & web design profesional</span>
+        </a>
+
+        <a href="https://www.youtube.com/@TheFutur" target="_blank">
+            🧠 The Futur
+            <span>Design thinking & creative business</span>
+        </a>
+
+        <a href="https://www.nngroup.com/articles/" target="_blank">
+            📘 Nielsen Norman Group
+            <span>UX research & human behavior in design</span>
+        </a>
+
+        <a href="https://www.youtube.com/@CharliMarieTV" target="_blank">
+            🎨 CharliMarieTV
+            <span>UI design, career, dan visual thinking</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        Desain bukan hanya membuat sesuatu terlihat bagus, tetapi membuat informasi lebih mudah dipahami oleh manusia.
+    </div>
+</div>
+
+<div class="subject-box">
+
+    <h2>11. 🤖 AI & Future Technology — Intelligence System</h2>
+
+    <p class="intro">
+        Artificial Intelligence (AI) adalah teknologi yang mengubah cara manusia bekerja, belajar, dan mengambil keputusan.  
+        Ini adalah fondasi utama masa depan dunia digital.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        AI bukan hanya alat, tetapi sistem kecerdasan yang memperluas kemampuan manusia dalam berpikir, menganalisis, dan menciptakan solusi.  
+        Inti: AI akan menjadi “bahasa baru dunia” yang mempengaruhi semua bidang kehidupan manusia.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.coursera.org/learn/machine-learning" target="_blank">
+            🎓 Coursera Machine Learning
+            <span>Dasar AI, algoritma, dan machine learning</span>
+        </a>
+
+        <a href="https://www.youtube.com/results?search_query=ai+for+beginners" target="_blank">
+            🎬 AI for Beginners (YouTube)
+            <span>Penjelasan AI untuk pemula</span>
+        </a>
+
+        <a href="https://www.kaggle.com/learn" target="_blank">
+            📊 Kaggle Learn
+            <span>Latihan data science & AI secara praktis</span>
+        </a>
+
+        <a href="https://www.khanacademy.org/computing/computer-science" target="_blank">
+            🧠 Khan Academy Computing
+            <span>Dasar komputer, algoritma, dan logika sistem</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced AI System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.youtube.com/@3blue1brown" target="_blank">
+            🧠 3Blue1Brown
+            <span>Visualisasi matematika & AI concept intuition</span>
+        </a>
+
+        <a href="https://www.youtube.com/@lexfridman" target="_blank">
+            🎙 Lex Fridman Podcast
+            <span>Diskusi AI, teknologi, dan masa depan manusia</span>
+        </a>
+
+        <a href="https://www.youtube.com/@sentdex" target="_blank">
+            🤖 Sentdex
+            <span>AI, Python, dan machine learning project nyata</span>
+        </a>
+
+        <a href="https://www.deeplearning.ai" target="_blank">
+            ⚡ DeepLearning.AI
+            <span>Training AI tingkat profesional</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        AI adalah jembatan menuju masa depan — bukan hanya teknologi, tetapi cara baru manusia berpikir dan bekerja.
+    </div>
+</div>
+
+<div class="subject-box">
+
+    <h2>12. 🧘 Personal Development — Life System</h2>
+
+    <p class="intro">
+        Personal Development adalah sistem untuk mengatur diri sendiri agar menjadi lebih disiplin, fokus, dan kuat secara mental dalam menghadapi kehidupan.
+    </p>
+
+    <div class="insight">
+        🧠 HumanOS Insight:
+        Tanpa pengembangan diri, semua ilmu lain tidak akan bertahan.  
+        Inti: disiplin, fokus, dan kebiasaan adalah sistem utama yang menentukan arah hidup seseorang.
+    </div>
+
+    <h3>🎯 Core Learning System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.coursera.org/learn/learning-how-to-learn" target="_blank">
+            🎓 Learning How to Learn
+            <span>Cara belajar efektif & memahami cara kerja otak</span>
+        </a>
+
+        <a href="https://www.youtube.com/results?search_query=habits+discipline" target="_blank">
+            🎬 Habits & Discipline
+            <span>Strategi membangun kebiasaan dan disiplin</span>
+        </a>
+
+        <a href="https://www.coursera.org/learn/mindshift" target="_blank">
+            🧠 Mindshift Course
+            <span>Mengubah cara berpikir dan berkembang</span>
+        </a>
+
+    </div>
+
+    <h3>🚀 Advanced Life System</h3>
+
+    <div class="link-grid">
+
+        <a href="https://www.youtube.com/@ted" target="_blank">
+            🎬 TED Talks
+            <span>Inspirasi, mindset, dan pengalaman manusia</span>
+        </a>
+
+        <a href="https://www.youtube.com/@BetterIdeas" target="_blank">
+            🧠 Better Ideas
+            <span>Self-improvement & mental clarity</span>
+        </a>
+
+        <a href="https://www.youtube.com/@ThomasFrank" target="_blank">
+            📘 Thomas Frank
+            <span>Produktivitas, fokus, dan sistem belajar</span>
+        </a>
+
+        <a href="https://www.youtube.com/@AliAbdaal" target="_blank">
+            ⚡ Ali Abdaal
+            <span>Produktivitas modern & life optimization</span>
+        </a>
+
+    </div>
+
+    <div class="closing">
+        ⚡ Inti Sistem:
+        Pengembangan diri adalah fondasi dari semua sistem lain — tanpa ini, pengetahuan tidak akan berubah menjadi perubahan nyata.
+    </div>
+</div>
+
+    <!-- ================= INSIGHT ================= -->
+    <div class="insight">
+        <h2>🧠 Kenapa sistem ini penting?</h2>
+        <p>
+            Banyak siswa gagal memahami materi bukan karena mereka tidak pintar,  
+            tapi karena mereka dipaksa belajar dengan satu cara saja.
+        </p>
+        <p>
+            Dengan Learning Router System, setiap orang bisa memilih jalur belajar yang paling cocok:
+            visual, praktik, teori, atau interaktif.
+        </p>
+    </div>
+
+<a href="https://www.youtube.com/watch?v=JzvMIGPFEqU" target="_blank">
+    🎯 Tips Belajar Efektif
+    <span>(Cara Memahami Apa yang Dipelajari) Bermanfaat</span>
+    <small>👉 Klik Setiap Pelajaran Sekolah ini untuk mulai belajar sekarang</small>
+</a>
+
+    <!-- ================= PHILOSOPHY ================= -->
+    <div class="philosophy">
+        <h2>⚡ Filosofi HumanOS</h2>
+        <p>
+            Belajar bukan tentang menghafal satu sumber.  
+            Tapi tentang memahami dunia dari berbagai sudut pandang.
+        </p>
+        <p>
+            Sistem ini dibuat untuk membuka akses, bukan membatasi.
+        </p>
+    </div>
+
+</section>
+
+<section class="school-project-box">
+    <div class="project-glow"></div>
+
+    <h2>🏫 Projek Sekolahku</h2>
+    <h1>Membangun Masa Depan dari Sekolah</h1>
+
+    <p class="project-main">
+        Sekolah bukan hanya tempat belajar teori.  
+        Ini adalah tempat lahirnya <span>ide besar</span>, 
+        <span>inovasi masa depan</span>, dan 
+        <span>proyek nyata yang mengubah cara berpikir manusia.</span>
+    </p>
+
+    <p class="project-desc">
+        HumanOS adalah bagian dari perjalanan belajar untuk
+        menciptakan teknologi yang membantu manusia berpikir,
+        fokus, berkembang, dan membangun dunia yang lebih cerdas.
+    </p>
+
+    <div class="project-grid">
+
+        <div class="project-card">
+            <h3>🧠 HumanOS Focus AI</h3>
+            <p>
+                Sistem AI untuk melatih fokus, neuroplasticity,
+                dan meningkatkan konsentrasi belajar.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>📖 Insight Ilmiah</h3>
+            <p>
+                Mesin pembelajaran cerdas berbasis fakta ilmiah
+                untuk meningkatkan pemahaman.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>🚀 Future Builder</h3>
+            <p>
+                Proyek yang menghubungkan kreativitas siswa
+                dengan teknologi masa depan.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>🌍 Digital Innovation</h3>
+            <p>
+                Menciptakan solusi digital yang berguna
+                bagi pendidikan dan kehidupan nyata.
+            </p>
+        </div>
+
+    </div>
+
+    <blockquote>
+        "Proyek sekolah hari ini bisa menjadi teknologi besar esok hari." ~ @lkmnhkmlk
+    </blockquote>
+
+    <a href="https://lukman-portfolio-red.vercel.app/" target="_blank" class="project-btn">
+        🚀 Fortofolio Sekolahku
+    </a>
+</section>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        transition: 0.4s;
+        background: #ffffff;
+        color: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    body.dark {
+        background: #111;
+        color: #fff;
+    }
+
+    .toggle {
+        width: 80px;
+        height: 40px;
+        background: #ccc;
+        border-radius: 50px;
+        position: relative;
+        cursor: pointer;
+        transition: 0.4s;
+    }
+
+    body.dark .toggle {
+        background: #444;
+    }
+
+    .circle {
+        width: 34px;
+        height: 34px;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        transition: 0.4s;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    body.dark .circle {
+        transform: translateX(40px);
+        background: yellow;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h1 id="status">Mode Terang</h1>
+
+<div class="toggle" onclick="toggleMode()">
+    <div class="circle"></div>
+</div>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+
+    const status = document.getElementById("status");
+
+    if(document.body.classList.contains("dark")){
+        status.textContent = "Mati Lampu 🌙";
+    } else {
+        status.textContent = "Mode Terang ☀️";
+    }
+}
+</script>
+<div class="app-grid">
+  <div class="app" onclick="openApp('mapsindex.html')">🗺️ Maps</div>
+  <div class="app" onclick="openApp('MultiverseCity.html')">Game</div>
+  <div class="app" onclick="openApp('chatindex.html')">💬 Chat</div>
+</div>
+
+<script>
+function openApp(page) {
+    window.location.href = page;
+}
+</script>
+
+<div class="screen" id="screen">
+  <div class="loader"></div>
+  <p>Membuka aplikasi...</p>
+</div>
+
+<section class="chatgpt-box">
+    <div class="chatgpt-glow"></div>
+
+    <h2>⚡ AI Knowledge Engine</h2>
+    <h1>ChatGPT</h1>
+
+    <p class="main-text">
+        ChatGPT adalah alat untuk <span>berpikir</span>, 
+        <span>belajar</span>, 
+        <span>membuat</span>, dan 
+        <span>membangun masa depan lebih cepat</span>.
+    </p>
+
+    <p class="desc">
+        Bukan sekadar chatbot.  
+        Ini adalah partner digital yang membantu manusia
+        menemukan ide, memecahkan masalah, menciptakan inovasi,
+        dan mempercepat evolusi pengetahuan.
+    </p>
+
+    <div class="features-chat">
+        <div>
+        <h3>🧠 1. Berpikir Lebih Cepat</h3>
+        <p>
+            Otak manusia bekerja melalui jaringan neuron yang terus
+            membentuk koneksi baru (neuroplasticity). 
+            Ketika kita sering melatih analisis, problem solving,
+            dan refleksi berpikir, jalur neural menjadi lebih kuat,
+            sehingga kemampuan memahami dan merespons informasi
+            menjadi lebih cepat dan efisien.
+        </p>
+    </div>
+
+    <div>
+        <h3>📚 2. Belajar Tanpa Batas</h3>
+        <p>
+            Penelitian neuroscience menunjukkan bahwa otak mampu
+            belajar sepanjang hidup melalui proses adaptasi sinaptik.
+            Dengan akses pengetahuan yang luas, manusia dapat
+            meningkatkan kapasitas kognitif dan memperluas
+            pemahaman lintas bidang.
+        </p>
+    </div>
+
+    <div>
+        <h3>💡 3. Menciptakan Ide Baru</h3>
+        <p>
+            Kreativitas muncul ketika otak menghubungkan konsep
+            yang sebelumnya terpisah. Proses ini melibatkan
+            default mode network yang aktif saat refleksi,
+            imajinasi, dan eksplorasi ide.
+        </p>
+    </div>
+
+    <div>
+        <h3>🚀 4. Bangun Project Masa Depan</h3>
+        <p>
+            Setiap inovasi besar berawal dari eksperimen kecil.
+            Dengan membangun proyek nyata, seseorang melatih
+            kemampuan eksekusi, iterasi, evaluasi, dan adaptasi,
+            yang merupakan fondasi berpikir seperti founder teknologi.
+        </p>
+    </div>
+
+    <div>
+        <h3>⚙️ 5. Coding & Debugging</h3>
+        <p>
+            Coding melatih computational thinking:
+            kemampuan memecah masalah kompleks menjadi langkah-langkah
+            logis. Debugging mengajarkan kesabaran, ketelitian,
+            dan pola berpikir sistematis.
+        </p>
+    </div>
+
+    <div>
+        <h3>🌍 6. Eksplorasi Pengetahuan</h3>
+        <p>
+            Pengetahuan lintas disiplin membantu otak membangun
+            koneksi antar konsep. Semakin banyak perspektif
+            yang dipelajari, semakin besar kemampuan untuk
+            menghasilkan solusi inovatif.
+        </p>
+    </div>
+
+    <div>
+        <h3>🎯 7. Fokus dan Deep Work</h3>
+        <p>
+            Penelitian menunjukkan perhatian manusia mudah terpecah.
+            Latihan fokus terstruktur membantu memperkuat
+            prefrontal cortex yang bertanggung jawab atas
+            konsentrasi, kontrol impuls, dan pengambilan keputusan.
+        </p>
+    </div>
+
+    <div>
+        <h3>🔄 8. Konsistensi dan Habit Loop</h3>
+        <p>
+            Kebiasaan terbentuk melalui pengulangan.
+            Sistem cue-routine-reward membantu otak
+            membangun otomatisasi perilaku positif
+            untuk perkembangan jangka panjang.
+        </p>
+    </div>
+
+    <div>
+        <h3>⚡ 9. Adaptasi Cepat</h3>
+        <p>
+            Di era digital, kemampuan belajar ulang
+            dan beradaptasi lebih penting daripada
+            sekadar menghafal informasi.
+            Fleksibilitas kognitif menjadi kunci sukses.
+        </p>
+    </div>
+
+    <div>
+        <h3>🌌 10. Evolusi Potensi Manusia</h3>
+        <p>
+            Teknologi seperti AI bukan pengganti manusia,
+            tetapi alat untuk memperluas kemampuan berpikir.
+            Masa depan adalah kolaborasi antara kecerdasan
+            manusia dan kecerdasan buatan.
+        </p>
+    </div>
+    </div>
+
+    <blockquote>
+        "Masa depan bukan milik yang paling kuat,  
+        tapi milik yang belajar paling cepat."
+    </blockquote>
+
+    <a href="https://chat.openai.com" target="_blank" class="chat-btn">
+        🚀 Buka ChatGPT Sekarang
+    </a>
+</section>
+<script>
+    function openApp(file) {
+  const screen = document.getElementById("screen");
+  screen.style.display = "flex";
+
+  // efek delay biar terasa "loading app"
+  setTimeout(() => {
+    window.open(file, "_blank");
+    screen.style.display = "none";
+  }, 800);
+}
+
+let user = "";
+let mood = "stabil";
+let streak = 0;
+let level = 1;
+
+function startSystem(){
+  user = document.getElementById("name").value || "Visionary User";
+
+  document.getElementById("loginWrap").style.display = "none";
+  document.getElementById("app").style.display = "block";
+
+  refreshHome();
+}
+
+function setMood(newMood){
+  mood = newMood;
+  refreshHome();
+}
+
+function getInsightByMood(m){
+  const insights = {
+    "sangat baik":"🌟 MODE PUNCAK AKTIF — Kondisi mentalmu sedang berada di frekuensi pertumbuhan tinggi. Ini adalah momen emas untuk membuat keputusan penting, memulai proyek besar, menyelesaikan target sulit, dan menanam kebiasaan yang akan memberi hasil jangka panjang. Momentum seperti ini langka; gunakan dengan sadar untuk membangun masa depan yang lebih kuat.",
+
+"baik":"⚡ ENERGI PROGRES POSITIF — Sistem internalmu berada dalam kondisi siap berkembang. Fokusmu cukup stabil untuk menghasilkan kemajuan nyata. Ini waktu terbaik untuk memperkuat disiplin, menuntaskan prioritas utama, dan menjaga ritme produktivitas agar konsisten. Kemajuan besar lahir dari akumulasi langkah-langkah kecil yang dilakukan dengan kesadaran penuh.",
+
+"stabil":"🧠 FASE FONDASI CERDAS — Stabil bukan berarti biasa, melainkan titik keseimbangan tempat pertumbuhan paling berkelanjutan dibangun. Saat pikiran tenang, otak lebih mampu berpikir strategis dan membuat keputusan rasional. Gunakan kondisi ini untuk memperkuat sistem, merancang rencana, dan menciptakan kebiasaan yang akan menopang masa depanmu.",
+
+"biasa":"📘 MODE POTENSI TERSEMBUNYI — Hari yang terasa biasa sering kali menyimpan peluang besar yang tidak terlihat pada pandangan pertama. Konsistensi sederhana yang dilakukan hari ini dapat berkembang menjadi hasil luar biasa di masa depan. Jangan menunggu motivasi besar; tindakan kecil yang dilakukan sekarang adalah investasi nyata bagi perkembangan dirimu.",
+
+"lelah":"🌙 MODE PEMULIHAN CERDAS — Kelelahan adalah sinyal biologis bahwa tubuh dan pikiran membutuhkan pemulihan strategis. Beristirahat bukan tanda kelemahan, melainkan bagian penting dari performa berkelanjutan. Saat energi dipulihkan dengan tepat, kapasitas berpikir, fokus, dan kreativitas akan kembali meningkat lebih kuat dari sebelumnya.",
+
+"cemas":"🌿 MODE PENATAAN PIKIRAN — Kecemasan sering muncul ketika pikiran terlalu jauh memikirkan hal-hal yang belum tentu terjadi. Fakta pentingnya: fokus kembali pada hal yang dapat kamu kendalikan akan menurunkan tekanan mental secara signifikan. Pecah masalah besar menjadi langkah kecil, dan biarkan tindakan nyata menenangkan pikiranmu secara bertahap.",
+
+"sedih":"🌧️ MODE REFLEKSI BERTUMBUH — Kesedihan bukan akhir perjalanan, melainkan ruang alami untuk memproses pengalaman, memahami diri, dan membangun kekuatan baru. Banyak pertumbuhan terdalam lahir dari masa-masa sunyi. Bergerak perlahan tetap berarti bergerak. Satu tindakan kecil hari ini adalah bukti bahwa kamu masih melangkah maju.",
+
+"buruk":"🛠️ MODE RESET STRATEGIS — Ketika keadaan terasa berat, jangan memaksa diri mengejar kesempurnaan. Fokuskan energi pada satu langkah sederhana yang realistis dan bisa diselesaikan sekarang. Dalam ilmu pertumbuhan, kemenangan kecil memiliki efek psikologis besar karena membangun kembali rasa kontrol, kepercayaan diri, dan arah yang jelas.",
+
+"krisis":"🚨 MODE RECOVERY PRIORITAS UTAMA — Saat tekanan terasa sangat besar, tujuan utama bukan produktivitas maksimal, melainkan stabilitas dasar. Kembalikan fokus pada kebutuhan inti: tenang, bernapas teratur, istirahat cukup, dan menyederhanakan target. Fakta penting: sistem yang dipulihkan dengan benar akan bangkit lebih kuat, lebih sadar, dan lebih siap menghadapi tantangan berikutnya."
+  };
+
+  return insights[m];
+}
+
+function refreshHome(){
+  streak++;
+  level = Math.floor(streak/3)+1;
+
+  document.getElementById("userShow").innerText = user;
+  document.getElementById("moodShow").innerText = mood;
+  document.getElementById("streakShow").innerText = streak;
+  document.getElementById("levelShow").innerText = level;
+  document.getElementById("dailyInsight").innerText = getInsightByMood(mood);
+
+  document.getElementById("aiStatus").innerText =
+  "HumanOS real aktif • membaca pola emosi • memberi arahan cerdas";
+}
+
+let focusTime = 1500;
+let focusInterval;
+
+function updateTimer(){
+  let minutes = Math.floor(focusTime / 60);
+  let seconds = focusTime % 60;
+
+  document.getElementById("timer").innerText =
+`${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+}
+
+function startFocus(){
+  clearInterval(focusInterval);
+
+  document.getElementById("focusInsight").innerText =
+    "⚡ Deep Focus aktif. Fakta: fokus 25 menit penuh membantu otak membangun konsentrasi lebih stabil dan meningkatkan performa belajar.";
+
+  focusInterval = setInterval(() => {
+    if(focusTime > 0){
+      focusTime--;
+      updateTimer();
+    } else {
+      clearInterval(focusInterval);
+
+      document.getElementById("focusInsight").innerText =
+      "🌟 Sesi selesai. Konsistensi kecil seperti ini membangun kekuatan mental besar.";
+    }
+  },1000);
+}
+
+function resetFocus(){
+  clearInterval(focusInterval);
+  focusTime = 1500;
+  updateTimer();
+
+  document.getElementById("focusInsight").innerText =
+    "🧠 Sistem di-reset. Siapkan pikiranmu untuk sesi fokus berikutnya.";
+}
+
+updateTimer();
+const photoInput = document.getElementById("photoInput");
+const preview = document.getElementById("preview");
+
+/* =========================
+   UPLOAD FOTO
+========================= */
+photoInput.addEventListener("change", function () {
+  const file = this.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+reader.onload = function(e){
+   preview.src = e.target.result;
+   preview.style.display = "block";
+};
+
+    reader.readAsDataURL(file);
+  }
+});
+
+/* =========================
+   FUTURE PREDICTION ENGINE
+========================= */
+const futures = [
+
+{
+title:"🌟 Future Visionary Leader",
+text:"AI mendeteksi pola kepemimpinan visioner. Kamu memiliki potensi membangun arah, memimpin perubahan, dan menciptakan solusi besar bagi banyak orang jika disiplin kecil terus dijaga setiap hari."
+},
+
+{
+title:"💻 Future Tech Builder",
+text:"Analisis menunjukkan kecenderungan logika, kreativitas digital, dan daya eksplorasi tinggi. Dengan latihan bertahap, kemampuanmu dapat berkembang menjadi pencipta teknologi yang memberi dampak nyata."
+},
+
+{
+title:"🚀 Future Startup Founder",
+text:"Sistem membaca pola keberanian eksplorasi dan kreativitas strategis. Jika konsistensi dibangun, potensi membangun startup besar terbuka luas."
+},
+
+{
+title:"🧠 Future Deep Thinker",
+text:"Future Engine mendeteksi kapasitas refleksi dan pemikiran mendalam. Ini adalah fondasi kuat bagi inovator, pemecah masalah, dan pembangun ide besar."
+},
+
+{
+title:"⚡ Future Global Creator",
+text:"AI menemukan indikator adaptasi cepat, rasa ingin tahu tinggi, dan energi eksplorasi yang dapat berkembang menjadi kekuatan menciptakan karya berskala global."
+}
+
+];
+
+/* =========================
+   SCIENCE FACTS
+========================= */
+const facts = [
+
+"📘 Neuroplasticity Fact — Otak manusia membangun jalur saraf baru setiap kali kebiasaan positif diulang. Artinya, disiplin kecil benar-benar mengubah struktur otak.",
+
+"🧠 Psychology Fact — Konsistensi lebih kuat daripada motivasi sesaat karena otak berkembang melalui pengulangan, bukan emosi sementara.",
+
+"⚡ Productivity Fact — Fokus mendalam 25 menit dapat meningkatkan kualitas perhatian dan memperkuat kapasitas belajar.",
+
+"🌱 Growth Fact — Perubahan besar hampir selalu berasal dari tindakan sederhana yang dilakukan terus menerus.",
+
+"🚀 Success Fact — Banyak pencapaian besar dunia dibangun dari rutinitas kecil yang dilakukan bertahun-tahun.",
+
+"🔬 Neuroscience Fact — Otak memperkuat kemampuan yang paling sering dilatih."
+];
+
+/* =========================
+   AI INSIGHTS
+========================= */
+const insights = [
+
+"✨ Sistem membaca bahwa masa depanmu sangat dipengaruhi oleh keputusan kecil yang kamu pilih hari ini.",
+
+"🌌 Future Engine mendeteksi potensi besar jika kamu fokus pada satu skill utama secara konsisten.",
+
+"🛠️ AI menyarankan pembangunan kebiasaan kecil harian untuk menciptakan pertumbuhan eksponensial.",
+
+"🚀 Analisis menunjukkan bahwa konsistensi sederhana akan menghasilkan evolusi besar dalam jangka panjang.",
+
+"🌟 Potensi terbaik muncul saat disiplin kecil dijaga meskipun motivasi sedang turun."
+];
+
+/* =========================
+   RANDOM PICKER
+========================= */
+function randomItem(array){
+  return array[Math.floor(Math.random()*array.length)];
+}
+
+/* =========================
+   FUTURE SCAN
+========================= */
+function scanFuture(){
+
+if(!preview.src || preview.src === window.location.href){
+   alert("📸 Upload foto dulu");
+   return;
+}
+
+  const future = randomItem(futures);
+  const fact = randomItem(facts);
+  const insight = randomItem(insights);
+
+  const result = document.getElementById("result");
+
+  result.innerHTML = `
+    <div style="
+      padding:20px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.08);
+      line-height:1.8;
+      animation:fadeIn 1s ease;
+    ">
+    
+      <h2 style="margin-bottom:15px;">${future.title}</h2>
+
+      <p>${future.text}</p>
+
+      <div style="
+        margin-top:18px;
+        padding:16px;
+        border-radius:16px;
+        background:rgba(56,189,248,0.15);
+      ">
+        <strong>🤖 AI Insight</strong>
+        <p>${insight}</p>
+      </div>
+
+      <div style="
+        margin-top:18px;
+        padding:16px;
+        border-radius:16px;
+        background:rgba(255,255,255,0.06);
+      ">
+        <strong>📚 Fakta Ilmiah</strong>
+        <p>${fact}</p>
+      </div>
+
+      <div style="
+        margin-top:18px;
+        padding:16px;
+        border-radius:16px;
+        background:rgba(14,165,233,0.18);
+      ">
+        <strong>🌠 Future Wisdom</strong>
+        <p>
+        Masa depan tidak dibangun oleh satu keputusan besar,
+        tetapi oleh ribuan keputusan kecil yang dilakukan berulang.
+        Setiap pilihan hari ini sedang menciptakan versi dirimu esok hari.
+        </p>
+      </div>
+
+    </div>
+  `;
+}
+
+const timelineData = {
+  1: {
+    label: "30 Hari 📅",
+    title: "🌱 Awal Transformasi",
+    text: `
+    Dalam 30 hari, kebiasaan kecil mulai membentuk jalur saraf baru di otakmu.
+
+    🧠 Fakta Neuroscience:
+    Neuroplasticity memungkinkan otak membangun koneksi baru hanya dalam 21–30 hari latihan konsisten.
+
+    ⚡ Jika kamu fokus 25 menit setiap hari:
+    • Konsentrasi meningkat
+    • Disiplin mulai stabil
+    • Mental lebih terarah
+
+    AI Projection:
+    Kamu sedang menanam benih versi terbaik dirimu.
+    Masa depan besar dimulai dari langkah kecil.
+    `
+  },
+
+  2: {
+    label: "90 Hari 🚀",
+    title: "🔥 Momentum Terbentuk",
+    text: `
+    Setelah 90 hari, kebiasaan berubah menjadi identitas.
+
+    📘 Fakta Psikologi:
+    Penelitian menunjukkan konsistensi 66–90 hari membantu perilaku menjadi otomatis.
+
+    Hasil:
+    • Fokus lebih tajam
+    • Produktivitas meningkat drastis
+    • Rasa percaya diri naik
+
+    AI Projection:
+    Orang lain mulai melihat perubahanmu.
+    Kamu bukan lagi orang yang hanya bermimpi.
+    Kamu mulai menjadi pelaku nyata.
+    `
+  },
+
+  3: {
+    label: "1 Tahun 🏆",
+    title: "💎 Evolusi Nyata",
+    text: `
+    Dalam 1 tahun, keputusan kecilmu menghasilkan transformasi besar.
+
+    🔬 Fakta Ilmiah:
+    Perubahan konsisten selama 1 tahun mengubah struktur kebiasaan dan cara berpikir secara permanen.
+
+    Potensi hasil:
+    • Skill digital berkembang
+    • Pola pikir lebih matang
+    • Reputasi mulai terbentuk
+
+    AI Projection:
+    Kamu mulai dikenal sebagai builder.
+    Seseorang yang serius membangun masa depan.
+    `
+  },
+
+  4: {
+    label: "5 Tahun 🌌",
+    title: "👑 Future Legend",
+    text: `
+    Dalam 5 tahun, akumulasi keputusanmu menentukan level hidupmu.
+
+    🚀 Fakta Sukses:
+    Hampir semua pencapaian besar adalah hasil ribuan keputusan kecil yang konsisten.
+
+    Kemungkinan masa depan:
+    • Founder teknologi
+    • Innovator
+    • Visionary leader
+    • Pencipta dampak besar
+
+    AI Projection:
+    Jika kamu disiplin mulai hari ini,
+    versi masa depanmu akan berterima kasih.
+
+    "Masa depan tidak dibangun sekaligus.
+    Ia dibentuk setiap hari."
+    `
+  }
+};
+
+const slider = document.getElementById("timelineSlider");
+const label = document.getElementById("timelineLabel");
+
+slider.addEventListener("input", () => {
+  label.textContent = timelineData[slider.value].label;
+});
+
+function showProjection(){
+  const data = timelineData[slider.value];
+  const result = document.getElementById("projectionResult");
+
+  result.innerHTML = `
+    <h2>${data.title}</h2>
+    <p>${data.text}</p>
+
+    <hr>
+
+    <p>
+    ✨ AI Wisdom Final Level:
+    Setiap keputusan kecilmu hari ini sedang menulis biografi masa depanmu.
+
+    Orang sukses bukan selalu yang paling pintar,
+    tetapi yang paling konsisten.
+    </p>
+  `;
+}
+</script>
+
+</body>
+</html>
