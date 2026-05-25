@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HYPER SOCIAL HUB — WORLD SYSTEM</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:radial-gradient(circle,#0b1220,#05070f);
+color:white;
+overflow:hidden;
+}
+
+/* APP */
+.app{display:flex;height:100vh}
+
+/* SIDEBAR */
+.sidebar{
+width:280px;
+background:#0f172a;
+padding:10px;
+overflow:auto;
+border-right:1px solid #1f2937;
+}
+
+.userBox{
+background:#111827;
+padding:10px;
+border-radius:10px;
+margin-bottom:10px;
+box-shadow:0 0 10px rgba(0,0,0,.4);
+}
+
+button{
+width:100%;
+padding:10px;
+margin:5px 0;
+border:none;
+border-radius:8px;
+background:#1f2937;
+color:white;
+cursor:pointer;
+transition:.2s;
+}
+button:hover{background:#374151}
+
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column}
+
+.header{
+padding:10px;
+background:#111827;
+display:flex;
+justify-content:space-between;
+}
+
+/* CONTENT */
+.content{
+flex:1;
+overflow:auto;
+padding:10px;
+}
+
+.card{
+background:#1f2937;
+padding:10px;
+margin:10px 0;
+border-radius:10px;
+animation:pop .25s;
+box-shadow:0 0 10px rgba(0,0,0,.3);
+}
+
+@keyframes pop{
+from{transform:translateY(10px);opacity:0}
+to{transform:translateY(0);opacity:1}
+}
+
+/* INPUT */
+.input{
+display:flex;
+padding:10px;
+background:#111827;
+}
+
+input{
+flex:1;
+padding:10px;
+border:none;
+border-radius:8px;
+outline:none;
+}
+
+/* INFO */
+.meta{
+font-size:12px;
+opacity:.8;
+margin-top:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<div class="userBox">
+<b id="user">User</b><br>
+<small>
+🌍 Influence: <span id="fol">0</span>
+</small>
+<div class="meta">
+“Setiap interaksi adalah jejak di dunia digital”
+</div>
+</div>
+
+<button onclick="setMode('chat')">💬 Dunia Percakapan</button>
+<button onclick="setMode('ig')">📸 Dunia Citra</button>
+<button onclick="setMode('yt')">📺 Dunia Opini</button>
+<button onclick="setMode('room')">🌍 Dunia Sosial</button>
+<button onclick="follow()">➕ Tingkatkan Pengaruh</button>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="header">
+<b id="title">HYPER SOCIAL HUB</b>
+<div>● WORLD SIMULATION</div>
+</div>
+
+<div id="content" class="content"></div>
+
+<div class="input">
+<input id="text" placeholder="Tulis jejak digitalmu...">
+<button onclick="send()">Kirim</button>
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* =====================
+   WORLD CORE SYSTEM
+===================== */
+
+let mode="chat";
+
+/* USER = ENTITY DIGITAL */
+let user={
+name:localStorage.getItem("name")||"Digital Human",
+followers:parseInt(localStorage.getItem("followers")||0)
+};
+
+document.getElementById("user").innerText=user.name;
+document.getElementById("fol").innerText=user.followers;
+
+/* DATA = JEJAK DUNIA */
+let data=JSON.parse(localStorage.getItem("data")||"[]");
+
+/* =====================
+   RENDER WORLD
+===================== */
+
+function render(){
+let box=document.getElementById("content");
+box.innerHTML="";
+
+data.filter(d=>d.mode===mode).forEach(d=>{
+
+let div=document.createElement("div");
+div.className="card";
+
+div.innerHTML=`
+<b>${d.user}</b><br>
+${d.text}
+<div class="meta">🧭 Mode: ${d.mode.toUpperCase()}</div>
+`;
+
+box.appendChild(div);
+
+});
+
+box.scrollTop=999999;
+}
+
+/* =====================
+   CREATE DIGITAL TRACE
+===================== */
+
+function send(){
+let t=document.getElementById("text");
+if(!t.value) return;
+
+data.push({
+user:user.name,
+text:t.value,
+mode:mode
+});
+
+localStorage.setItem("data",JSON.stringify(data));
+t.value="";
+render();
+}
+
+/* =====================
+   INFLUENCE SYSTEM
+===================== */
+
+function follow(){
+user.followers++;
+
+localStorage.setItem("followers",user.followers);
+document.getElementById("fol").innerText=user.followers;
+
+/* MAKNA: semakin besar pengaruh, semakin “terlihat” di dunia */
+}
+
+/* =====================
+   WORLD AUTO INTELLIGENCE (AI SIMULATION)
+===================== */
+
+setInterval(()=>{
+
+let ai=[
+"🤖 AI: dunia digital semakin terhubung",
+"📡 AI: arus informasi meningkat",
+"🔥 AI: tren sosial terbentuk",
+"🌍 AI: kesadaran digital naik"
+];
+
+data.push({
+user:"WORLD AI",
+text:ai[Math.floor(Math.random()*ai.length)],
+mode:"ig"
+});
+
+localStorage.setItem("data",JSON.stringify(data));
+render();
+
+},6000);
+
+/* =====================
+   MODE SYSTEM
+===================== */
+
+function setMode(m){
+mode=m;
+document.getElementById("title").innerText=
+"HYPER SOCIAL HUB — " + m.toUpperCase();
+
+render();
+}
+
+/* INIT */
+render();
+
+</script>
+
+</body>
+</html>
