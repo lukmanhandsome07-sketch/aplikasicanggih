@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>🌍 AI KEMBAR DIGITAL GLOBAL</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Inter,system-ui,Arial;
+overflow:hidden;
+background:#020617;
+color:white;
+}
+
+#map{
+width:100%;
+height:100vh;
+z-index:1;
+}
+
+.panel{
+position:absolute;
+top:14px;
+left:14px;
+width:420px;
+max-height:92vh;
+overflow:auto;
+background:rgba(2,6,23,.90);
+border:1px solid rgba(56,189,248,.4);
+backdrop-filter:blur(14px);
+border-radius:20px;
+padding:18px;
+z-index:9999;
+resize:both;
+box-shadow:0 0 40px rgba(56,189,248,.3);
+}
+
+.title{
+font-size:22px;
+font-weight:800;
+background:linear-gradient(90deg,#38bdf8,#22c55e,#facc15);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:12px;
+}
+
+.box{
+margin-top:10px;
+padding:12px;
+border-radius:14px;
+background:rgba(255,255,255,.05);
+border-left:4px solid #38bdf8;
+line-height:1.7;
+font-size:13px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+margin-top:8px;
+font-weight:700;
+cursor:pointer;
+background:linear-gradient(90deg,#38bdf8,#22c55e);
+color:black;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.02);
+}
+
+.search{
+width:100%;
+padding:12px;
+border-radius:12px;
+border:none;
+margin-top:10px;
+background:#0f172a;
+color:white;
+}
+
+.ai-chat{
+margin-top:12px;
+padding:12px;
+background:rgba(255,255,255,.04);
+border-radius:14px;
+}
+
+#chatlog{
+height:180px;
+overflow:auto;
+padding:8px;
+background:black;
+border-radius:12px;
+font-size:12px;
+}
+
+.chat-input{
+display:flex;
+gap:8px;
+margin-top:8px;
+}
+
+.chat-input input{
+flex:1;
+padding:10px;
+border:none;
+border-radius:10px;
+background:#111827;
+color:white;
+}
+
+.motivation{
+margin-top:10px;
+padding:10px;
+border-radius:12px;
+background:linear-gradient(90deg,#f59e0b,#ef4444);
+color:white;
+font-weight:700;
+animation:pulse 3s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:0.8}
+50%{opacity:1}
+100%{opacity:0.8}
+}
+
+.solar{
+position:absolute;
+right:20px;
+bottom:20px;
+width:320px;
+height:320px;
+border-radius:50%;
+background:radial-gradient(circle,#facc15,#f97316,#000);
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 80px orange;
+z-index:1000;
+}
+
+.planet{
+position:absolute;
+border-radius:50%;
+animation:orbit linear infinite;
+}
+
+.p1{width:10px;height:10px;background:#aaa;animation-duration:8s;}
+.p2{width:14px;height:14px;background:#f59e0b;animation-duration:12s;}
+.p3{width:15px;height:15px;background:#38bdf8;animation-duration:15s;}
+.p4{width:12px;height:12px;background:#ef4444;animation-duration:20s;}
+
+@keyframes orbit{
+from{transform:rotate(0deg) translateX(120px) rotate(0deg)}
+to{transform:rotate(360deg) translateX(120px) rotate(-360deg)}
+}
+
+.timebox{
+margin-top:10px;
+padding:12px;
+border-radius:12px;
+background:#0f172a;
+}
+
+footer{
+margin-top:16px;
+font-size:12px;
+opacity:.8;
+line-height:1.7;
+}
+</style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<div class="panel">
+<div class="title">🌍 AI KEMBAR DIGITAL GLOBAL</div>
+
+<div class="box">
+📡 Sistem AI Digital Twin aktif.
+<br>🌐 Peta dunia realtime.
+<br>🛰️ Satelit, navigasi, AI, tata surya, ekonomi, edukasi.
+<br>⚡ Sistem dirancang untuk tampilan futuristik modern.
+</div>
+
+<input class="search" id="searchCountry" placeholder="Cari negara / kota / tempat..." />
+
+<button onclick="searchCountry()">🔍 Cari Negara / Kota</button>
+<button onclick="changeMap('normal')">🗺️ Peta Normal</button>
+<button onclick="changeMap('satellite')">🛰️ Satelit HD</button>
+<button onclick="changeMap('terrain')">⛰️ Terrain</button>
+<button onclick="showSolarSystem()">🪐 Tata Surya</button>
+<button onclick="showTrafficInfo()">🚦 Info Lalu Lintas</button>
+<button onclick="showPrayer()">🕌 Motivasi & Kebesaran Allah SWT</button>
+<button onclick="openCopyright()">📜 Perlindungan Hak Cipta</button>
+<button onclick="detectLocation()">📍 Lokasi Saya</button>
+
+<div class="timebox">
+🕒 WIB: <span id="wib"></span>
+<br>🕒 WITA: <span id="wita"></span>
+<br>🕒 WIT: <span id="wit"></span>
+</div>
+
+<div class="motivation">
+✨ “Teknologi dibuat untuk membantu manusia, bukan menggantikan hati manusia.”
+</div>
+
+<div class="box" id="countryInfo">
+🌎 Klik negara di peta atau cari lokasi untuk melihat:
+<br>• Mata uang
+<br>• Motivasi
+<br>• Estimasi perjalanan
+<br>• Informasi umum
+<br>• Fakta dunia
+</div>
+
+<div class="box">
+🌌 Tata Surya:
+<br>☀️ Matahari pusat Tata Surya
+<br>☿ Merkurius
+<br>♀ Venus
+<br>🌍 Bumi
+<br>♂ Mars
+<br>🟤 Jupiter
+<br>🪐 Saturnus
+<br>🔵 Uranus
+<br>🔵 Neptunus
+<br><br>
+🌕 Bulan adalah satelit alami Bumi dengan jarak rata-rata 384.400 km.
+</div>
+
+<div class="box">
+📚 Google Maps bekerja menggunakan:
+<br>📡 GPS
+<br>🌍 Data peta digital
+<br>🚗 Data lalu lintas realtime
+<br>🧠 AI & algoritma rute
+<br>🧑‍🤝‍🧑 Kontribusi pengguna
+</div>
+
+<div class="box">
+🚦 Lampu lalu lintas:
+<br>🟢 Hijau = jalan
+<br>🟡 Kuning = hati-hati
+<br>🔴 Merah = berhenti
+<br><br>
+👮 Polisi lalu lintas membantu mengatur keselamatan kendaraan dan pejalan kaki.
+</div>
+
+<div class="ai-chat">
+<h3>🤖 AI CHAT ENGINE</h3>
+<div id="chatlog"></div>
+<div class="chat-input">
+<input id="chatInput" placeholder="Tanya AI..." />
+<button onclick="askAI()">Kirim</button>
+</div>
+</div>
+
+<footer>
+🌌 “Semakin luas manusia melihat alam semesta, semakin manusia sadar bahwa ilmu masih sangat kecil.”
+<br><br>
+🕊️ “Bahkan di tengah luasnya galaksi, satu kebaikan kecil tetap memiliki arti besar.”
+</footer>
+</div>
+
+<div class="solar" id="solar" style="display:none;">
+☀️
+<div class="planet p1"></div>
+<div class="planet p2"></div>
+<div class="planet p3"></div>
+<div class="planet p4"></div>
+</div>
+
+<script>
+const map = L.map('map').setView([-7.389,109.363],5);
+
+let normal = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+maxZoom:19
+}).addTo(map);
+
+let satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{
+maxZoom:19
+});
+
+let terrain = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{
+maxZoom:17
+});
+
+function changeMap(type){
+map.eachLayer(layer=>map.removeLayer(layer));
+
+if(type==='normal') normal.addTo(map);
+if(type==='satellite') satellite.addTo(map);
+if(type==='terrain') terrain.addTo(map);
+}
+
+function detectLocation(){
+if(navigator.geolocation){
+navigator.geolocation.getCurrentPosition(pos=>{
+const lat = pos.coords.latitude;
+const lng = pos.coords.longitude;
+
+map.setView([lat,lng],13);
+
+L.marker([lat,lng]).addTo(map)
+.bindPopup('📍 Lokasi Anda Sekarang')
+.openPopup();
+
+alert('Lokasi berhasil terdeteksi!');
+});
+}
+}
+
+function searchCountry(){
+const q = document.getElementById('searchCountry').value.toLowerCase();
+
+let info = {
+"amerika":"🇺🇸 Amerika Serikat\n💵 Mata uang: USD\n✈️ Perjalanan: Pesawat tercepat\n✨ Motivasi: Jangan menyerah mengejar ilmu.",
+"arab saudi":"🇸🇦 Arab Saudi\n🕌 Kota: Makkah & Madinah\n💰 Riyal Saudi\n✨ Motivasi: Perjalanan spiritual menguatkan hati.",
+"indonesia":"🇮🇩 Indonesia\n💰 Rupiah\n🌴 Negara kepulauan besar\n✨ Motivasi: Persatuan membuat bangsa kuat."
+};
+
+for(let key in info){
+if(q.includes(key)){
+document.getElementById('countryInfo').innerText = info[key];
+return;
+}
+}
+
+document.getElementById('countryInfo').innerText = '❌ Data belum ditemukan.';
+}
+
+function showSolarSystem(){
+document.getElementById('solar').style.display='flex';
+alert('🪐 Tata Surya dibuka!');
+}
+
+function showTrafficInfo(){
+alert('🚦 Hijau = lancar | Oranye = padat | Merah = macet');
+}
+
+function showPrayer(){
+alert('🌌 Allah SWT Maha Mengetahui seluruh alam semesta.');
+}
+
+function openCopyright(){
+let w = window.open('','_blank');
+w.document.write(`
+<h1>📜 Perlindungan Hak Cipta</h1>
+<p>Source code dilindungi hak cipta.</p>
+<p>Dilarang menyebarkan tanpa izin pemilik.</p>
+<p>© AI KEMBAR DIGITAL GLOBAL</p>
+`);
+}
+
+function askAI(){
+const input = document.getElementById('chatInput').value;
+const log = document.getElementById('chatlog');
+
+let response = '🤖 AI: Maaf, saya masih belajar.';
+
+if(input.toLowerCase().includes('allah')){
+response = '🤖 AI: Dalam Islam, Allah SWT Maha Kuasa atas seluruh alam semesta.';
+}
+
+if(input.toLowerCase().includes('planet')){
+response = '🤖 AI: Tata Surya memiliki 8 planet utama yang mengorbit Matahari.';
+}
+
+if(input.toLowerCase().includes('maps')){
+response = '🤖 AI: Google Maps bekerja menggunakan GPS, data peta, AI, dan lalu lintas realtime.';
+}
+
+log.innerHTML += `<div>🧑 ${input}</div>`;
+log.innerHTML += `<div>${response}</div><hr>`;
+
+log.scrollTop = log.scrollHeight;
+
+document.getElementById('chatInput').value='';
+}
+
+function updateTime(){
+let now = new Date();
+
+let wib = new Date(now.toLocaleString('en-US',{timeZone:'Asia/Jakarta'}));
+let wita = new Date(now.toLocaleString('en-US',{timeZone:'Asia/Makassar'}));
+let wit = new Date(now.toLocaleString('en-US',{timeZone:'Asia/Jayapura'}));
+
+
+document.getElementById('wib').innerText = wib.toLocaleTimeString();
+document.getElementById('wita').innerText = wita.toLocaleTimeString();
+document.getElementById('wit').innerText = wit.toLocaleTimeString();
+}
+
+setInterval(updateTime,1000);
+updateTime();
+
+const countries = [
+{
+name:'Indonesia',
+lat:-2,
+lng:118,
+text:'🇮🇩 Indonesia - Semangat membangun masa depan.'
+},
+{
+name:'USA',
+lat:38,
+lng:-97,
+text:'🇺🇸 America - Innovation changes the world.'
+},
+{
+name:'Arab Saudi',
+lat:24,
+lng:45,
+text:'🇸🇦 Arab Saudi - Kota suci penuh sejarah Islam.'
+}
+];
+
+countries.forEach(c=>{
+L.marker([c.lat,c.lng]).addTo(map)
+.bindPopup(`<b>${c.name}</b><br>${c.text}`);
+});
+
+console.log('🌍 AI KEMBAR DIGITAL GLOBAL ONLINE');
+</script>
+</body>
+</html>
