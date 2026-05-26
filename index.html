@@ -959,6 +959,9 @@ dalam satu sistem digital besar.
 </section>
 
 <!-- STATUS -->
+<!-- =========================================================
+⚡ NEURAL DASHBOARD FINAL
+========================================================= -->
 
 <section class="glass">
 
@@ -968,29 +971,516 @@ dalam satu sistem digital besar.
 
 <div class="statusGrid">
 
-<div class="statusCard">
-<h3 id="userShow">User</h3>
-<span>Pengguna Aktif</span>
-</div>
+<!-- USER -->
 
 <div class="statusCard">
-<h3 id="moodShow">Stabil</h3>
-<span>Status Mental</span>
+
+<h3 id="userShow">
+User
+</h3>
+
+<span>
+Pengguna Aktif
+</span>
+
 </div>
 
-<div class="statusCard">
-<h3 id="levelShow">1</h3>
-<span>Evolution Level</span>
-</div>
+<!-- MOOD -->
 
 <div class="statusCard">
-<h3 id="focusScore">92%</h3>
-<span>Focus Power</span>
+
+<h3 id="moodShow">
+Stabil
+</h3>
+
+<span>
+Status Mental
+</span>
+
+<select id="moodSelect" onchange="changeMood()">
+
+<option value="Stabil">😊 Stabil</option>
+
+<option value="Fokus">🧠 Fokus</option>
+
+<option value="Produktif">⚡ Produktif</option>
+
+<option value="Belajar">📚 Belajar</option>
+
+<option value="Eksplorasi">🌍 Eksplorasi</option>
+
+<option value="Kreatif">🎨 Kreatif</option>
+
+<option value="Upgrade">🚀 Upgrade</option>
+
+</select>
+
+</div>
+
+<!-- LEVEL -->
+
+<div class="statusCard">
+
+<h3 id="levelShow">
+1
+</h3>
+
+<span>
+Evolution Level
+</span>
+
+<div class="levelButtons">
+
+<button onclick="levelUp()">
+⬆ Naik
+</button>
+
+<button onclick="levelDown()">
+⬇ Turun
+</button>
+
+</div>
+
+</div>
+
+<!-- FOCUS -->
+
+<div class="statusCard">
+
+<h3 id="focusScore">
+92%
+</h3>
+
+<span>
+Focus Power
+</span>
+
+<input
+type="range"
+min="0"
+max="100"
+value="92"
+id="focusRange"
+oninput="changeFocus()"
+>
+
+</div>
+
+<!-- =========================================================
+🌌 ADVANCED SYSTEM ACCESS
+========================================================= -->
+
+<div class="statusCard">
+
+<h3>
+🛰
+</h3>
+
+<span>
+System Access
+</span>
+
+<br><br>
+
+<div class="portalButtons">
+
+<button onclick="openMaps()">
+🗺 Open Maps System
+</button>
+
+<button onclick="openChat()">
+💬 Open Chat System
+</button>
+
+<button onclick="openMultiverse()">
+🌌 Open Multiverse
+</button>
+
+</div>
+
+<p class="portalInfo">
+
+Neural gateway terhubung ke:
+AI Communication,
+Global Navigation,
+dan Digital Multiverse Network.
+
+</p>
+
 </div>
 
 </div>
 
 </section>
+<!-- =========================================================
+🚀 PORTAL BUTTONS STYLE
+========================================================= -->
+
+<!-- =========================================================
+⚡ ADVANCED OPEN SYSTEM
+========================================================= -->
+
+<script>
+
+/* =========================================================
+🗺 OPEN MAPS
+========================================================= */
+
+function openMaps(){
+
+window.open(
+"mapsindex.html",
+"_blank",
+"width=1400,height=900"
+);
+
+}
+
+/* =========================================================
+💬 OPEN CHAT
+========================================================= */
+
+function openChat(){
+
+window.open(
+"chatindex.html",
+"_blank",
+"width=1400,height=900"
+);
+
+}
+
+/* =========================================================
+🌌 OPEN MULTIVERSE
+========================================================= */
+
+function openMultiverse(){
+
+window.open(
+"MultiverseCity.html",
+"_blank",
+"width=1600,height=950"
+);
+
+}
+
+/* =========================================================
+🔒 PREVENT EASY EDIT
+========================================================= */
+
+document.addEventListener(
+"contextmenu",
+event => event.preventDefault()
+);
+
+document.onkeydown = function(e){
+
+if(
+e.key === "F12" ||
+(e.ctrlKey && e.shiftKey && e.key === "I") ||
+(e.ctrlKey && e.shiftKey && e.key === "J") ||
+(e.ctrlKey && e.key === "u")
+){
+
+return false;
+
+}
+
+};
+
+</script>
+
+<style>
+
+.portalButtons{
+
+display:flex;
+flex-direction:column;
+gap:15px;
+
+margin-top:15px;
+
+}
+
+.portalButtons button{
+
+padding:16px;
+
+border:none;
+outline:none;
+
+border-radius:16px;
+
+font-size:15px;
+font-weight:700;
+
+cursor:pointer;
+
+color:white;
+
+background:
+linear-gradient(
+90deg,
+#0ea5e9,
+#2563eb,
+#7c3aed
+);
+
+transition:0.4s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.portalButtons button::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-100%;
+
+width:100%;
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.3),
+transparent
+);
+
+transition:0.6s;
+
+}
+
+.portalButtons button:hover::before{
+
+left:100%;
+
+}
+
+.portalButtons button:hover{
+
+transform:
+translateY(-5px)
+scale(1.03);
+
+box-shadow:
+0 0 30px rgba(56,189,248,0.5);
+
+}
+
+.portalInfo{
+
+margin-top:20px;
+
+line-height:1.8;
+
+font-size:14px;
+
+color:#cbd5e1;
+
+}
+
+/* =========================================================
+🌌 LOCKED SYSTEM EFFECT
+========================================================= */
+
+.lockedSystem{
+
+pointer-events:none;
+
+opacity:0.7;
+
+filter:grayscale(0.2);
+
+}
+
+</style>
+<!-- =========================================================
+⚡ STYLE
+========================================================= -->
+
+<style>
+
+.statusCard select{
+
+margin-top:15px;
+
+width:100%;
+
+padding:12px;
+
+border:none;
+outline:none;
+
+border-radius:12px;
+
+background:#111827;
+
+color:white;
+
+font-weight:600;
+
+}
+
+.levelButtons{
+
+display:flex;
+gap:10px;
+
+justify-content:center;
+
+margin-top:15px;
+
+flex-wrap:wrap;
+
+}
+
+.levelButtons button{
+
+padding:12px 18px;
+
+border:none;
+
+border-radius:12px;
+
+background:linear-gradient(90deg,#0ea5e9,#2563eb);
+
+color:white;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.levelButtons button:hover{
+
+transform:scale(1.05);
+
+}
+
+.statusCard input[type="range"]{
+
+width:100%;
+
+margin-top:20px;
+
+cursor:pointer;
+
+}
+
+.statusCard button{
+
+padding:14px 20px;
+
+border:none;
+
+border-radius:14px;
+
+background:linear-gradient(90deg,#9333ea,#2563eb);
+
+color:white;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.statusCard button:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 0 25px rgba(147,51,234,0.5);
+
+}
+
+</style>
+
+<!-- =========================================================
+⚡ SCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+😊 CHANGE MOOD
+========================================================= */
+
+function changeMood(){
+
+const mood =
+document.getElementById("moodSelect").value;
+
+document.getElementById("moodShow")
+.innerText = mood;
+
+}
+
+/* =========================================================
+⬆ LEVEL UP
+========================================================= */
+
+let currentLevel = 1;
+
+function levelUp(){
+
+currentLevel++;
+
+document.getElementById("levelShow")
+.innerText = currentLevel;
+
+if(currentLevel >= 10){
+
+alert("👑 LEGEND LEVEL ACTIVATED!");
+
+}
+
+}
+
+/* =========================================================
+⬇ LEVEL DOWN
+========================================================= */
+
+function levelDown(){
+
+if(currentLevel > 1){
+
+currentLevel--;
+
+document.getElementById("levelShow")
+.innerText = currentLevel;
+
+}
+
+}
+
+/* =========================================================
+⚡ CHANGE FOCUS
+========================================================= */
+
+function changeFocus(){
+
+const focus =
+document.getElementById("focusRange").value;
+
+document.getElementById("focusScore")
+.innerText = focus + "%";
+
+}
+
+</script>
 
 <!-- FOCUS -->
 
