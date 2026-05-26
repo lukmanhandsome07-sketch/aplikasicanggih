@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FUTURE YOU • GOD LEVEL SYSTEM FINAL</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===================================================
+🌌 ROOT SYSTEM
+=================================================== */
+
+:root{
+
+--bg:#020617;
+--card:rgba(255,255,255,.06);
+--text:#ffffff;
+--accent:#38bdf8;
+--secondary:#7c3aed;
+--danger:#ef4444;
+--success:#22c55e;
+
+}
+
+.light{
+
+--bg:#dbeafe;
+--card:rgba(255,255,255,.75);
+--text:#0f172a;
+--accent:#0284c7;
+--secondary:#7c3aed;
+
+}
+
+/* ===================================================
+GLOBAL
+=================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+background:
+radial-gradient(circle at top left,#38bdf840,transparent 20%),
+radial-gradient(circle at bottom right,#7c3aed40,transparent 20%),
+var(--bg);
+
+color:var(--text);
+
+overflow-x:hidden;
+
+min-height:100vh;
+
+transition:.5s;
+
+}
+
+/* ===================================================
+GPU BACKGROUND
+=================================================== */
+
+.stars{
+
+position:fixed;
+inset:0;
+z-index:-3;
+
+background-image:
+radial-gradient(white 1px, transparent 1px);
+
+background-size:50px 50px;
+
+opacity:.08;
+
+animation:starsMove 120s linear infinite;
+
+}
+
+@keyframes starsMove{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-1200px);
+}
+
+}
+
+.mouseGlow{
+
+position:fixed;
+
+width:300px;
+height:300px;
+
+border-radius:50%;
+
+background:
+radial-gradient(circle,
+rgba(56,189,248,.22),
+transparent 70%);
+
+pointer-events:none;
+
+transform:translate(-50%,-50%);
+
+z-index:-1;
+
+filter:blur(25px);
+
+}
+
+/* ===================================================
+NAVBAR
+=================================================== */
+
+.navbar{
+
+position:sticky;
+top:0;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 35px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(20px);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+z-index:999;
+
+}
+
+.logo{
+
+font-size:28px;
+font-weight:900;
+
+background:
+linear-gradient(90deg,#38bdf8,#7c3aed);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+.navRight{
+
+display:flex;
+align-items:center;
+gap:15px;
+
+}
+
+.clock{
+font-size:14px;
+opacity:.9;
+}
+
+/* ===================================================
+TOGGLE
+=================================================== */
+
+.toggle{
+
+width:70px;
+height:36px;
+
+background:rgba(255,255,255,.08);
+
+border-radius:40px;
+
+position:relative;
+
+cursor:pointer;
+
+}
+
+.toggle::before{
+
+content:'';
+
+position:absolute;
+
+width:28px;
+height:28px;
+
+border-radius:50%;
+
+background:white;
+
+top:4px;
+left:4px;
+
+transition:.4s;
+
+}
+
+.light .toggle::before{
+left:38px;
+}
+
+/* ===================================================
+HERO
+=================================================== */
+
+.hero{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:90px 20px;
+
+text-align:center;
+
+animation:fadeUp 1s ease;
+
+}
+
+.hero h1{
+
+font-size:5rem;
+
+font-weight:900;
+
+line-height:1.1;
+
+background:
+linear-gradient(
+90deg,
+#38bdf8,
+white,
+#7c3aed,
+#38bdf8
+);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:gradientMove 8s linear infinite;
+
+}
+
+.hero p{
+
+margin-top:25px;
+
+line-height:2;
+
+opacity:.9;
+
+font-size:18px;
+
+}
+
+/* ===================================================
+GRID
+=================================================== */
+
+.grid{
+
+max-width:1450px;
+
+margin:auto;
+
+padding:30px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(340px,1fr));
+
+gap:25px;
+
+}
+
+/* ===================================================
+CARD
+=================================================== */
+
+.card{
+
+background:var(--card);
+
+padding:30px;
+
+border-radius:35px;
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+position:relative;
+
+overflow:hidden;
+
+transition:.4s;
+
+}
+
+.card::before{
+
+content:'';
+
+position:absolute;
+
+width:250px;
+height:250px;
+
+background:
+radial-gradient(circle,
+rgba(56,189,248,.15),
+transparent);
+
+top:-120px;
+right:-120px;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+0 0 50px rgba(56,189,248,.18);
+
+}
+
+.card h2{
+
+margin-bottom:25px;
+
+color:var(--accent);
+
+font-size:28px;
+
+}
+
+/* ===================================================
+INPUT
+=================================================== */
+
+.inputBox{
+
+display:flex;
+flex-direction:column;
+
+margin-bottom:18px;
+
+}
+
+.inputBox label{
+
+margin-bottom:10px;
+
+font-size:14px;
+
+}
+
+.inputBox input,
+.inputBox select{
+
+padding:16px;
+
+border-radius:18px;
+
+border:none;
+
+outline:none;
+
+background:#0f172a;
+
+color:white;
+
+}
+
+/* ===================================================
+BUTTON
+=================================================== */
+
+.mainBtn{
+
+width:100%;
+
+padding:20px;
+
+border:none;
+
+border-radius:24px;
+
+cursor:pointer;
+
+font-size:17px;
+font-weight:800;
+
+color:white;
+
+background:
+linear-gradient(
+90deg,
+#0ea5e9,
+#2563eb,
+#7c3aed
+);
+
+background-size:300%;
+
+animation:gradientMove 8s linear infinite;
+
+transition:.4s;
+
+margin-top:20px;
+
+}
+
+.mainBtn:hover{
+
+transform:scale(1.03);
+
+}
+
+/* ===================================================
+STATUS
+=================================================== */
+
+.status{
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:15px;
+
+margin-top:25px;
+
+}
+
+.statusCard{
+
+padding:20px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.05);
+
+text-align:center;
+
+}
+
+.statusCard h1{
+
+font-size:38px;
+
+color:var(--accent);
+
+}
+
+/* ===================================================
+MISSION
+=================================================== */
+
+.mission{
+
+margin-top:20px;
+
+padding:18px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.05);
+
+line-height:2;
+
+}
+
+/* ===================================================
+RESULT
+=================================================== */
+
+#resultText{
+
+line-height:2;
+
+font-size:15px;
+
+opacity:.95;
+
+white-space:pre-line;
+
+}
+
+/* ===================================================
+TIMELINE
+=================================================== */
+
+.timeline{
+
+margin-top:20px;
+
+}
+
+.timelineYear{
+
+font-size:32px;
+font-weight:900;
+
+text-align:center;
+
+margin-top:10px;
+
+color:var(--accent);
+
+}
+
+/* ===================================================
+ANIMATION
+=================================================== */
+
+@keyframes gradientMove{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:300%;
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* ===================================================
+RESPONSIVE
+=================================================== */
+
+@media(max-width:900px){
+
+.hero h1{
+font-size:3rem;
+}
+
+.grid{
+padding:18px;
+}
+
+.navbar{
+padding:18px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="stars"></div>
+<div class="mouseGlow" id="mouseGlow"></div>
+
+<!-- ===================================================
+NAVBAR
+=================================================== -->
+
+<div class="navbar">
+
+<div class="logo">
+FUTURE YOU AI
+</div>
+
+<div class="navRight">
+
+<div class="clock" id="clock">
+00:00:00
+</div>
+
+<div class="toggle" id="toggle"></div>
+
+</div>
+
+</div>
+
+<!-- ===================================================
+HERO
+=================================================== -->
+
+<section class="hero">
+
+<h1>
+FUTURE YOU <br>
+GOD LEVEL SYSTEM
+</h1>
+
+<p>
+
+Masa depan bukan dibuat dalam 1 hari.
+
+Tetapi dibangun dari kebiasaan kecil,
+fokus,
+tidur,
+disiplin,
+dan konsistensi yang dilakukan terus menerus.
+
+</p>
+
+</section>
+
+<!-- ===================================================
+GRID
+=================================================== -->
+
+<div class="grid">
+
+<!-- ===================================================
+INPUT CARD
+=================================================== -->
+
+<div class="card">
+
+<h2>
+🧠 Neural Input System
+</h2>
+
+<div class="inputBox">
+<label>📚 Jam Belajar</label>
+<input type="number" id="study" placeholder="4">
+</div>
+
+<div class="inputBox">
+<label>🎮 Jam Gaming / Scroll</label>
+<input type="number" id="gaming" placeholder="2">
+</div>
+
+<div class="inputBox">
+<label>😴 Jam Tidur</label>
+<input type="number" id="sleep" placeholder="7">
+</div>
+
+<div class="inputBox">
+<label>💪 Target Body</label>
+
+<select id="bodyGoal">
+
+<option>Berotot</option>
+<option>Gendut Sehat</option>
+<option>Athletic</option>
+<option>Bodybuilder</option>
+<option>Bulking</option>
+<option>Cutting</option>
+
+</select>
+
+</div>
+
+<div class="inputBox">
+<label>🚀 Konsistensi</label>
+<input type="range" id="consistency" min="1" max="100" value="70">
+</div>
+
+<div class="inputBox">
+<label>🎮 Mode Kehidupan</label>
+
+<select id="mode">
+
+<option>Student Mode</option>
+<option>Monk Mode</option>
+<option>Entrepreneur Mode</option>
+<option>Genius Mode</option>
+<option>AI Engineer Mode</option>
+
+</select>
+
+</div>
+
+<button class="mainBtn" onclick="analyzeFuture()">
+🚀 ANALYZE FUTURE
+</button>
+
+<div class="timeline">
+
+<input type="range"
+min="2026"
+max="9999"
+value="2030"
+id="yearSlider">
+
+<div class="timelineYear" id="timelineYear">
+2030
+</div>
+
+</div>
+
+</div>
+
+<!-- ===================================================
+RESULT CARD
+=================================================== -->
+
+<div class="card">
+
+<h2>
+🌌 Quantum AI Result
+</h2>
+
+<div id="resultText">
+Menunggu analisis AI...
+</div>
+
+<div class="status">
+
+<div class="statusCard">
+<h1 id="success">0%</h1>
+<p>Success</p>
+</div>
+
+<div class="statusCard">
+<h1 id="focus">0</h1>
+<p>Focus</p>
+</div>
+
+<div class="statusCard">
+<h1 id="mindset">0</h1>
+<p>Mindset</p>
+</div>
+
+<div class="statusCard">
+<h1 id="evolution">0</h1>
+<p>Evolution</p>
+</div>
+
+</div>
+
+<div class="mission" id="mission">
+
+✅ Daily Mission:
+- Belajar 2 jam
+- Tidur sebelum 22:00
+- Minum air cukup
+- Kurangi scroll berlebihan
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* ===================================================
+🌙 TOGGLE MODE
+=================================================== */
+
+const toggle =
+document.getElementById("toggle");
+
+toggle.onclick = ()=>{
+
+document.body.classList.toggle("light");
+
+localStorage.setItem(
+"theme",
+document.body.classList.contains("light")
+? "light"
+: "dark"
+);
+
+};
+
+if(localStorage.getItem("theme")==="light"){
+document.body.classList.add("light");
+}
+
+/* ===================================================
+🖱 MOUSE GLOW
+=================================================== */
+
+const glow =
+document.getElementById("mouseGlow");
+
+document.addEventListener("mousemove",e=>{
+
+glow.style.left = e.clientX + "px";
+glow.style.top = e.clientY + "px";
+
+});
+
+/* ===================================================
+⏰ CLOCK
+=================================================== */
+
+function updateClock(){
+
+const now = new Date();
+
+document.getElementById("clock").innerHTML =
+now.toLocaleTimeString("id-ID");
+
+}
+
+setInterval(updateClock,1000);
+
+/* ===================================================
+📅 TIMELINE
+=================================================== */
+
+const yearSlider =
+document.getElementById("yearSlider");
+
+yearSlider.oninput = ()=>{
+
+document.getElementById(
+"timelineYear"
+).innerHTML = yearSlider.value;
+
+};
+
+/* ===================================================
+🎙 AI VOICE
+=================================================== */
+
+function speak(text){
+
+const speech =
+new SpeechSynthesisUtterance(text);
+
+speech.lang = "id-ID";
+
+speech.rate = 1;
+
+speechSynthesis.speak(speech);
+
+}
+
+/* ===================================================
+🔢 ANIMATE NUMBER
+=================================================== */
+
+function animateNumber(id,target,suffix){
+
+let current = 0;
+
+const el =
+document.getElementById(id);
+
+const interval =
+setInterval(()=>{
+
+current++;
+
+el.innerHTML =
+current + suffix;
+
+if(current >= target){
+
+clearInterval(interval);
+
+}
+
+},15);
+
+}
+
+/* ===================================================
+⌨ TYPEWRITER
+=================================================== */
+
+function typeWriter(text){
+
+let i = 0;
+
+const target =
+document.getElementById("resultText");
+
+target.innerHTML = "";
+
+function typing(){
+
+if(i < text.length){
+
+target.innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typing,15);
+
+}
+
+}
+
+typing();
+
+}
+
+/* ===================================================
+🚀 MAIN AI
+=================================================== */
+
+function analyzeFuture(){
+
+const study =
+parseInt(document.getElementById("study").value)||0;
+
+const gaming =
+parseInt(document.getElementById("gaming").value)||0;
+
+const sleep =
+parseInt(document.getElementById("sleep").value)||0;
+
+const consistency =
+parseInt(document.getElementById("consistency").value);
+
+const bodyGoal =
+document.getElementById("bodyGoal").value;
+
+const mode =
+document.getElementById("mode").value;
+
+let success = 50;
+let mindset = 50;
+let focus = 50;
+let mental = 50;
+
+/* ===================================================
+ANALISIS
+=================================================== */
+
+if(study >= 4){
+
+success += 20;
+mindset += 20;
+focus += 20;
+
+}
+
+if(consistency >= 80){
+
+success += 20;
+
+}
+
+if(gaming >= 6){
+
+mental -= 20;
+focus -= 20;
+
+}
+
+if(sleep >= 7 && sleep <= 9){
+
+mental += 20;
+
+}
+
+if(bodyGoal === "Berotot"){
+
+success += 10;
+
+}
+
+if(mode === "Monk Mode"){
+
+focus += 30;
+
+}
+
+/* ===================================================
+LIMIT
+=================================================== */
+
+success = Math.min(success,100);
+
+const evolution =
+Math.floor(success / 10);
+
+/* ===================================================
+BODY ADVICE
+=================================================== */
+
+let bodyText = "";
+
+if(bodyGoal === "Berotot"){
+
+bodyText = `
+💪 Fokus latihan compound,
+protein cukup,
+dan tidur 7-9 jam.
+`;
+
+}
+
+if(bodyGoal === "Gendut Sehat"){
+
+bodyText = `
+🍚 Tambahkan surplus kalori sehat,
+protein,
+susu,
+dan latihan beban ringan.
+`;
+
+}
+
+/* ===================================================
+WARNING
+=================================================== */
+
+let warning = "";
+
+if(gaming >= 6){
+
+warning = `
+⚠ Neural Warning:
+Dopamine overload terdeteksi.
+Kurangi scroll berlebihan.
+`;
+
+}
+
+/* ===================================================
+TEXT
+=================================================== */
+
+const result = `
+
+🧠 ANALISIS MASA DEPAN SELESAI
+
+🚀 Mode Kehidupan:
+${mode}
+
+📚 Fokus Belajar:
+${study} jam/hari
+
+⚡ Konsistensi:
+${consistency}%
+
+🌌 Prediksi Masa Depan:
+Jika pola ini dipertahankan,
+kemungkinan besar kemampuanmu meningkat drastis
+dalam beberapa tahun ke depan.
+
+🏆 Sistem Ranking 1:
+Belajar fokus tanpa distraksi
+lebih kuat daripada belajar lama sambil scroll.
+
+🧬 Body Evolution:
+${bodyText}
+
+🧠 Deep Knowledge:
+Otak manusia berkembang melalui pengulangan.
+Kebiasaan kecil yang dilakukan setiap hari
+akan membentuk identitas masa depanmu.
+
+🌙 Tidur:
+Tidur cukup membantu memori,
+fokus,
+dan hormon pertumbuhan.
+
+🔥 Deep Work:
+2 jam fokus penuh
+lebih kuat daripada 8 jam multitasking.
+
+${warning}
+
+🛰 FINAL MESSAGE:
+"Versi terbaik dirimu
+dibangun dari kebiasaan kecil
+yang dilakukan terus menerus."
+
+`;
+
+typeWriter(result);
+
+animateNumber("success",success,"%");
+animateNumber("focus",focus,"");
+animateNumber("mindset",mindset,"");
+animateNumber("evolution",evolution,"");
+
+speak("Analisis masa depan selesai");
+
+const data = {
+
+study,
+gaming,
+sleep,
+consistency,
+bodyGoal,
+mode,
+success
+
+};
+
+localStorage.setItem(
+"userData",
+JSON.stringify(data)
+);
+
+}
+
+</script>
+
+</body>
+</html>
