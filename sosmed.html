@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🌌 Transparent Social Feed — GOD LEVEL FINAL</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:
+radial-gradient(circle at top left,#1d2d50,#0b1020 40%),
+radial-gradient(circle at bottom right,#2a1b3d,#05070d 60%);
+color:white;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+/* SCROLL */
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#5f7cff55;
+border-radius:20px;
+}
+
+/* BACKGROUND EFFECT */
+.bg-blur{
+position:fixed;
+width:500px;
+height:500px;
+background:#4b7dff22;
+filter:blur(100px);
+top:-150px;
+left:-150px;
+z-index:-1;
+animation:float 8s infinite alternate ease-in-out;
+}
+
+.bg-blur2{
+position:fixed;
+width:400px;
+height:400px;
+background:#c86dff22;
+filter:blur(100px);
+bottom:-100px;
+right:-100px;
+z-index:-1;
+animation:float2 9s infinite alternate ease-in-out;
+}
+
+@keyframes float{
+from{transform:translateY(0px);}
+to{transform:translateY(40px);}
+}
+
+@keyframes float2{
+from{transform:translateX(0px);}
+to{transform:translateX(-40px);}
+}
+
+/* HEADER */
+
+header{
+position:sticky;
+top:0;
+z-index:100;
+backdrop-filter:blur(20px);
+background:#0f1727aa;
+border-bottom:1px solid #ffffff11;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:22px;
+font-weight:800;
+background:linear-gradient(to right,#7aa8ff,#d58cff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.header-right{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.top-btn{
+background:#ffffff10;
+border:none;
+color:white;
+padding:10px 15px;
+border-radius:14px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.top-btn:hover{
+background:#5f7cff44;
+transform:translateY(-2px);
+}
+
+/* LAYOUT */
+
+.layout{
+display:grid;
+grid-template-columns:280px 1fr 300px;
+gap:20px;
+padding:20px;
+max-width:1600px;
+margin:auto;
+}
+
+/* GLASS */
+
+.glass{
+background:#ffffff08;
+backdrop-filter:blur(20px);
+border:1px solid #ffffff11;
+border-radius:25px;
+padding:20px;
+box-shadow:0 10px 30px #00000033;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+position:sticky;
+top:90px;
+height:fit-content;
+}
+
+.profile{
+text-align:center;
+}
+
+.avatar{
+width:90px;
+height:90px;
+border-radius:50%;
+background:linear-gradient(45deg,#6fa8ff,#d47fff);
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+font-weight:bold;
+}
+
+.profile h2{
+margin-top:10px;
+}
+
+.energy{
+margin-top:20px;
+}
+
+.energy-bar{
+height:12px;
+background:#ffffff11;
+border-radius:20px;
+overflow:hidden;
+margin-top:8px;
+}
+
+.energy-fill{
+width:82%;
+height:100%;
+background:linear-gradient(to right,#70ffbe,#6f8cff);
+}
+
+/* FEED */
+
+.feed{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+/* CREATE POST */
+
+.create textarea{
+width:100%;
+height:120px;
+border:none;
+outline:none;
+resize:none;
+padding:15px;
+border-radius:20px;
+background:#ffffff08;
+color:white;
+font-size:15px;
+}
+
+.create textarea::placeholder{
+color:#cccccc;
+}
+
+.upload-row{
+display:flex;
+gap:10px;
+margin-top:15px;
+flex-wrap:wrap;
+}
+
+.upload-row input,
+.upload-row select{
+background:#ffffff08;
+border:none;
+color:white;
+padding:12px;
+border-radius:15px;
+}
+
+.upload-btn{
+background:linear-gradient(45deg,#6fa8ff,#a86fff);
+border:none;
+padding:14px 18px;
+border-radius:15px;
+font-weight:bold;
+cursor:pointer;
+color:white;
+transition:0.3s;
+}
+
+.upload-btn:hover{
+transform:translateY(-3px) scale(1.02);
+}
+
+/* POST */
+
+.post{
+animation:fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0px);
+}
+}
+
+.post-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
+gap:10px;
+}
+
+.user{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.user-avatar{
+width:50px;
+height:50px;
+border-radius:50%;
+background:linear-gradient(45deg,#74b1ff,#d46fff);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+}
+
+.post-text{
+line-height:1.8;
+font-size:15px;
+opacity:0.95;
+}
+
+.media{
+width:100%;
+border-radius:20px;
+margin-top:15px;
+max-height:500px;
+object-fit:cover;
+}
+
+.transparency{
+margin-top:15px;
+padding:15px;
+border-radius:15px;
+background:#0d1422;
+border:1px solid #ffffff10;
+font-size:13px;
+line-height:1.8;
+color:#b8c8ff;
+}
+
+.reactions{
+display:flex;
+gap:10px;
+margin-top:15px;
+flex-wrap:wrap;
+}
+
+.react-btn{
+background:#ffffff08;
+border:none;
+padding:10px 14px;
+border-radius:14px;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.react-btn:hover{
+background:#6f8cff33;
+transform:scale(1.05);
+}
+
+.delete-btn{
+background:linear-gradient(45deg,#ff4d6d,#ff7b7b);
+border:none;
+padding:10px 14px;
+border-radius:14px;
+color:white;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.delete-btn:hover{
+transform:scale(1.05);
+}
+
+/* COMMENTS */
+
+.comments{
+margin-top:15px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.comment{
+background:#ffffff06;
+padding:10px;
+border-radius:14px;
+font-size:14px;
+}
+
+/* SCORE */
+
+.score-box{
+margin-top:15px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.score-item{
+background:#ffffff08;
+padding:14px;
+border-radius:16px;
+text-align:center;
+}
+
+.score-number{
+font-size:22px;
+font-weight:bold;
+margin-top:5px;
+background:linear-gradient(to right,#73a8ff,#d26dff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* RIGHT PANEL */
+
+.right-panel{
+position:sticky;
+top:90px;
+height:fit-content;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.mood-buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:10px;
+}
+
+.mood{
+padding:10px 14px;
+border-radius:14px;
+background:#ffffff08;
+cursor:pointer;
+transition:0.3s;
+}
+
+.mood:hover{
+background:#6f8cff33;
+}
+
+.quote{
+font-size:14px;
+line-height:1.8;
+opacity:0.85;
+}
+
+/* END FEED */
+
+.end-feed{
+text-align:center;
+padding:30px;
+opacity:0.7;
+font-size:14px;
+}
+
+/* WELL BEING */
+
+.wellbeing{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#121c2ccc;
+backdrop-filter:blur(20px);
+padding:18px;
+border-radius:20px;
+border:1px solid #ffffff11;
+width:280px;
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0px);
+}
+}
+
+.small{
+font-size:13px;
+opacity:0.8;
+line-height:1.7;
+margin-top:10px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+.layout{
+grid-template-columns:1fr;
+}
+
+.sidebar,
+.right-panel{
+position:relative;
+top:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-blur"></div>
+<div class="bg-blur2"></div>
+
+<header>
+
+<div class="logo">
+🌌 Transparent Social Feed
+</div>
+
+<div class="header-right">
+<button class="top-btn">🌱 Mindful Mode</button>
+<button class="top-btn">🧠 AI Transparency</button>
+<button class="top-btn">⚡ Energy Feed</button>
+</div>
+
+</header>
+
+<div class="layout">
+
+<!-- LEFT -->
+
+<div class="sidebar glass">
+
+<div class="profile">
+
+<div class="avatar">
+PU
+</div>
+
+<h2>Personal User</h2>
+
+<p style="opacity:.7;margin-top:5px;">
+Human First Internet
+</p>
+
+</div>
+
+<div class="energy">
+
+<h3>⚡ Digital Energy</h3>
+
+<div class="energy-bar">
+<div class="energy-fill"></div>
+</div>
+
+<div class="small">
+🧘 Calm Feed Active
+<br>
+🌱 Anti Doom Scroll Enabled
+<br>
+🧠 Transparent Algorithm ON
+</div>
+
+</div>
+
+</div>
+
+<!-- CENTER -->
+
+<div class="feed">
+
+<!-- CREATE -->
+
+<div class="glass create">
+
+<h2>🌌 Share Something Meaningful</h2>
+
+<textarea id="text" placeholder="Bagikan pemikiran, ilmu, inspirasi, perjalanan hidup..."></textarea>
+
+<div class="upload-row">
+
+<input type="file" id="media" accept="image/*,video/*">
+
+<select id="mood">
+<option>🌱 Membantu Hidup</option>
+<option>🧠 Membuka Pikiran</option>
+<option>🔥 Memberi Semangat</option>
+<option>🌌 Filosofis</option>
+<option>⚡ Energi Tinggi</option>
+</select>
+
+<button class="upload-btn" onclick="uploadPost()">
+🚀 Publish Transparan
+</button>
+
+</div>
+
+</div>
+
+<!-- FEED -->
+
+<div id="feed"></div>
+
+<div class="glass end-feed">
+🌱 Kamu sudah melihat semua post hari ini.
+<br><br>
+Internet sehat bukan tentang scroll tanpa akhir,
+tetapi tentang kualitas hidup manusia.
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="right-panel">
+
+<div class="glass">
+
+<h3>🧠 Mood Internet</h3>
+
+<div class="mood-buttons">
+<div class="mood">🌱 Calm</div>
+<div class="mood">📚 Study</div>
+<div class="mood">🎨 Creative</div>
+<div class="mood">⚡ Focus</div>
+</div>
+
+<div class="small">
+Kamu memilih suasana internet sendiri.
+Bukan AI yang memaksa perhatianmu.
+</div>
+
+</div>
+
+<div class="glass">
+
+<h3>🔍 Transparency Panel</h3>
+
+<div class="small">
+✔ Feed chronological
+<br>
+✔ Tidak ada manipulasi tersembunyi
+<br>
+✔ Tidak ada infinite scroll
+<br>
+✔ Tidak ada ranking rahasia
+<br>
+✔ User tetap memegang kontrol
+</div>
+
+</div>
+
+<div class="glass">
+
+<h3>🌌 Philosophy</h3>
+
+<div class="quote">
+“Teknologi seharusnya membantu manusia berpikir lebih jernih,
+bukan membuat manusia kehilangan kontrol atas hidupnya.”
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- WELLBEING -->
+
+<div class="wellbeing">
+
+<h3>🧘 Digital Well-Being</h3>
+
+<div class="small">
+Kamu sudah menggunakan aplikasi selama:
+<b id="timer">0 menit</b>
+<br><br>
+🌱 Ingat untuk istirahat,
+minum air,
+dan kembali ke dunia nyata.
+</div>
+
+</div>
+
+<script>
+
+let posts = JSON.parse(localStorage.getItem("god_feed_posts") || "[]");
+
+function savePosts(){
+localStorage.setItem("god_feed_posts", JSON.stringify(posts));
+}
+
+/* NILAI AI */
+
+function generateValues(text,mood){
+
+let positivity = 70;
+let inspiration = 70;
+let intelligence = 70;
+let humanity = 70;
+
+const positiveWords = [
+"belajar","semangat","membantu","inspirasi",
+"baik","kebaikan","tenang","damai",
+"fokus","hebat","produktif","bermakna"
+];
+
+positiveWords.forEach(word=>{
+if(text.toLowerCase().includes(word)){
+positivity += 4;
+inspiration += 3;
+humanity += 2;
+}
+});
+
+if(mood.includes("🧠")){
+intelligence += 15;
+}
+
+if(mood.includes("🌌")){
+humanity += 12;
+}
+
+if(mood.includes("🔥")){
+inspiration += 15;
+}
+
+if(mood.includes("⚡")){
+positivity += 10;
+}
+
+return {
+positivity:Math.min(100, positivity),
+inspiration:Math.min(100, inspiration),
+intelligence:Math.min(100, intelligence),
+humanity:Math.min(100, humanity)
+};
+
+}
+
+function uploadPost(){
+
+const text = document.getElementById("text").value;
+const file = document.getElementById("media").files[0];
+const mood = document.getElementById("mood").value;
+
+if(!text && !file){
+alert("Tulis sesuatu dulu 🌱");
+return;
+}
+
+let mediaURL = "";
+let mediaType = "";
+
+if(file){
+mediaURL = URL.createObjectURL(file);
+mediaType = file.type;
+}
+
+const scores = generateValues(text,mood);
+
+posts.unshift({
+user:"Lukman Hakim",
+text,
+mood,
+mediaURL,
+mediaType,
+time:new Date().toLocaleString(),
+likes:0,
+mind:0,
+energy:0,
+philosophy:0,
+comments:[],
+scores:scores
+});
+
+savePosts();
+
+document.getElementById("text").value = "";
+document.getElementById("media").value = "";
+
+renderPosts();
+
+alert("🚀 Post berhasil dipublish!");
+}
+
+function react(index,type){
+
+if(type==="like"){
+posts[index].likes++;
+}
+
+if(type==="mind"){
+posts[index].mind++;
+}
+
+if(type==="energy"){
+posts[index].energy++;
+}
+
+if(type==="philosophy"){
+posts[index].philosophy++;
+}
+
+savePosts();
+renderPosts();
+}
+
+function addComment(index){
+
+let comment = prompt("Tulis komentar bermakna 🌱");
+
+if(comment){
+
+const toxicWords = ["bodoh","jelek","hina"];
+
+let detected = toxicWords.some(word =>
+comment.toLowerCase().includes(word)
+);
+
+if(detected){
+
+let confirmSend = confirm(
+"🛡 Sistem mendeteksi kata yang mungkin menyakiti orang lain.\n\nTetap kirim komentar?"
+);
+
+if(!confirmSend){
+return;
+}
+
+}
+
+posts[index].comments.push(comment);
+
+savePosts();
+renderPosts();
+}
+
+}
+
+/* DELETE POST */
+
+function deletePost(index){
+
+const confirmDelete = confirm(
+"🗑 Hapus post ini?"
+);
+
+if(confirmDelete){
+
+posts.splice(index,1);
+
+savePosts();
+
+renderPosts();
+
+alert("✅ Post berhasil dihapus");
+
+}
+
+}
+
+/* RENDER */
+
+function renderPosts(){
+
+const feed = document.getElementById("feed");
+
+feed.innerHTML = "";
+
+posts.forEach((post,index)=>{
+
+let media = "";
+
+if(post.mediaType && post.mediaType.includes("image")){
+media = `
+<img class="media" src="${post.mediaURL}">
+`;
+}
+
+if(post.mediaType && post.mediaType.includes("video")){
+media = `
+<video class="media" controls src="${post.mediaURL}"></video>
+`;
+}
+
+feed.innerHTML += `
+
+<div class="glass post">
+
+<div class="post-top">
+
+<div class="user">
+
+<div class="user-avatar">
+🌌
+</div>
+
+<div>
+<b>${post.user}</b>
+<br>
+<span style="opacity:.6;font-size:13px;">
+${post.time}
+</span>
+</div>
+
+</div>
+
+<div>
+${post.mood}
+</div>
+
+</div>
+
+<div class="post-text">
+${post.text}
+</div>
+
+${media}
+
+<div class="score-box">
+
+<div class="score-item">
+🌱 Positivity
+<div class="score-number">
+${post.scores.positivity}%
+</div>
+</div>
+
+<div class="score-item">
+🔥 Inspiration
+<div class="score-number">
+${post.scores.inspiration}%
+</div>
+</div>
+
+<div class="score-item">
+🧠 Intelligence
+<div class="score-number">
+${post.scores.intelligence}%
+</div>
+</div>
+
+<div class="score-item">
+❤️ Humanity
+<div class="score-number">
+${post.scores.humanity}%
+</div>
+</div>
+
+</div>
+
+<div class="transparency">
+
+🧠 Kenapa kamu melihat post ini:
+<br>
+✔ Berdasarkan waktu upload (chronological)
+<br>
+✔ Tidak ada ranking tersembunyi
+<br>
+✔ Tidak ada AI manipulatif
+<br>
+✔ Bukan sponsor
+<br>
+✔ Human-first internet system aktif
+
+</div>
+
+<div class="reactions">
+
+<button class="react-btn" onclick="react(${index},'like')">
+😭 Menyentuh (${post.likes})
+</button>
+
+<button class="react-btn" onclick="react(${index},'mind')">
+🧠 Membuka Pikiran (${post.mind})
+</button>
+
+<button class="react-btn" onclick="react(${index},'energy')">
+⚡ Energi Tinggi (${post.energy})
+</button>
+
+<button class="react-btn" onclick="react(${index},'philosophy')">
+🌌 Filosofis (${post.philosophy})
+</button>
+
+<button class="react-btn" onclick="addComment(${index})">
+💬 Komentar
+</button>
+
+<button class="delete-btn" onclick="deletePost(${index})">
+🗑 Hapus
+</button>
+
+</div>
+
+<div class="comments">
+
+${post.comments.map(c=>`
+<div class="comment">
+💬 ${c}
+</div>
+`).join("")}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+renderPosts();
+
+/* WELLBEING TIMER */
+
+let seconds = 0;
+
+setInterval(()=>{
+
+seconds++;
+
+let minutes = Math.floor(seconds/60);
+
+document.getElementById("timer").innerText =
+minutes + " menit";
+
+if(minutes === 20){
+
+alert(
+"🧘 Kamu sudah scroll cukup lama.\n\nMau istirahat sebentar? 🌱"
+);
+
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
