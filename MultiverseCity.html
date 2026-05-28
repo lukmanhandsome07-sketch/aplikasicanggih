@@ -423,12 +423,225 @@ document.write(s.outerHTML);
 <div class="house"></div>
 
 <!-- VEHICLES -->
+<div class="vehicle car">🚗 Mobil AI</div>
+<div class="vehicle future-bus">🚌 Bus Future</div>
+<div class="vehicle motorcycle">🏍️ Motor AI</div>
+<div class="vehicle airplane">✈️ Pesawat AI</div>
+<div class="vehicle bicycle">🚴‍♂️ Sepeda AI</div>
+<div class="vehicle truck">🚛 Truk AI</div>
+<div class="vehicle container-truck">🚚 Kontainer AI</div>
+<div class="vehicle pickup">🛻 Nebeng Mobil</div>
+<div class="vehicle fire-truck">🚒 Pemadam Api</div>
+<div class="vehicle race-car">🏎️ Mobil Balap AI</div>
+<div class="vehicle rickshaw">🛺 Becak AI</div>
+<div class="vehicle electric-scooter">🛵 Sepeda Listrik</div>
+<div class="vehicle police-car">🚔 Mobil Polisi</div>
 
-<div class="vehicle car">🚗 MOBIL AI</div>
-<div class="vehicle bus">🚌 BUS FUTURE</div>
-<div class="vehicle bike">🏍 MOTOR</div>
-<div class="vehicle plane">✈ PESAWAT AI</div>
+<!-- Tambahan -->
+<div class="vehicle ambulance">🚑 Ambulans AI</div>
+<div class="vehicle taxi">🚕 Taksi AI</div>
+<div class="vehicle train">🚆 Kereta AI</div>
+<div class="vehicle metro">🚇 MRT AI</div>
+<div class="vehicle tram">🚊 Trem AI</div>
+<div class="vehicle helicopter">🚁 Helikopter AI</div>
+<div class="vehicle rocket">🚀 Roket AI</div>
+<div class="vehicle ship">🚢 Kapal AI</div>
+<div class="vehicle speedboat">🚤 Speedboat AI</div>
+<div class="vehicle submarine">🚢 Kapal Selam AI</div>
+<div class="vehicle tractor">🚜 Traktor AI</div>
+<div class="vehicle van">🚐 Van AI</div>
+<div class="vehicle scooter">🛴 Skuter AI</div>
+<div class="vehicle wheelchair">🦽 Kursi Roda AI</div>
+<div class="vehicle drone">🛸 Drone AI</div>
+<div class="vehicle satellite">🛰️ Satelit AI</div>
 
+<div class="vehicle ambulance">🚑 Ambulans AI</div>
+<div class="vehicle taxi">🚕 Taksi AI</div>
+<div class="vehicle train">🚆 Kereta AI</div>
+<div class="vehicle helicopter">🚁 Helikopter AI</div>
+<div class="vehicle rocket">🚀 Roket AI</div>
+<div class="vehicle ship">🚢 Kapal AI</div>
+<div class="vehicle drone">🛸 Drone AI</div>
+<div class="vehicle satellite">🛰️ Satelit AI</div>
+<script>
+/* ==========================
+   TAMBAHAN VEHICLE SYSTEM
+========================== */
+
+let vehicles = document.querySelectorAll(".vehicle");
+
+/* Setup */
+vehicles.forEach((v,index)=>{
+
+v.style.position="absolute";
+v.style.left="-100px";
+v.style.top=(50+(index*40))+"px";
+
+v.dataset.speed=Math.floor(Math.random()*8)+2;
+
+});
+
+/* Gerak kendaraan */
+function moveVehicles(){
+
+vehicles.forEach(v=>{
+
+let current=parseInt(v.style.left)||0;
+let speed=parseInt(v.dataset.speed);
+
+current+=speed;
+
+if(current>window.innerWidth){
+current=-150;
+}
+
+v.style.left=current+"px";
+
+});
+
+}
+
+/* Event kendaraan */
+function vehicleEvents(){
+
+let events=[
+"🚦 Jalan AI lancar",
+"⚡ Turbo aktif",
+"🚔 Polisi mengejar",
+"🛸 Drone patroli",
+"🚀 Roket siap",
+"🌧 Cuaca memperlambat"
+];
+
+let event=
+events[Math.floor(Math.random()*events.length)];
+
+worldState.innerText=event;
+
+/* efek */
+
+if(event.includes("Turbo")){
+vehicles.forEach(v=>{
+v.dataset.speed=15;
+});
+}
+
+if(event.includes("Cuaca")){
+vehicles.forEach(v=>{
+v.dataset.speed=3;
+});
+}
+
+if(event.includes("Polisi")){
+triggerPolice();
+}
+
+}
+
+/* Klik kendaraan */
+vehicles.forEach(v=>{
+
+v.onclick=()=>{
+
+motivation.innerText=
+"🔥 "+v.innerText+" berkembang";
+
+rank++;
+updateRank();
+
+v.style.transform="scale(1.5)";
+
+setTimeout(()=>{
+v.style.transform="scale(1)";
+},500);
+
+};
+
+});
+
+/* Spawn */
+function spawnVehicle(){
+
+let newVehicle=
+document.createElement("div");
+
+newVehicle.className="vehicle";
+newVehicle.innerText="🚗 Kendaraan Baru";
+
+newVehicle.style.position="absolute";
+newVehicle.style.left="-100px";
+newVehicle.style.top=
+Math.random()*500+"px";
+
+newVehicle.dataset.speed=8;
+
+document.body.appendChild(newVehicle);
+
+motivation.innerText=
+"✨ Kendaraan baru muncul";
+
+}
+
+/* Rocket */
+function launchRocket(){
+
+document.querySelectorAll(".rocket")
+.forEach(r=>{
+
+r.style.transform=
+"translateY(-500px)";
+
+});
+
+worldState.innerText=
+"🚀 Roket meluncur";
+
+}
+
+/* Drone scan */
+function droneScan(){
+
+document.querySelectorAll(".drone")
+.forEach(d=>{
+
+d.style.transform=
+"translateY(-30px)";
+
+setTimeout(()=>{
+d.style.transform="translateY(0)";
+},1000);
+
+});
+
+cityState.innerText=
+"🛸 Drone memindai area";
+
+}
+
+/* Satellite mode */
+function satelliteSignal(){
+
+document.querySelectorAll(".satellite")
+.forEach(s=>{
+
+s.style.transform=
+"rotate(360deg)";
+
+});
+
+motivation.innerText=
+"🛰️ Sinyal satelit aktif";
+
+}
+
+/* Loop */
+setInterval(moveVehicles,50);
+setInterval(vehicleEvents,7000);
+setInterval(droneScan,12000);
+setInterval(satelliteSignal,15000);
+setInterval(launchRocket,20000);
+
+</script>
 <!-- PLAYER -->
 
 <div class="character" id="player">
@@ -549,6 +762,120 @@ membangun masa depan lebih baik.”<br>
 <button onclick="changeShirt()">👕 Baju</button>
 <button onclick="changePants()">👖 Celana</button>
 <button onclick="triggerPolice()">🚓 Polisi AI</button>
+
+<button onclick="activateTurbo()">⚡ Turbo</button>
+<button onclick="freezeTime()">❄ Bekukan Waktu</button>
+<button onclick="gravityMode()">🌍 Gravitasi</button>
+<button onclick="spawnVehicle()">🚗 Spawn Kendaraan</button>
+<button onclick="aiEvolution()">🧠 Evolusi AI</button>
+<button onclick="chaosMode()">🔥 Chaos Mode</button>
+<button onclick="healPlayer()">❤️ Heal</button>
+<button onclick="nightVision()">🌙 Night Vision</button>
+<button onclick="teleportPlayer()">🌀 Teleport</button>
+<button onclick="meteorShower()">☄ Hujan Meteor</button>
+<script>
+/* TURBO */
+function activateTurbo(){
+    vehicleSpeed = 30;
+    cityState.innerText = "⚡ TURBO AKTIF";
+    
+    setTimeout(()=>{
+        vehicleSpeed = 10;
+        cityState.innerText = "🏙 Speed normal";
+    },5000);
+}
+
+/* FREEZE TIME */
+function freezeTime(){
+    cityState.innerText = "❄ Waktu dibekukan";
+    clearInterval(window.vehicleLoop);
+
+    setTimeout(()=>{
+        window.vehicleLoop = setInterval(moveVehicles,50);
+        cityState.innerText = "⏳ Waktu berjalan lagi";
+    },4000);
+}
+
+/* GRAVITY */
+function gravityMode(){
+    player.style.transition="all 1s";
+    player.style.top="250px";
+
+    setTimeout(()=>{
+        player.style.top="150px";
+    },2000);
+}
+
+/* SPAWN */
+function spawnVehicle(){
+    let v=document.createElement("div");
+    v.className="vehicle";
+    v.innerText="🚀 Kendaraan Baru";
+
+    v.style.position="absolute";
+    v.style.left="0px";
+    v.style.top=Math.random()*400+"px";
+
+    document.body.appendChild(v);
+
+    motivation.innerText="🚗 Kendaraan AI baru lahir";
+}
+
+/* EVOLUSI AI */
+function aiEvolution(){
+    bot.style.transform="scale(1.5)";
+    bot.style.background="#7c3aed";
+
+    worldState.innerText="🧠 AI berevolusi";
+
+    rank += 5;
+    updateRank();
+}
+
+/* CHAOS */
+function chaosMode(){
+    document.body.style.background=
+    "#"+Math.floor(Math.random()*999999);
+
+    worldState.innerText="🔥 CHAOS MODE";
+}
+
+/* HEAL */
+function healPlayer(){
+    player.classList.remove("hit");
+    cityState.innerText="❤️ Pemulihan penuh";
+}
+
+/* NIGHT */
+function nightVision(){
+    document.getElementById("sky").style.filter="brightness(40%)";
+    worldState.innerText="🌙 Night Vision";
+
+    setTimeout(()=>{
+        document.getElementById("sky").style.filter="brightness(100%)";
+    },5000);
+}
+
+/* TELEPORT */
+function teleportPlayer(){
+    pos=Math.random()*800;
+    player.style.left=pos+"px";
+
+    cityState.innerText="🌀 Teleport berhasil";
+}
+
+/* METEOR */
+function meteorShower(){
+    worldState.innerText="☄ Hujan meteor datang";
+
+    for(let i=0;i<8;i++){
+        setTimeout(()=>{
+            document.body.style.background=
+            "#"+Math.floor(Math.random()*999999);
+        },i*300);
+    }
+}
+</script>
 </div>
 
 </div>
