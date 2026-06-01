@@ -1526,37 +1526,269 @@ document.getElementById("focusScore")
 }
 
 </script>
-
-<!-- FOCUS -->
+<!-- FOCUS ENGINE -->
 
 <section class="glass focusSection">
 
-<h1>
-🧠 Deep Focus Engine
-</h1>
+  <h1>🧠 Deep Focus Engine</h1>
 
-<div class="timer" id="timer">
-25:00
-</div>
+  <p class="focusSubtitle">
+    Masuk ke mode fokus ekstrem. Hilangkan distraksi. Aktifkan potensi maksimal.
+  </p>
 
-<div class="focusButtons">
+  <!-- ENERGY CORE VISUAL -->
+  <div class="focusCore">
 
-<button onclick="startFocus()">
-🔥 Mulai Fokus
-</button>
+    <div class="pulseRing"></div>
+    <div class="pulseRing2"></div>
 
-<button onclick="resetFocus()">
-🔄 Reset
-</button>
+    <div class="timer" id="timer">
+      25:00
+    </div>
 
-<button onclick="boostFocus()">
-⚡ Boost Mode
-</button>
+  </div>
 
-</div>
+  <!-- STATUS -->
+  <div class="focusStatus">
+    🔋 Status: Standby Mode
+  </div>
+
+  <!-- BUTTON CONTROL -->
+  <div class="focusButtons">
+
+    <button onclick="startFocus()">🔥 Mulai Fokus</button>
+    <button onclick="resetFocus()">🔄 Reset</button>
+    <button onclick="boostFocus()">⚡ Boost Mode</button>
+
+  </div>
 
 </section>
+<style>
 
+/* =========================
+   FOCUS SECTION CORE
+========================= */
+
+.focusSection{
+  margin:60px 8%;
+  padding:45px;
+  border-radius:22px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* cosmic focus background */
+.focusSection::before{
+  content:"";
+  position:absolute;
+  inset:-60%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(56,189,248,0.2), transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(167,139,250,0.2), transparent 40%);
+  animation: cosmicMove 12s linear infinite;
+  z-index:0;
+}
+
+@keyframes cosmicMove{
+  0%{ transform: rotate(0deg) scale(1); }
+  50%{ transform: rotate(180deg) scale(1.2); }
+  100%{ transform: rotate(360deg) scale(1); }
+}
+
+.focusSection > *{
+  position:relative;
+  z-index:1;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.focusSection h1{
+  font-size:30px;
+  background: linear-gradient(90deg,#38bdf8,#a78bfa,#22c55e);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:10px;
+}
+
+.focusSubtitle{
+  font-size:14px;
+  color:#94a3b8;
+  margin-bottom:30px;
+}
+
+/* =========================
+   FOCUS CORE (TIMER CORE)
+========================= */
+
+.focusCore{
+  position:relative;
+  width:200px;
+  height:200px;
+  margin:0 auto 25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* outer pulse ring */
+.pulseRing,
+.pulseRing2{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  border:2px solid rgba(56,189,248,0.4);
+  animation: pulse 2.5s infinite;
+}
+
+/* second slower ring */
+.pulseRing2{
+  border:2px solid rgba(167,139,250,0.3);
+  animation: pulse 4s infinite;
+}
+
+@keyframes pulse{
+  0%{
+    transform: scale(0.8);
+    opacity:0.6;
+  }
+  50%{
+    transform: scale(1.1);
+    opacity:0.2;
+  }
+  100%{
+    transform: scale(1.3);
+    opacity:0;
+  }
+}
+
+/* TIMER CORE */
+.timer{
+  font-size:40px;
+  font-weight:bold;
+  color:#e5e7eb;
+  z-index:2;
+  text-shadow: 0 0 20px rgba(56,189,248,0.4);
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* breathing effect */
+@keyframes breathe{
+  0%,100%{
+    transform: scale(1);
+    opacity:0.9;
+  }
+  50%{
+    transform: scale(1.08);
+    opacity:1;
+  }
+}
+
+/* =========================
+   STATUS SYSTEM
+========================= */
+
+.focusStatus{
+  margin:10px 0 25px;
+  font-size:13px;
+  color:#94a3b8;
+  letter-spacing:1px;
+}
+
+/* =========================
+   BUTTON SYSTEM
+========================= */
+
+.focusButtons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.focusButtons button{
+  padding:12px 18px;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+  font-weight:bold;
+  color:white;
+  background: linear-gradient(135deg,#38bdf8,#6366f1,#a78bfa);
+  box-shadow: 0 10px 25px rgba(56,189,248,0.25);
+  transition:0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+/* energy sweep effect */
+.focusButtons button::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition:0.5s;
+}
+
+.focusButtons button:hover::before{
+  left:100%;
+}
+
+.focusButtons button:hover{
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(99,102,241,0.4);
+}
+
+/* =========================
+   ULTRA MODE EFFECT
+========================= */
+
+/* ketika boost mode nanti bisa dipakai class ini */
+.boost-mode{
+  filter: brightness(1.3) contrast(1.2);
+  animation: shake 0.5s infinite;
+}
+
+@keyframes shake{
+  0%{ transform: translate(0,0); }
+  25%{ transform: translate(1px,-1px); }
+  50%{ transform: translate(-1px,1px); }
+  75%{ transform: translate(1px,1px); }
+  100%{ transform: translate(0,0); }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width:768px){
+
+  .focusSection{
+    margin:30px 5%;
+    padding:25px;
+  }
+
+  .timer{
+    font-size:32px;
+  }
+
+  .focusCore{
+    width:160px;
+    height:160px;
+  }
+
+  .focusButtons{
+    flex-direction:column;
+  }
+
+}
+
+</style>
 <!-- SYSTEMS -->
 
 <section class="systemGrid">
@@ -1848,7 +2080,265 @@ Sistem siap memproses kemungkinan masa depan.
 </div>
 
 </section>
+<style>
+/* =========================
+   ROOT SYSTEM DESIGN
+========================= */
 
+:root{
+  --bg:#0b1020;
+  --card:rgba(255,255,255,0.06);
+  --card2:rgba(255,255,255,0.09);
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --accent:#38bdf8;
+  --accent2:#a78bfa;
+  --glow:0 0 25px rgba(56,189,248,0.35);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  background: radial-gradient(circle at top, #111827, #050814);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* smooth scroll */
+html{
+  scroll-behavior:smooth;
+}
+
+/* =========================
+   GLASS EFFECT BASE
+========================= */
+
+.glass{
+  background: var(--card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* =========================
+   SYSTEM GRID
+========================= */
+
+.systemGrid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:22px;
+  padding:60px 8%;
+}
+
+.systemCard{
+  background: var(--card);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+  padding:22px;
+  transition:0.4s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+/* glow border effect */
+.systemCard::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(135deg, transparent, rgba(56,189,248,0.15), transparent);
+  opacity:0;
+  transition:0.5s;
+}
+
+.systemCard:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--glow);
+  border-color: rgba(56,189,248,0.4);
+}
+
+.systemCard:hover::before{
+  opacity:1;
+}
+
+.systemCard h2{
+  font-size:18px;
+  margin-bottom:10px;
+  color:#fff;
+}
+
+.systemCard p{
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* button link */
+.systemCard a{
+  display:inline-block;
+  margin-top:14px;
+  padding:10px 14px;
+  border-radius:10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color:white;
+  text-decoration:none;
+  font-size:13px;
+  transition:0.3s;
+}
+
+.systemCard a:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(167,139,250,0.4);
+}
+
+/* =========================
+   EARTH SECTION
+========================= */
+
+.earthSection{
+  margin:60px 8%;
+  padding:40px;
+  border-radius:20px;
+}
+
+.earthTitle h1{
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.earthTitle p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.dashboard{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:18px;
+  margin-top:30px;
+}
+
+.dashboardCard{
+  background: var(--card2);
+  padding:18px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.06);
+  transition:0.4s;
+}
+
+.dashboardCard:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(56,189,248,0.2);
+  border-color: rgba(56,189,248,0.3);
+}
+
+.dashboardCard h2{
+  font-size:16px;
+  margin-bottom:8px;
+}
+
+.dashboardCard p{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* =========================
+   FUTURE BOX
+========================= */
+
+.futureBox{
+  margin:60px 8%;
+  padding:40px;
+  text-align:center;
+}
+
+.futureBox h1{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.futureBox p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.focusButtons button{
+  padding:12px 18px;
+  border:none;
+  border-radius:12px;
+  background: linear-gradient(135deg,#38bdf8,#6366f1);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow: 0 10px 30px rgba(56,189,248,0.25);
+}
+
+.focusButtons button:hover{
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(99,102,241,0.4);
+}
+
+.futureResult{
+  margin-top:30px;
+  padding:25px;
+  border-radius:16px;
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  animation: fadeIn 1s ease;
+}
+
+/* =========================
+   ANIMATION SYSTEM
+========================= */
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* floating subtle movement */
+.systemCard, .dashboardCard{
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{ transform: translateY(0px); }
+  50%{ transform: translateY(-4px); }
+}
+
+/* =========================
+   RESPONSIVE FINAL
+========================= */
+
+@media (max-width:768px){
+  .systemGrid{
+    padding:30px 5%;
+  }
+
+  .earthSection, .futureBox{
+    margin:30px 5%;
+    padding:25px;
+  }
+
+  .futureBox h1{
+    font-size:22px;
+  }
+}
+</style>
 <!-- AI -->
 
 <section class="glass aiSection">
@@ -1889,7 +2379,213 @@ Kirim
 </div>
 
 </section>
+<style>
 
+/* =========================
+   AI SECTION - ULTRA SYSTEM
+========================= */
+
+.aiSection{
+  margin:60px 8%;
+  padding:40px;
+  border-radius:22px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* animated AI background glow */
+.aiSection::before{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background: radial-gradient(circle at 30% 30%, rgba(56,189,248,0.15), transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(167,139,250,0.15), transparent 50%);
+  animation: aiGlowMove 10s linear infinite;
+  z-index:0;
+}
+
+@keyframes aiGlowMove{
+  0%{ transform: rotate(0deg) scale(1); }
+  50%{ transform: rotate(180deg) scale(1.2); }
+  100%{ transform: rotate(360deg) scale(1); }
+}
+
+/* keep content above glow */
+.aiSection > *{
+  position:relative;
+  z-index:1;
+}
+
+/* =========================
+   TITLE AI
+========================= */
+
+.aiSection h1{
+  font-size:30px;
+  margin-bottom:25px;
+  background: linear-gradient(90deg,#38bdf8,#a78bfa,#22c55e);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow: 0 0 25px rgba(56,189,248,0.2);
+}
+
+/* =========================
+   CHAT BOX
+========================= */
+
+.chatBox{
+  height:320px;
+  overflow-y:auto;
+  padding:18px;
+  border-radius:18px;
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.4);
+}
+
+/* scrollbar AI style */
+.chatBox::-webkit-scrollbar{
+  width:6px;
+}
+
+.chatBox::-webkit-scrollbar-thumb{
+  background: linear-gradient(#38bdf8,#a78bfa);
+  border-radius:10px;
+}
+
+/* =========================
+   AI BUBBLE
+========================= */
+
+.aiBubble{
+  display:inline-block;
+  max-width:80%;
+  padding:14px 16px;
+  margin:10px 0;
+  border-radius:16px 16px 16px 4px;
+  background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(167,139,250,0.15));
+  border:1px solid rgba(56,189,248,0.25);
+  color:#e5e7eb;
+  font-size:14px;
+  line-height:1.7;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  animation: bubbleIn 0.5s ease;
+}
+
+/* bubble animation */
+@keyframes bubbleIn{
+  from{
+    opacity:0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================
+   INPUT SYSTEM AI
+========================= */
+
+.chatInput{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+}
+
+.chatInput input{
+  flex:1;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color:#e5e7eb;
+  outline:none;
+  font-size:14px;
+  transition:0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.chatInput input:focus{
+  border-color:#38bdf8;
+  box-shadow: 0 0 20px rgba(56,189,248,0.25);
+}
+
+/* button AI cyber style */
+.chatInput button{
+  padding:14px 18px;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+  font-weight:bold;
+  color:white;
+  background: linear-gradient(135deg,#38bdf8,#6366f1,#a78bfa);
+  box-shadow: 0 10px 25px rgba(56,189,248,0.25);
+  transition:0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+/* button glow sweep */
+.chatInput button::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition:0.5s;
+}
+
+.chatInput button:hover::before{
+  left:100%;
+}
+
+.chatInput button:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(99,102,241,0.4);
+}
+
+/* =========================
+   SCROLL FEEL FUTURE AI
+========================= */
+
+.chatBox{
+  scroll-behavior:smooth;
+}
+
+/* =========================
+   RESPONSIVE AI
+========================= */
+
+@media (max-width:768px){
+  .aiSection{
+    margin:30px 5%;
+    padding:25px;
+  }
+
+  .aiSection h1{
+    font-size:22px;
+  }
+
+  .chatBox{
+    height:260px;
+  }
+
+  .chatInput{
+    flex-direction:column;
+  }
+
+  .chatInput button{
+    width:100%;
+  }
+}
+
+</style>
 <!-- LEVEL -->
 
 <section
@@ -1902,210 +2598,195 @@ id="levels"
 </h1>
 
 <div class="levelGrid">
-
-<div class="levelCard">
-
-<h2>🥉</h2>
-
-<h3>Beginner</h3>
-
-<p>
-Mulai membangun kebiasaan positif.
-</p>
-
+<div class="levelCard"><h2>🌑</h2><h3>Zero</h3><p>Awal tanpa arah. Kesadaran belum terbentuk.</p></div>
+<div class="levelCard"><h2>🌱</h2><h3>Awakening</h3><p>Kesadaran mulai muncul, keinginan berubah lahir.</p></div>
+<div class="levelCard"><h2>✨</h2><h3>Initiate</h3><p>Langkah pertama menuju perubahan nyata.</p></div>
+<div class="levelCard"><h2>🪨</h2><h3>Foundation</h3><p>Dasar disiplin dan karakter mulai terbentuk.</p></div>
+<div class="levelCard"><h2>⚔️</h2><h3>Rookie</h3><p>Mulai melawan kebiasaan buruk dan ego.</p></div>
+<div class="levelCard"><h2>🥉</h2><h3>Beginner</h3><p>Konsistensi awal mulai stabil.</p></div>
+<div class="levelCard"><h2>🥈</h2><h3>Advanced</h3><p>Skill dan disiplin meningkat signifikan.</p></div>
+<div class="levelCard"><h2>🥇</h2><h3>Master</h3><p>Kendali diri mulai stabil sepenuhnya.</p></div>
+<div class="levelCard"><h2>👑</h2><h3>Legend</h3><p>Menjadi inspirasi bagi lingkungan sekitar.</p></div>
+<div class="levelCard"><h2>⚡</h2><h3>Mythic</h3><p>Keputusan cepat dan presisi tinggi.</p></div>
+<div class="levelCard"><h2>🌌</h2><h3>Transcendent</h3><p>Melampaui batas manusia biasa.</p></div>
+<div class="levelCard"><h2>🔥</h2><h3>Ascendant</h3><p>Disiplin menjadi identitas hidup.</p></div>
+<div class="levelCard"><h2>👁️</h2><h3>Omniscient</h3><p>Kesadaran tinggi terhadap realitas.</p></div>
+<div class="levelCard"><h2>💠</h2><h3>Supreme</h3><p>Kontrol penuh atas diri dan keputusan.</p></div>
+<div class="levelCard"><h2>♾️</h2><h3>Eternal</h3><p>Nilai hidup melampaui waktu.</p></div>
+<div class="levelCard"><h2>☀️</h2><h3>Final Deity</h3><p>Puncak evolusi manusia.</p></div>
+<div class="levelCard"><h2>🌠</h2><h3>Infinite Architect</h3><p>Membangun sistem besar dan berpengaruh.</p></div>
+<div class="levelCard"><h2>🌍</h2><h3>World Shaper</h3><p>Mengubah dunia melalui kontribusi nyata.</p></div>
+<div class="levelCard"><h2>🚀</h2><h3>Cosmic Pioneer</h3><p>Pelopor ide dan inovasi baru.</p></div>
+<div class="levelCard"><h2>🌌</h2><h3>Universal Legacy</h3><p>Warisan yang hidup lintas generasi.</p></div>
+<div class="levelCard"><h2>✨</h2><h3>Beyond Finality</h3><p>Kesadaran bahwa tidak ada akhir.</p></div>
+<div class="levelCard"><h2>🌟</h2><h3>Infinite Horizon</h3><p>Melihat kemungkinan tanpa batas.</p></div>
+<div class="levelCard"><h2>🏛️</h2><h3>Legacy Builder</h3><p>Membangun sesuatu yang abadi.</p></div>
+<div class="levelCard"><h2>🧠</h2><h3>Wisdom Ascension</h3><p>Pengetahuan berubah jadi kebijaksanaan.</p></div>
+<div class="levelCard"><h2>🌐</h2><h3>Global Catalyst</h3><p>Memberi dampak skala dunia.</p></div>
+<div class="levelCard"><h2>💎</h2><h3>Timeless Excellence</h3><p>Kualitas tanpa batas waktu.</p></div>
+<div class="levelCard"><h2>🌠</h2><h3>Infinite Impact</h3><p>Dampak yang terus menyebar.</p></div>
+<div class="levelCard"><h2>🔱</h2><h3>Grand Architect</h3><p>Perancang masa depan besar.</p></div>
+<div class="levelCard"><h2>🌌</h2><h3>Cosmic Legacy</h3><p>Jejak di skala kosmik.</p></div>
+<div class="levelCard"><h2>♾️</h2><h3>Eternal Evolution</h3><p>Perkembangan tanpa akhir.</p></div>
+<div class="levelCard"><h2>☄️</h2><h3>Limitless Visionary</h3><p>Visi tanpa batas.</p></div>
+<div class="levelCard"><h2>🌞</h2><h3>Beacon of Humanity</h3><p>Penerang bagi manusia lain.</p></div>
+<div class="levelCard"><h2>🌈</h2><h3>Infinite Legacy</h3><p>Warisan tanpa akhir.</p></div>
+<div class="levelCard"><h2>✨🌌✨</h2><h3>The Endless Journey</h3><p>Perjalanan tanpa akhir.</p></div>
+<div class="levelCard"><h2>🌀</h2><h3>Origin Seeker</h3><p>Mencari asal segala sesuatu.</p></div>
+<div class="levelCard"><h2>⭐</h2><h3>Reality Walker</h3><p>Melintasi batas realitas.</p></div>
+<div class="levelCard"><h2>🌠</h2><h3>Dimension Creator</h3><p>Menciptakan realitas baru.</p></div>
+<div class="levelCard"><h2>🌌</h2><h3>Multiverse Architect</h3><p>Perancang banyak dunia.</p></div>
+<div class="levelCard"><h2>♾️</h2><h3>Infinite Consciousness</h3><p>Kesadaran tanpa batas.</p></div>
+<div class="levelCard"><h2>🔮</h2><h3>Keeper of Time</h3><p>Pengendali waktu dan sejarah.</p></div>
+<div class="levelCard"><h2>🌍</h2><h3>Guardian of Worlds</h3><p>Penjaga semua dunia.</p></div>
+<div class="levelCard"><h2>☀️</h2><h3>Source of Light</h3><p>Sumber energi kehidupan.</p></div>
+<div class="levelCard"><h2>🌊</h2><h3>Ocean of Wisdom</h3><p>Kebijaksanaan tak terbatas.</p></div>
+<div class="levelCard"><h2>🕊️</h2><h3>Harmony Eternal</h3><p>Keseimbangan abadi.</p></div>
+<div class="levelCard"><h2>🌌</h2><h3>Cosmic Origin</h3><p>Awal dari semua eksistensi.</p></div>
+<div class="levelCard"><h2>💫</h2><h3>Alpha Point</h3><p>Titik pertama realitas.</p></div>
+<div class="levelCard"><h2>✨</h2><h3>Prime Existence</h3><p>Eksistensi murni.</p></div>
+<div class="levelCard"><h2>🌟</h2><h3>Universal Core</h3><p>Pusat semua alam semesta.</p></div>
+<div class="levelCard"><h2>♾️</h2><h3>Absolute Infinity</h3><p>Tak terbatas mutlak.</p></div>
+<div class="levelCard"><h2>🔆</h2><h3>Beyond Infinity</h3><p>Melampaui tak hingga.</p></div>
+<div class="levelCard"><h2>🌠</h2><h3>Beyond Beyond Infinity</h3><p>Lapisan di atas tak hingga.</p></div>
+<div class="levelCard"><h2>🌌</h2><h3>Eternal Source</h3><p>Sumber segala keberadaan.</p></div>
+<div class="levelCard"><h2>☀️</h2><h3>First Light</h3><p>Cahaya pertama eksistensi.</p></div>
+<div class="levelCard"><h2>🌀</h2><h3>The Beginning</h3><p>Semua dimulai kembali.</p></div>
+<div class="levelCard"><h2>🌑</h2><h3>Zero Reborn</h3><p>Siklus kembali ke awal dengan kesadaran baru.</p></div>
 </div>
-<div class="levelCard">
-
-<h2>🌑</h2>
-
-<h3>Zero</h3>
-
-<p>
-Titik awal perjalanan. Belum memiliki arah yang jelas, kebiasaan positif belum terbentuk, dan masih berada dalam fase pencarian jati diri serta tujuan hidup.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>🌱</h2>
-
-<h3>Awakening</h3>
-
-<p>
-Mulai menyadari pentingnya perubahan. Kesadaran untuk berkembang mulai tumbuh dan muncul dorongan awal untuk keluar dari zona nyaman.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>✨</h2>
-
-<h3>Initiate</h3>
-
-<p>
-Langkah pertama mulai diambil. Kebiasaan kecil mulai dibangun, semangat belajar meningkat, dan fondasi perubahan perlahan mulai terbentuk.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>🪨</h2>
-
-<h3>Foundation</h3>
-
-<p>
-Dasar disiplin mulai terbentuk. Konsistensi awal mulai terlihat meski tantangan masih sering menguji komitmen dan ketahanan diri.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>⚔️</h2>
-
-<h3>Rookie</h3>
-
-<p>
-Mulai melawan rasa malas, gangguan, dan kebiasaan buruk. Fokus perlahan meningkat seiring terbentuknya pola produktif yang lebih stabil.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>🥉</h2>
-
-<h3>Beginner</h3>
-
-<p>
-Kebiasaan positif mulai tertanam. Disiplin belum sempurna, tetapi arah perkembangan semakin jelas dan motivasi untuk bertumbuh terus menguat.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>🥈</h2>
-
-<h3>Advanced</h3>
-
-<p>
-Disiplin, fokus, dan produktivitas meningkat secara nyata. Pengelolaan waktu menjadi lebih baik dan hasil kerja mulai menunjukkan perkembangan signifikan.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>🥇</h2>
-
-<h3>Master</h3>
-
-<p>
-Konsistensi telah menjadi kebiasaan. Pola pikir lebih terstruktur, strategi lebih matang, dan setiap tindakan dilakukan dengan arah yang jelas.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>👑</h2>
-
-<h3>Legend</h3>
-
-<p>
-Puncak evolusi manusia modern. Disiplin menjadi identitas, visi terwujud melalui tindakan nyata, dan kehadiranmu menjadi inspirasi bagi lingkungan sekitar.
-</p>
-
-</div>
-<div class="levelCard">
-
-<h2>⚡</h2>
-
-<h3>Mythic</h3>
-
-<p>
-Melewati batas normal, keputusan tajam, eksekusi presisi, dan konsistensi tanpa kompromi.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>🌌</h2>
-
-<h3>Transcendent</h3>
-
-<p>
-Melampaui standar manusia biasa, menguasai diri sepenuhnya, berpikir jauh ke depan, dan menciptakan dampak besar.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>🔥</h2>
-
-<h3>Ascendant</h3>
-
-<p>
-Setiap tindakan terarah, disiplin menjadi identitas, visi menjadi kenyataan, dan pertumbuhan berlangsung tanpa henti.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>👁️</h2>
-
-<h3>Omniscient</h3>
-
-<p>
-Kesadaran tinggi, strategi matang, kontrol penuh atas waktu, emosi, dan tindakan.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>💠</h2>
-
-<h3>Supreme</h3>
-
-<p>
-Puncak penguasaan diri, konsistensi absolut, ketajaman berpikir maksimal, dan kemampuan membentuk realitas melalui tindakan.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>♾️</h2>
-
-<h3>Eternal</h3>
-
-<p>
-Tahap akhir evolusi. Tidak lagi sekadar berkembang, tetapi menjadi standar tertinggi dari disiplin, kebijaksanaan, dan pencapaian tanpa batas.
-</p>
-
-</div>
-
-<div class="levelCard">
-
-<h2>☀️</h2>
-
-<h3>Final Deity</h3>
-
-<p>
-Level tertinggi mutlak. Seluruh potensi telah teraktualisasi sempurna. Pikiran strategis, tindakan presisi, konsistensi tak tergoyahkan, dan pengaruh yang melampaui generasi.
-</p>
-
-</div>
-</div>
-
+<style>
+/* ===== BASE ===== */
+body{
+    margin:0;
+    font-family:'Poppins', Arial, sans-serif;
+    background: radial-gradient(circle at top, #050814, #000);
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ===== CONTAINER GRID ===== */
+.levelGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:18px;
+    padding:40px;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ===== LEVEL CARD ===== */
+.levelCard{
+    position:relative;
+    padding:20px;
+    border-radius:16px;
+
+    background: rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(12px);
+
+    transition: all 0.4s ease;
+
+    overflow:hidden;
+
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* ===== HOVER EFFECT (POWER GLOW) ===== */
+.levelCard:hover{
+    transform: translateY(-8px) scale(1.03);
+    border-color: rgba(0,255,255,0.6);
+    box-shadow:
+        0 0 20px rgba(0,255,255,0.25),
+        0 0 60px rgba(0,255,255,0.15);
+}
+
+/* ===== ICON ===== */
+.levelCard h2{
+    font-size:34px;
+    margin:0;
+    filter: drop-shadow(0 0 8px rgba(0,255,255,0.5));
+}
+
+/* ===== TITLE ===== */
+.levelCard h3{
+    margin:8px 0 6px;
+    font-size:18px;
+    color:#00ffd5;
+    letter-spacing:0.5px;
+    text-shadow: 0 0 10px rgba(0,255,213,0.4);
+}
+
+/* ===== DESCRIPTION ===== */
+.levelCard p{
+    font-size:13px;
+    line-height:1.5;
+    color:rgba(255,255,255,0.75);
+}
+
+/* ===== GLOW BORDER ANIMATION ===== */
+.levelCard::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    background: linear-gradient(45deg,
+        transparent,
+        rgba(0,255,255,0.3),
+        transparent
+    );
+    z-index:0;
+    animation: glowMove 4s linear infinite;
+    opacity:0;
+}
+
+.levelCard:hover::before{
+    opacity:1;
+}
+
+@keyframes glowMove{
+    0%{transform:translateX(-100%);}
+    100%{transform:translateX(100%);}
+}
+
+/* ===== DIFFERENT COSMIC COLORS BY ORDER ===== */
+.levelCard:nth-child(4n+1){
+    border-color: rgba(0,255,255,0.2);
+}
+
+.levelCard:nth-child(4n+2){
+    border-color: rgba(255,0,200,0.2);
+}
+
+.levelCard:nth-child(4n+3){
+    border-color: rgba(0,255,100,0.2);
+}
+
+.levelCard:nth-child(4n+4){
+    border-color: rgba(255,200,0,0.2);
+}
+
+/* ===== SCROLL FEEL (DEEP SPACE) ===== */
+html{
+    scroll-behavior:smooth;
+}
+
+/* ===== FLOAT ANIMATION (LIVING CARDS) ===== */
+.levelCard{
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+    0%,100%{transform:translateY(0px);}
+    50%{transform:translateY(-5px);}
+}
+
+/* ===== ULTRA MODE SHADOW ===== */
+.levelCard:hover h3{
+    color:#ffffff;
+    text-shadow: 0 0 15px #00ffd5;
+}
+
+</style>
 </section>
 
 <!-- SCHOOL -->
@@ -2228,7 +2909,167 @@ Membangun inovasi dan ide masa depan.
 </section>
 
 <!-- FOOTER -->
+<style>
 
+/* ===== BASE ===== */
+body{
+    margin:0;
+    font-family:'Poppins', Arial, sans-serif;
+    background: radial-gradient(circle at top, #060818, #000);
+    color:#fff;
+}
+
+/* ===== GLASS CONTAINER ===== */
+.glass{
+    background: rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+    border-radius:22px;
+    padding:35px;
+    max-width:1100px;
+    margin:60px auto;
+    box-shadow: 0 0 60px rgba(0,0,0,0.6);
+    position:relative;
+    overflow:hidden;
+}
+
+/* ===== TITLE ===== */
+.schoolBox h1{
+    font-size:32px;
+    text-align:center;
+    background: linear-gradient(90deg,#00ffd5,#3b82f6,#a855f7);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow: 0 0 20px rgba(0,255,255,0.2);
+}
+
+/* ===== DASHBOARD GRID ===== */
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin-top:30px;
+}
+
+/* ===== DASHBOARD CARD ===== */
+.dashboardCard{
+    background: rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:16px;
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+/* hover glow AI effect */
+.dashboardCard:hover{
+    transform: translateY(-8px) scale(1.03);
+    border-color:#00ffd5;
+    box-shadow: 0 0 25px rgba(0,255,213,0.3),
+                0 0 60px rgba(0,150,255,0.15);
+}
+
+/* ICON TITLE */
+.dashboardCard h2{
+    margin:0;
+    font-size:20px;
+    color:#00ffd5;
+    text-shadow:0 0 10px rgba(0,255,213,0.4);
+}
+
+/* TEXT */
+.dashboardCard p{
+    font-size:13px;
+    color:#cbd5e1;
+    line-height:1.5;
+}
+
+/* ===== QUOTE BOX ===== */
+.schoolQuote{
+    margin-top:35px;
+    padding:25px;
+    text-align:center;
+    font-size:16px;
+    font-style:italic;
+    color:#e2e8f0;
+    border-left:4px solid #00ffd5;
+    border-right:4px solid #3b82f6;
+    border-radius:12px;
+    background: rgba(255,255,255,0.02);
+    box-shadow: 0 0 25px rgba(0,255,213,0.1);
+}
+
+/* ===== BUTTON AREA ===== */
+.schoolBox a{
+    position:relative;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+/* BUTTON HOVER LUXURY EFFECT */
+.schoolBox a:hover{
+    transform: scale(1.08);
+    filter: brightness(1.2);
+    box-shadow: 0 0 20px rgba(255,255,255,0.15);
+}
+
+/* SHIMMER EFFECT */
+.schoolBox a::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background: linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
+    transition:0.5s;
+}
+
+.schoolBox a:hover::before{
+    left:100%;
+}
+
+/* ===== FLOAT ANIMATION ===== */
+.dashboardCard{
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+    0%,100%{transform:translateY(0px);}
+    50%{transform:translateY(-6px);}
+}
+
+/* ===== GLOW BACKGROUND ENERGY ===== */
+.glass::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    background: radial-gradient(circle, rgba(0,255,213,0.15), transparent 60%);
+    top:-200px;
+    left:-200px;
+    animation: moveGlow 10s infinite alternate;
+    filter: blur(60px);
+}
+
+@keyframes moveGlow{
+    from{transform:translate(0,0);}
+    to{transform:translate(200px,150px);}
+}
+
+/* ===== RESPONSIVE TEXT ===== */
+@media (max-width:600px){
+    .schoolBox h1{
+        font-size:24px;
+    }
+
+    .dashboardCard{
+        padding:15px;
+    }
+}
+
+</style>
 <footer class="footer">
 
 <h2>
