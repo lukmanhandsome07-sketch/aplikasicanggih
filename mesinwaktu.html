@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🌌 Future Reality Engine X</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
+color:#fff;
+overflow-x:hidden;
+min-height:100vh;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.title{
+text-align:center;
+margin-top:20px;
+}
+
+.title h1{
+font-size:3rem;
+color:cyan;
+text-shadow:0 0 20px cyan;
+}
+
+.panel{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:20px;
+margin-top:20px;
+}
+
+input,button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+background:cyan;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+transform:scale(1.02);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+padding:15px;
+border-radius:15px;
+}
+
+.bar{
+height:10px;
+background:#222;
+border-radius:20px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.fill{
+height:100%;
+background:cyan;
+width:0%;
+transition:1s;
+}
+
+.timeline-item{
+margin:8px 0;
+padding:8px;
+background:rgba(0,255,255,.08);
+border-radius:10px;
+}
+
+.footer{
+text-align:center;
+margin-top:40px;
+opacity:.7;
+}
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<div class="container">
+
+<div class="title">
+<h1>🌌 FUTURE REALITY ENGINE X</h1>
+<p>Mesin Simulasi Masa Depan Interaktif</p>
+</div>
+
+<div class="panel">
+<input type="number" id="year" placeholder="Masukkan Tahun Tujuan">
+<button onclick="travel()">🚀 Aktifkan Portal</button>
+<div id="result" style="margin-top:15px"></div>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>🤖 AI Future Analyst</h3>
+<p id="analysis">Menunggu simulasi...</p>
+</div>
+
+<div class="card">
+<h3>🌍 Future World Scanner</h3>
+<div id="scanner"></div>
+</div>
+
+<div class="card">
+<h3>📈 Progress Teknologi</h3>
+
+Teknologi
+<div class="bar"><div id="tech" class="fill"></div></div>
+
+Robotik
+<div class="bar"><div id="robot" class="fill"></div></div>
+
+Energi
+<div class="bar"><div id="energy" class="fill"></div></div>
+
+Luar Angkasa
+<div class="bar"><div id="space" class="fill"></div></div>
+
+</div>
+
+</div>
+
+<div class="panel">
+<h2>📜 Timeline Simulasi</h2>
+<div id="timeline"></div>
+</div>
+
+<div class="panel">
+<h2>🏆 Achievement</h2>
+<div id="achievement">
+Belum ada pencapaian.
+</div>
+</div>
+
+<div class="footer">
+⚠️ Simulasi berdasarkan kemungkinan dan tren. Bukan prediksi pasti masa depan.
+</div>
+
+</div>
+
+<script>
+const canvas=document.getElementById('stars');
+const ctx=canvas.getContext('2d');
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+const stars=[];
+
+for(let i=0;i<250;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2
+});
+}
+
+function animateStars(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle='white';
+
+stars.forEach(s=>{
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.fill();
+
+s.y+=0.3;
+
+if(s.y>canvas.height){
+s.y=0;
+s.x=Math.random()*canvas.width;
+}
+});
+
+requestAnimationFrame(animateStars);
+}
+
+animateStars();
+
+const events=[
+
+"AI menjadi alat bantu belajar yang lebih personal",
+"Robot membantu pekerjaan berulang di industri",
+"Komputasi semakin cepat dan efisien",
+"Perangkat wearable semakin canggih",
+"Kacamata AR digunakan lebih luas",
+"Terjemahan bahasa real-time semakin akurat",
+"Sistem rumah pintar semakin umum",
+"Keamanan siber menjadi semakin penting",
+"Internet satelit menjangkau lebih banyak wilayah",
+"Analisis data membantu pengambilan keputusan",
+
+"Deteksi penyakit semakin dini",
+"Telemedicine semakin berkembang",
+"Teknologi rehabilitasi semakin baik",
+"Robot membantu prosedur medis tertentu",
+"Pemantauan kesehatan real-time meningkat",
+"Pengobatan lebih personal berdasarkan data pasien",
+"Teknologi kesehatan mental semakin berkembang",
+"Alat diagnosis menjadi lebih cepat",
+"Penelitian penyakit langka bertambah",
+"Harapan hidup berpotensi meningkat",
+
+"Pembelajaran adaptif berbasis AI",
+"Laboratorium virtual semakin umum",
+"Simulasi interaktif digunakan dalam pendidikan",
+"Belajar jarak jauh semakin fleksibel",
+"Materi belajar lebih mudah diakses",
+"Sertifikasi digital berkembang",
+"Kolaborasi global antar pelajar meningkat",
+"Pembelajaran berbasis proyek semakin populer",
+"Analitik pendidikan membantu guru",
+"Teknologi mendukung pembelajaran seumur hidup",
+
+"Eksplorasi Bulan terus berkembang",
+"Penelitian Mars bertambah",
+"Teleskop generasi baru menemukan data baru",
+"Pariwisata luar angkasa berkembang perlahan",
+"Satelit observasi bumi meningkat",
+"Misi robotik semakin kompleks",
+"Kolaborasi internasional ruang angkasa meningkat",
+"Teknologi roket lebih efisien",
+"Penelitian asteroid bertambah",
+"Stasiun luar angkasa komersial berkembang",
+
+"Energi surya semakin efisien",
+"Teknologi penyimpanan energi meningkat",
+"Kota hijau semakin banyak dikembangkan",
+"Pengelolaan limbah semakin modern",
+"Pemantauan lingkungan berbasis sensor meningkat",
+"Pertanian presisi berkembang",
+"Transportasi rendah emisi bertambah",
+"Konservasi ekosistem memanfaatkan teknologi",
+"Teknologi daur ulang meningkat",
+"Efisiensi penggunaan air semakin baik",
+
+"Informasi yang ditampilkan adalah simulasi berdasarkan tren, sejarah, dan perkembangan teknologi. Masa depan tidak dapat diketahui secara pasti."
+];
+
+function random(min,max){
+return Math.floor(Math.random()*(max-min+1))+min;
+}
+
+function travel(){
+
+const year=document.getElementById('year').value;
+
+if(!year){
+alert("Masukkan tahun tujuan");
+return;
+}
+
+const event=events[random(0,events.length-1)];
+
+document.getElementById('result').innerHTML=
+`🌌 Terhubung ke tahun ${year}<br><br>📡 Skenario: ${event}`;
+
+document.getElementById('analysis').innerHTML=
+`Berdasarkan simulasi, perkembangan teknologi, energi, kesehatan, dan otomatisasi kemungkinan meningkat dibanding saat ini.`;
+
+document.getElementById('scanner').innerHTML=
+`
+🌍 Populasi Simulasi: ${random(8,15)} Miliar<br>
+🤖 AI Index: ${random(70,99)}%<br>
+⚡ Energi Bersih: ${random(50,95)}%<br>
+🚀 Space Development: ${random(40,98)}%
+`;
+
+document.getElementById('tech').style.width=random(70,100)+"%";
+document.getElementById('robot').style.width=random(70,100)+"%";
+document.getElementById('energy').style.width=random(70,100)+"%";
+document.getElementById('space').style.width=random(70,100)+"%";
+
+let timeline='';
+
+for(let i=1;i<=5;i++){
+timeline+=`
+<div class="timeline-item">
+${parseInt(year)-i*5} → ${events[random(0,events.length-1)]}
+</div>
+`;
+}
+
+document.getElementById('timeline').innerHTML=timeline;
+
+document.getElementById('achievement').innerHTML=
+`
+🏆 Future Explorer<br>
+🏆 Timeline Generator<br>
+🏆 Time Traveler
+`;
+}
+</script>
+
+</body>
+</html>
