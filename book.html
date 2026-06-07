@@ -22,50 +22,33 @@ padding:30px;
 }
 
 .container{
-max-width:1400px;
+max-width:1200px;
 margin:auto;
 }
 
-.hero{
+h1{
 text-align:center;
-padding:50px 20px;
-}
-
-.hero h1{
+margin-bottom:30px;
 font-size:3rem;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:1.2rem;
-opacity:.85;
-line-height:1.8;
-max-width:1000px;
-margin:auto;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
-margin-top:40px;
 }
 
 .card{
 background:rgba(255,255,255,.05);
-backdrop-filter:blur(10px);
 border:1px solid rgba(255,255,255,.1);
-border-radius:20px;
+backdrop-filter:blur(10px);
 padding:25px;
-}
-
-.card h2{
-margin-bottom:15px;
-font-size:1.3rem;
+border-radius:20px;
+text-align:center;
 }
 
 .number{
-font-size:2.2rem;
+font-size:2.5rem;
 font-weight:bold;
 margin-top:10px;
 }
@@ -74,8 +57,8 @@ margin-top:10px;
 height:10px;
 background:#222;
 border-radius:20px;
-margin-top:15px;
 overflow:hidden;
+margin-top:15px;
 }
 
 .progress span{
@@ -84,71 +67,42 @@ height:100%;
 background:linear-gradient(90deg,#00d4ff,#00ff88);
 }
 
-.map{
-margin-top:50px;
-background:rgba(255,255,255,.05);
-border-radius:25px;
-padding:30px;
-text-align:center;
-}
-
-.center-node{
-width:150px;
-height:150px;
-border-radius:50%;
-background:linear-gradient(135deg,#00d4ff,#00ff88);
-display:flex;
-justify-content:center;
-align-items:center;
-margin:auto;
-font-size:1.2rem;
-font-weight:bold;
-color:black;
-}
-
-.branches{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:20px;
+.panel{
 margin-top:40px;
-}
-
-.branch{
-padding:20px;
-min-width:180px;
-border-radius:15px;
-background:#151c35;
-}
-
-button{
-padding:12px 25px;
-border:none;
-border-radius:12px;
-cursor:pointer;
-margin-top:20px;
-font-size:16px;
-}
-
-input{
-width:100%;
-padding:12px;
-margin-top:10px;
-border:none;
-border-radius:10px;
-}
-
-.form{
-margin-top:50px;
 background:rgba(255,255,255,.05);
 padding:30px;
 border-radius:20px;
 }
 
+input,select{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+background:linear-gradient(90deg,#00d4ff,#00ff88);
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+opacity:.9;
+}
+
 .footer{
-margin-top:50px;
+margin-top:40px;
 text-align:center;
-opacity:.7;
+opacity:.8;
+line-height:1.8;
 }
 </style>
 </head>
@@ -156,101 +110,88 @@ opacity:.7;
 
 <div class="container">
 
-<div class="hero">
 <h1>🌍 Peta Dampak Kehidupan</h1>
-
-<p>
-Memvisualisasikan perjalanan belajar, karya,
-kontribusi, dan perkembangan diri menjadi sebuah
-peta pengaruh yang terus bertumbuh dari waktu ke waktu.
-</p>
-</div>
 
 <div class="grid">
 
 <div class="card">
 <h2>📚 Buku Dibaca</h2>
 <div class="number" id="books">120</div>
-<div class="progress">
-<span style="width:75%"></span>
-</div>
+<div class="progress"><span style="width:75%"></span></div>
 </div>
 
 <div class="card">
 <h2>🎓 Jam Belajar</h2>
 <div class="number" id="learning">2500</div>
-<div class="progress">
-<span style="width:90%"></span>
-</div>
+<div class="progress"><span style="width:90%"></span></div>
 </div>
 
 <div class="card">
 <h2>🎨 Karya Dibuat</h2>
 <div class="number" id="works">85</div>
-<div class="progress">
-<span style="width:70%"></span>
-</div>
+<div class="progress"><span style="width:70%"></span></div>
 </div>
 
 <div class="card">
 <h2>🤝 Orang Dibantu</h2>
 <div class="number" id="people">540</div>
-<div class="progress">
-<span style="width:88%"></span>
-</div>
+<div class="progress"><span style="width:88%"></span></div>
 </div>
 
 </div>
 
-<div class="map">
+<div class="panel">
+
+<h2>➕➖ Kelola Data</h2>
+
+<select id="target">
+<option value="books">📚 Buku Dibaca</option>
+<option value="learning">🎓 Jam Belajar</option>
+<option value="works">🎨 Karya Dibuat</option>
+<option value="people">🤝 Orang Dibantu</option>
+</select>
+
+<input type="number" id="jumlah" placeholder="Masukkan angka">
+
+<button onclick="tambahData()">
+➕ Tambah
+</button>
+
+<button onclick="kurangiData()">
+➖ Kurangi
+</button>
+
+</div>
+
+<div class="panel">
 
 <h2>🧠 Visualisasi Dampak</h2>
 
 <br>
 
-<div class="center-node">
+<div style="display:flex;justify-content:center;">
+<div style="
+width:150px;
+height:150px;
+border-radius:50%;
+background:linear-gradient(135deg,#00d4ff,#00ff88);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:black;">
 ANDA
 </div>
-
-<div class="branches">
-
-<div class="branch">
-📚 Pengetahuan
-<br><br>
-+120 Buku
 </div>
 
-<div class="branch">
-🎨 Kreativitas
-<br><br>
-+85 Karya
-</div>
+<div class="grid" style="margin-top:30px;">
 
-<div class="branch">
-🤝 Kontribusi
-<br><br>
-+540 Orang
-</div>
-
-<div class="branch">
-🚀 Pengembangan
-<br><br>
-+2500 Jam
-</div>
+<div class="card">📚 Pengetahuan</div>
+<div class="card">🎓 Pembelajaran</div>
+<div class="card">🎨 Kreativitas</div>
+<div class="card">🤝 Kontribusi</div>
 
 </div>
-
-</div>
-
-<div class="form">
-
-<h2>➕ Tambah Dampak Baru</h2>
-
-<input id="bookInput" type="number" placeholder="Tambah jumlah buku">
-
-<button onclick="addBook()">
-Tambah Data
-</button>
 
 </div>
 
@@ -260,218 +201,211 @@ Tambah Data
 ✨ Setiap ilmu yang dipelajari,
 setiap karya yang dibuat,
 dan setiap kebaikan yang dibagikan
-membentuk jejak pengaruh yang terus berkembang.
+akan menjadi dampak yang terus berkembang.
 </h3>
 
 </div>
 
 </div>
 
-<script>
-
-function addBook(){
-
-let input =
-document.getElementById("bookInput");
-
-let value =
-parseInt(input.value);
-
-if(isNaN(value)) return;
-
-let current =
-parseInt(
-document.getElementById("books")
-.innerText
-);
-
-document.getElementById("books")
-.innerText = current + value;
-
-input.value = "";
-}
-
-</script>
-<div class="card">
-<h2>📚 Buku Dibaca</h2>
-<div class="number" id="books">120</div>
-<div class="progress">
-<span style="width:75%"></span>
-</div>
-</div>
-
-<div class="card">
-<h2>🎓 Jam Belajar</h2>
-<div class="number" id="learning">2500</div>
-<div class="progress">
-<span style="width:90%"></span>
-</div>
-</div>
-
-<div class="card">
-<h2>🎨 Karya Dibuat</h2>
-<div class="number" id="works">85</div>
-<div class="progress">
-<span style="width:70%"></span>
-</div>
-</div>
-
-<div class="card">
-<h2>🤝 Orang Dibantu</h2>
-<div class="number" id="people">540</div>
-<div class="progress">
-<span style="width:88%"></span>
-</div>
-</div>
-
-<div class="card">
-<h2>📝 Artikel Dipelajari</h2>
-<div class="number">3200</div>
-<div class="progress">
-<span style="width:95%"></span>
-</div>
-</div>
-
-<div class="card">
-<h2>🎥 Video Edukasi</h2>
-<div class="number">1800</div>
-<div class="progress">
-<span style="width:92%"></span>
-</div>
-</div>
-
-<div class="card">
-<h2>💡 Ide Tercatat</h2>
-<div class="number">750</div>
-<div class="progress">
-<span style="width:80%"></span>
-</div>
-</div>
-
-<div class="card">
-<h2>🌍 Dampak Kehidupan</h2>
-<div class="number">12.500</div>
-<div class="progress">
-<span style="width:98%"></span>
-</div>
-</div>
-
-<div class="card">
-<h2>🚀 Target Tercapai</h2>
-<div class="number">210</div>
-<div class="progress">
-<span style="width:85%"></span>
-</div>
-</div>
-
-<div class="card">
-<h2>🧠 Skill Dikuasai</h2>
-<div class="number">47</div>
-<div class="progress">
-<span style="width:78%"></span>
-</div>
-</div>
-
-<div class="card">
-<h2>📸 Dokumentasi Hidup</h2>
-<div class="number">28.400</div>
-<div class="progress">
-<span style="width:96%"></span>
-</div>
-</div>
-
-<div class="card">
-<h2>⭐ Jejak Kebaikan</h2>
-<div class="number">9.800</div>
-<div class="progress">
-<span style="width:99%"></span>
-</div>
-</div>
-<div class="map">
-    <h2>🌳 Pohon Dampak Kehidupan</h2>
-
-<div class="branches">
-
-<div class="branch">
-📚 Pengetahuan
-<br><br>
-120 Buku
-<br>
-3200 Artikel
-</div>
-
-<div class="branch">
-🎓 Pembelajaran
-<br><br>
-2500 Jam
-<br>
-1800 Video
-</div>
-
-<div class="branch">
-🎨 Kreativitas
-<br><br>
-85 Karya
-<br>
-750 Ide
-</div>
-
-<div class="branch">
-🤝 Kontribusi
-<br><br>
-540 Orang
-<br>
-9800 Kebaikan
-</div>
-
-<div class="branch">
-🚀 Masa Depan
-<br><br>
-210 Target
-<br>
-47 Skill
-</div>
-
-</div>
 <section class="vision">
 
 <h1>✨ Analisis Dampak Kehidupan</h1>
 
-<p>
-Setiap buku yang dibaca menambah wawasan.
-Setiap jam belajar meningkatkan kemampuan.
-Setiap karya yang dibuat meninggalkan jejak.
-Setiap orang yang dibantu memperluas manfaat.
-</p>
+<div class="accordion">
 
-<p>
-Peta Dampak Kehidupan bukan hanya menghitung angka,
-tetapi membantu melihat bagaimana ilmu,
-karya, kontribusi, disiplin, dan kebaikan
-bertumbuh menjadi pengaruh yang lebih besar dari waktu ke waktu.
-</p>
+<button class="accBtn">
+📚 Pengetahuan dan Wawasan
+</button>
 
+<div class="accContent">
 <p>
-Tujuan akhirnya bukan sekadar produktif,
-melainkan menjadi manusia yang terus berkembang,
-bermanfaat, dan meninggalkan dampak positif
-bagi lingkungan, masyarakat, dan masa depan.
+Setiap buku yang dibaca bukan sekadar menambah informasi,
+tetapi memperluas cara berpikir, memperkaya sudut pandang,
+dan membantu memahami dunia dengan lebih dalam.
+
+Seiring waktu, kumpulan pengetahuan kecil akan berubah
+menjadi fondasi kebijaksanaan yang memengaruhi keputusan,
+karakter, dan arah kehidupan seseorang.
 </p>
+</div>
+
+<button class="accBtn">
+🎓 Pembelajaran dan Pertumbuhan
+</button>
+
+<div class="accContent">
+<p>
+Jam belajar yang terus bertambah adalah investasi jangka panjang.
+Kemampuan yang dimiliki hari ini merupakan hasil dari
+ribuan menit yang dihabiskan untuk memahami,
+mencoba, gagal, lalu memperbaiki diri.
+
+Pertumbuhan sejati terjadi ketika seseorang tetap belajar
+meskipun tidak ada yang melihat prosesnya.
+</p>
+</div>
+
+<button class="accBtn">
+🎨 Kreativitas dan Karya
+</button>
+
+<div class="accContent">
+<p>
+Karya adalah bukti nyata bahwa ide telah diwujudkan.
+Setiap desain, tulisan, video, program, atau proyek
+meninggalkan jejak yang dapat dilihat dan dirasakan orang lain.
+
+Semakin banyak karya yang dibuat,
+semakin besar peluang untuk memberi manfaat kepada dunia.
+</p>
+</div>
+
+<button class="accBtn">
+🤝 Kontribusi dan Kebaikan
+</button>
+
+<div class="accContent">
+<p>
+Nilai terbesar kehidupan tidak hanya terletak pada
+apa yang dimiliki, tetapi pada manfaat yang diberikan.
+
+Satu bantuan kecil dapat mengubah hari seseorang.
+Ratusan bantuan dapat mengubah komunitas.
+Ribuan bantuan dapat menjadi warisan kehidupan.
+</p>
+</div>
+
+<button class="accBtn">
+🌍 Dampak Kehidupan
+</button>
+
+<div class="accContent">
+<p>
+Dampak kehidupan adalah gabungan dari ilmu,
+karya, karakter, disiplin, pengalaman, dan kebaikan
+yang terus bertumbuh setiap hari.
+
+Tujuan akhirnya bukan sekadar menjadi sukses,
+melainkan menjadi pribadi yang berkembang,
+bermanfaat, dan meninggalkan pengaruh positif
+yang tetap hidup bahkan setelah waktu berlalu.
+</p>
+</div>
+
+</div>
 
 </section>
 <style>
-    .vision{
+
+.vision{
 margin-top:60px;
 padding:40px;
 border-radius:25px;
 background:rgba(255,255,255,.05);
-line-height:2;
-font-size:18px;
 }
 
 .vision h1{
-margin-bottom:20px;
+margin-bottom:25px;
+text-align:center;
 }
+
+.accBtn{
+width:100%;
+text-align:left;
+padding:18px;
+margin-top:10px;
+border:none;
+border-radius:15px;
+font-size:18px;
+cursor:pointer;
+background:#1b2545;
+color:white;
+}
+
+.accContent{
+display:none;
+padding:20px;
+line-height:2;
+background:rgba(255,255,255,.04);
+border-radius:15px;
+margin-top:5px;
+}
+
+.accContent.show{
+display:block;
+}
+
 </style>
+<script>
+
+document.querySelectorAll(".accBtn").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+let content = btn.nextElementSibling;
+
+content.classList.toggle("show");
+
+});
+
+});
+
+</script>
+<script>
+
+function tambahData(){
+
+let target =
+document.getElementById("target").value;
+
+let jumlah =
+parseInt(document.getElementById("jumlah").value);
+
+if(isNaN(jumlah)) return;
+
+let elemen =
+document.getElementById(target);
+
+let sekarang =
+parseInt(elemen.innerText);
+
+elemen.innerText =
+sekarang + jumlah;
+
+document.getElementById("jumlah").value="";
+}
+
+function kurangiData(){
+
+let target =
+document.getElementById("target").value;
+
+let jumlah =
+parseInt(document.getElementById("jumlah").value);
+
+if(isNaN(jumlah)) return;
+
+let elemen =
+document.getElementById(target);
+
+let sekarang =
+parseInt(elemen.innerText);
+
+let hasil =
+sekarang - jumlah;
+
+if(hasil < 0){
+hasil = 0;
+}
+
+elemen.innerText =
+hasil;
+
+document.getElementById("jumlah").value="";
+}
+
+</script>
+
 </body>
 </html>
