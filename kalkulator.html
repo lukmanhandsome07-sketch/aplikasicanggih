@@ -1,0 +1,1379 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Smart Calculator Infinity</title>
+
+<style>
+
+/* ==========================
+   AI SMART CALCULATOR INFINITY
+   STYLE.CSS
+========================== */
+
+:root{
+
+--bg:#050816;
+--bg2:#0f172a;
+
+--card:rgba(255,255,255,.06);
+
+--border:rgba(255,255,255,.1);
+
+--text:#ffffff;
+
+--primary:#00d4ff;
+
+--success:#00ff88;
+
+--danger:#ff4757;
+
+--warning:#ffb020;
+
+--shadow:
+0 10px 40px rgba(0,0,0,.4);
+
+--radius:20px;
+
+}
+
+/* ==========================
+RESET
+========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:
+"Segoe UI",
+sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+background:
+linear-gradient(
+135deg,
+var(--bg),
+var(--bg2)
+);
+
+color:var(--text);
+
+min-height:100vh;
+
+}
+
+/* ==========================
+HEADER
+========================== */
+
+.header{
+
+display:flex;
+
+justify-content:
+space-between;
+
+align-items:center;
+
+padding:20px 30px;
+
+border-bottom:
+1px solid
+var(--border);
+
+backdrop-filter:
+blur(20px);
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+background:
+rgba(0,0,0,.3);
+
+}
+
+.logo{
+
+font-size:1.5rem;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+}
+
+.topMenu{
+
+display:flex;
+
+gap:10px;
+
+flex-wrap:wrap;
+
+}
+
+.topMenu button{
+
+padding:10px 16px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+background:
+var(--primary);
+
+color:black;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.topMenu button:hover{
+
+transform:
+translateY(-2px);
+
+}
+
+/* ==========================
+LAYOUT
+========================== */
+
+.container{
+
+display:grid;
+
+grid-template-columns:
+
+400px
+1fr
+320px;
+
+gap:20px;
+
+padding:20px;
+
+}
+
+/* ==========================
+PANELS
+========================== */
+
+.leftPanel,
+.centerPanel,
+.rightPanel{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+/* ==========================
+CARDS
+========================== */
+
+.calculatorCard,
+.resultCard,
+.historyCard,
+.graphCard,
+.analysisCard,
+.card{
+
+background:
+var(--card);
+
+backdrop-filter:
+blur(20px);
+
+border:
+1px solid
+var(--border);
+
+border-radius:
+var(--radius);
+
+padding:20px;
+
+box-shadow:
+var(--shadow);
+
+}
+
+.calculatorCard h2,
+.resultCard h2,
+.historyCard h2,
+.graphCard h2,
+.analysisCard h2,
+.card h2{
+
+margin-bottom:15px;
+
+font-size:1.1rem;
+
+color:
+var(--primary);
+
+}
+
+/* ==========================
+DISPLAY
+========================== */
+
+#display{
+
+width:100%;
+
+height:70px;
+
+padding:15px;
+
+border:none;
+
+outline:none;
+
+border-radius:15px;
+
+font-size:1.4rem;
+
+text-align:right;
+
+background:
+rgba(255,255,255,.08);
+
+color:white;
+
+margin-bottom:20px;
+
+}
+
+/* ==========================
+BUTTONS
+========================== */
+
+.calculatorButtons{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:10px;
+
+}
+
+.calculatorButtons button{
+
+padding:15px;
+
+font-size:1rem;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:14px;
+
+background:
+rgba(255,255,255,.08);
+
+color:white;
+
+transition:.25s;
+
+}
+
+.calculatorButtons button:hover{
+
+background:
+var(--primary);
+
+color:black;
+
+transform:
+scale(1.04);
+
+}
+
+.calculatorButtons button:active{
+
+transform:
+scale(.95);
+
+}
+
+/* ==========================
+RESULT
+========================== */
+
+#result{
+
+font-size:1.5rem;
+
+font-weight:600;
+
+word-break:break-word;
+
+}
+
+/* ==========================
+HISTORY
+========================== */
+
+#history{
+
+max-height:300px;
+
+overflow:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:8px;
+
+}
+
+#history div{
+
+padding:10px;
+
+border-radius:10px;
+
+background:
+rgba(255,255,255,.05);
+
+}
+
+/* ==========================
+GRAPH
+========================== */
+
+#graph{
+
+width:100%;
+
+height:500px;
+
+border-radius:15px;
+
+overflow:hidden;
+
+}
+
+/* ==========================
+AI ANALYSIS
+========================== */
+
+#analysis{
+
+line-height:1.8;
+
+font-size:.95rem;
+
+}
+
+/* ==========================
+MEMORY
+========================== */
+
+#memoryValue{
+
+font-size:2rem;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+#mPlus,
+#mMinus,
+#mRecall,
+#mClear{
+
+margin:5px;
+
+padding:10px 14px;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:10px;
+
+background:
+var(--success);
+
+color:black;
+
+font-weight:600;
+
+}
+
+/* ==========================
+STATISTICS
+========================== */
+
+.card p{
+
+margin-bottom:10px;
+
+line-height:1.7;
+
+}
+
+.card span{
+
+font-weight:700;
+
+color:
+var(--success);
+
+}
+
+/* ==========================
+ACHIEVEMENT
+========================== */
+
+#achievementBox{
+
+padding:15px;
+
+border-radius:15px;
+
+background:
+rgba(255,255,255,.05);
+
+line-height:1.7;
+
+}
+
+/* ==========================
+WARNING
+========================== */
+
+#warningBox{
+
+padding:15px;
+
+border-radius:15px;
+
+background:
+rgba(255,71,87,.15);
+
+border:
+1px solid
+rgba(255,71,87,.3);
+
+color:
+#ff7b8a;
+
+}
+
+/* ==========================
+CONVERTER
+========================== */
+
+#converterType,
+#converterInput{
+
+width:100%;
+
+padding:10px;
+
+margin-bottom:10px;
+
+border:none;
+
+border-radius:10px;
+
+background:
+rgba(255,255,255,.08);
+
+color:white;
+
+}
+
+#convertBtn{
+
+width:100%;
+
+padding:12px;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+background:
+var(--primary);
+
+color:black;
+
+font-weight:700;
+
+}
+
+#converterResult{
+
+margin-top:15px;
+
+font-size:1.1rem;
+
+}
+
+/* ==========================
+FOOTER
+========================== */
+
+footer{
+
+padding:20px;
+
+text-align:center;
+
+opacity:.8;
+
+}
+
+/* ==========================
+SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:
+var(--primary);
+
+border-radius:20px;
+
+}
+
+/* ==========================
+LIGHT MODE
+========================== */
+
+body.light{
+
+--bg:#f5f5f5;
+--bg2:#e5e7eb;
+
+--card:#ffffff;
+
+--border:#dddddd;
+
+--text:#111111;
+
+}
+
+body.light #display{
+
+color:black;
+
+}
+
+body.light
+.calculatorButtons button{
+
+color:black;
+
+}
+
+/* ==========================
+TABLET
+========================== */
+
+@media(max-width:1200px){
+
+.container{
+
+grid-template-columns:
+1fr;
+
+}
+
+}
+
+/* ==========================
+MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.header{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.logo{
+
+text-align:center;
+
+}
+
+.calculatorButtons{
+
+grid-template-columns:
+repeat(4,1fr);
+
+}
+
+#graph{
+
+height:350px;
+
+}
+
+}
+</style>
+
+<!-- Math Engine -->
+<script src="https://cdn.jsdelivr.net/npm/mathjs@14/lib/browser/math.js"></script>
+
+<!-- Chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Plot Graph -->
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+<!-- Excel -->
+<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+<!-- PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+🧠 AI Smart Calculator Infinity
+</div>
+
+<div class="topMenu">
+
+<button id="themeBtn">
+🌙 Tema
+</button>
+
+<button id="voiceBtn">
+🎤 Voice
+</button>
+
+<button id="pdfBtn">
+📄 PDF
+</button>
+
+<button id="excelBtn">
+📊 Excel
+</button>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<!-- LEFT PANEL -->
+
+<section class="leftPanel">
+
+<div class="calculatorCard">
+
+<h2>Calculator Engine</h2>
+
+<input
+id="display"
+placeholder="Contoh: sin(pi/4)+2^10"
+autocomplete="off"
+>
+
+<div class="calculatorButtons">
+
+<button data-value="7">7</button>
+<button data-value="8">8</button>
+<button data-value="9">9</button>
+<button data-value="/">÷</button>
+
+<button data-value="4">4</button>
+<button data-value="5">5</button>
+<button data-value="6">6</button>
+<button data-value="*">×</button>
+
+<button data-value="1">1</button>
+<button data-value="2">2</button>
+<button data-value="3">3</button>
+<button data-value="-">−</button>
+
+<button data-value="0">0</button>
+<button data-value=".">.</button>
+<button id="equalBtn">=</button>
+<button data-value="+">+</button>
+
+<button data-value="(">(</button>
+<button data-value=")">)</button>
+
+<button data-value="pi">π</button>
+<button data-value="e">e</button>
+
+<button data-value="sin(">sin</button>
+<button data-value="cos(">cos</button>
+<button data-value="tan(">tan</button>
+<button data-value="log(">log</button>
+
+<button data-value="sqrt(">√</button>
+<button data-value="abs(">abs</button>
+<button data-value="^">xʸ</button>
+<button id="clearBtn">C</button>
+
+</div>
+
+</div>
+
+<div class="resultCard">
+
+<h2>Result</h2>
+
+<div id="result">
+Belum ada hasil.
+</div>
+
+</div>
+
+<div class="historyCard">
+
+<h2>History</h2>
+
+<div id="history">
+Belum ada riwayat.
+</div>
+
+</div>
+
+</section>
+
+<!-- CENTER -->
+
+<section class="centerPanel">
+
+<div class="graphCard">
+
+<h2>Graph Engine</h2>
+
+<div id="graph"></div>
+
+</div>
+
+<div class="analysisCard">
+
+<h2>AI Analysis</h2>
+
+<div id="analysis">
+
+Menunggu analisis...
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RIGHT -->
+
+<aside class="rightPanel">
+
+<div class="card">
+
+<h2>Statistics</h2>
+
+<p>Total Calculation:
+<span id="totalCalc">0</span></p>
+
+<p>Accuracy:
+<span id="accuracy">100%</span></p>
+
+<p>Session:
+<span id="sessionCount">0</span></p>
+
+<p>Productivity:
+<span id="productivity">0%</span></p>
+
+</div>
+
+<div class="card">
+
+<h2>Memory</h2>
+
+<div id="memoryValue">
+0
+</div>
+
+<button id="mPlus">M+</button>
+<button id="mMinus">M-</button>
+<button id="mRecall">MR</button>
+<button id="mClear">MC</button>
+
+</div>
+
+<div class="card">
+
+<h2>Achievements</h2>
+
+<div id="achievementBox">
+
+🏁 Belum ada achievement
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Programmer Mode</h2>
+
+<p>Binary:
+<span id="binaryValue">0</span></p>
+
+<p>Hex:
+<span id="hexValue">0</span></p>
+
+<p>Octal:
+<span id="octalValue">0</span></p>
+
+</div>
+
+<div class="card">
+
+<h2>Warnings</h2>
+
+<div id="warningBox">
+
+Tidak ada peringatan.
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Converter Hub</h2>
+
+<select id="converterType">
+
+<option>Panjang</option>
+<option>Berat</option>
+<option>Suhu</option>
+<option>Luas</option>
+<option>Volume</option>
+
+</select>
+
+<input id="converterInput">
+
+<button id="convertBtn">
+Convert
+</button>
+
+<div id="converterResult"></div>
+
+</div>
+
+</aside>
+
+</div>
+
+<footer>
+
+AI Smart Calculator Infinity © 2026
+
+</footer>
+<script>
+
+// =========================
+// AI SMART CALCULATOR
+// APP.JS
+// =========================
+
+const display =
+document.getElementById("display");
+
+const resultBox =
+document.getElementById("result");
+
+const historyBox =
+document.getElementById("history");
+
+const totalCalcBox =
+document.getElementById("totalCalc");
+
+const warningBox =
+document.getElementById("warningBox");
+
+const memoryValueBox =
+document.getElementById("memoryValue");
+
+// =========================
+// STORAGE
+// =========================
+
+let history =
+JSON.parse(
+localStorage.getItem("history")
+) || [];
+
+let totalCalc =
+Number(
+localStorage.getItem("totalCalc")
+) || 0;
+
+let memory =
+Number(
+localStorage.getItem("memory")
+) || 0;
+
+// =========================
+// BUTTON INPUT
+// =========================
+
+document
+.querySelectorAll("[data-value]")
+.forEach(btn => {
+
+btn.addEventListener(
+"click",
+() => {
+
+display.value +=
+btn.dataset.value;
+
+});
+
+});
+
+// =========================
+// CLEAR
+// =========================
+
+document
+.getElementById("clearBtn")
+.addEventListener(
+"click",
+() => {
+
+display.value = "";
+
+resultBox.innerHTML =
+"Belum ada hasil.";
+
+}
+);
+
+// =========================
+// CALCULATE
+// =========================
+
+document
+.getElementById("equalBtn")
+.addEventListener(
+"click",
+calculate
+);
+
+function calculate(){
+
+try{
+
+let expression =
+display.value
+.replace(/×/g,"*")
+.replace(/÷/g,"/")
+.replace(/x/g,"*");
+
+let result =
+math.evaluate(
+expression
+);
+
+if(
+!isFinite(result)
+){
+
+showWarning(
+"Pembagian nol atau nilai tak hingga."
+);
+
+return;
+
+}
+
+resultBox.innerHTML =
+result;
+
+display.value =
+result;
+
+saveHistory(
+expression,
+result
+);
+
+updateStats();
+
+updateProgrammerMode(
+result
+);
+
+generateInsight(
+expression,
+result
+);
+
+clearWarning();
+
+}catch(error){
+
+showWarning(
+"Ekspresi tidak valid."
+);
+
+}
+
+}
+
+// =========================
+// HISTORY
+// =========================
+
+function saveHistory(
+expression,
+result
+){
+
+history.unshift(
+`${expression} = ${result}`
+);
+
+localStorage.setItem(
+"history",
+JSON.stringify(history)
+);
+
+renderHistory();
+
+}
+
+function renderHistory(){
+
+historyBox.innerHTML="";
+
+history.forEach(item=>{
+
+let div =
+document.createElement("div");
+
+div.textContent =
+item;
+
+historyBox.appendChild(div);
+
+});
+
+}
+
+renderHistory();
+
+// =========================
+// STATS
+// =========================
+
+function updateStats(){
+
+totalCalc++;
+
+localStorage.setItem(
+"totalCalc",
+totalCalc
+);
+
+totalCalcBox.textContent =
+totalCalc;
+
+}
+
+totalCalcBox.textContent =
+totalCalc;
+
+// =========================
+// MEMORY
+// =========================
+
+function updateMemory(){
+
+memoryValueBox.textContent =
+memory;
+
+localStorage.setItem(
+"memory",
+memory);
+
+}
+
+updateMemory();
+
+document
+.getElementById("mPlus")
+.addEventListener(
+"click",
+()=>{
+
+memory +=
+Number(display.value)||0;
+
+updateMemory();
+
+}
+);
+
+document
+.getElementById("mMinus")
+.addEventListener(
+"click",
+()=>{
+
+memory -=
+Number(display.value)||0;
+
+updateMemory();
+
+}
+);
+
+document
+.getElementById("mRecall")
+.addEventListener(
+"click",
+()=>{
+
+display.value =
+memory;
+
+}
+);
+
+document
+.getElementById("mClear")
+.addEventListener(
+"click",
+()=>{
+
+memory = 0;
+
+updateMemory();
+
+}
+);
+
+// =========================
+// WARNING
+// =========================
+
+function showWarning(msg){
+
+warningBox.innerHTML =
+"⚠️ " + msg;
+
+}
+
+function clearWarning(){
+
+warningBox.innerHTML =
+"Tidak ada peringatan.";
+
+}
+
+// =========================
+// PROGRAMMER MODE
+// =========================
+
+function updateProgrammerMode(
+number
+){
+
+if(
+typeof number !== "number"
+)return;
+
+document
+.getElementById("binaryValue")
+.textContent =
+Math.trunc(number)
+.toString(2);
+
+document
+.getElementById("hexValue")
+.textContent =
+Math.trunc(number)
+.toString(16)
+.toUpperCase();
+
+document
+.getElementById("octalValue")
+.textContent =
+Math.trunc(number)
+.toString(8);
+
+}
+
+// =========================
+// AI INSIGHT
+// =========================
+
+function generateInsight(
+expression,
+result
+){
+
+const analysis =
+document.getElementById(
+"analysis"
+);
+
+let text =
+`Ekspresi:
+${expression}<br>
+Hasil:
+${result}`;
+
+if(result > 1000000){
+
+text +=
+"<br><br>⚠️ Nilai sangat besar.";
+
+}
+
+if(result === 0){
+
+text +=
+"<br><br>ℹ️ Hasil nol.";
+
+}
+
+if(Number.isInteger(result)){
+
+text +=
+"<br><br>✅ Bilangan bulat.";
+
+}else{
+
+text +=
+"<br><br>📌 Bilangan desimal.";
+
+}
+
+analysis.innerHTML =
+text;
+
+}
+
+// =========================
+// THEME
+// =========================
+
+document
+.getElementById("themeBtn")
+.addEventListener(
+"click",
+()=>{
+
+document.body
+.classList.toggle(
+"light"
+);
+
+}
+);
+
+// =========================
+// KEYBOARD
+// =========================
+
+document
+.addEventListener(
+"keydown",
+event=>{
+
+if(
+event.key === "Enter"
+){
+
+calculate();
+
+}
+
+if(
+event.key === "Escape"
+){
+
+display.value="";
+
+}
+
+}
+);
+
+// =========================
+// AUTO SAVE
+// =========================
+
+window.addEventListener(
+"beforeunload",
+()=>{
+
+localStorage.setItem(
+"display",
+display.value
+);
+
+}
+);
+
+display.value =
+localStorage.getItem(
+"display"
+) || "";
+</script>
+</body>
+</html>
