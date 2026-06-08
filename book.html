@@ -4,90 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>🌍 Life Impact Map Ultimate</title>
+<title>Peta Dampak Kehidupan</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+font-family:Segoe UI,Arial,sans-serif;
 }
 
 body{
-background:
-linear-gradient(135deg,#050816,#0b1020,#111827);
+background:linear-gradient(135deg,#050816,#0a1028,#111827);
 color:white;
 min-height:100vh;
-padding:20px;
+padding:30px;
 }
 
 .container{
-max-width:1400px;
+max-width:1200px;
 margin:auto;
 }
 
 h1{
 text-align:center;
-font-size:3rem;
-margin-bottom:20px;
-}
-
-.hero{
-display:flex;
-justify-content:center;
 margin-bottom:30px;
-}
-
-.scoreCircle{
-width:220px;
-height:220px;
-border-radius:50%;
-background:
-linear-gradient(135deg,#00d4ff,#00ff88);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-color:black;
-font-weight:bold;
-box-shadow:0 0 50px rgba(0,255,200,.5);
-}
-
-#lifeScore{
-font-size:4rem;
+font-size:3rem;
 }
 
 .grid{
 display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
 .card{
-background:rgba(255,255,255,.06);
-backdrop-filter:blur(12px);
+background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+padding:25px;
 border-radius:20px;
-padding:20px;
-}
-
-.card h2{
-font-size:1.1rem;
-margin-bottom:10px;
+text-align:center;
 }
 
 .number{
-font-size:2rem;
+font-size:2.5rem;
 font-weight:bold;
+margin-top:10px;
 }
 
 .progress{
 height:10px;
 background:#222;
-border-radius:50px;
+border-radius:20px;
 overflow:hidden;
 margin-top:15px;
 }
@@ -95,25 +64,22 @@ margin-top:15px;
 .progress span{
 display:block;
 height:100%;
-background:
-linear-gradient(90deg,#00d4ff,#00ff88);
-width:0%;
-transition:.5s;
+background:linear-gradient(90deg,#00d4ff,#00ff88);
 }
 
 .panel{
-margin-top:30px;
+margin-top:40px;
 background:rgba(255,255,255,.05);
-padding:25px;
+padding:30px;
 border-radius:20px;
 }
 
 input,select{
 width:100%;
 padding:12px;
-border:none;
-border-radius:12px;
 margin-top:10px;
+border:none;
+border-radius:10px;
 font-size:16px;
 }
 
@@ -122,31 +88,14 @@ width:100%;
 padding:12px;
 margin-top:10px;
 border:none;
-border-radius:12px;
+border-radius:10px;
+background:linear-gradient(90deg,#00d4ff,#00ff88);
 font-weight:bold;
 cursor:pointer;
-background:
-linear-gradient(90deg,#00d4ff,#00ff88);
 }
 
 button:hover{
-transform:scale(1.02);
-}
-
-.analysis{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-margin-top:30px;
-}
-
-.good{
-border-left:5px solid #00ff88;
-}
-
-.bad{
-border-left:5px solid #ff4d4d;
+opacity:.9;
 }
 
 .footer{
@@ -155,43 +104,103 @@ text-align:center;
 opacity:.8;
 line-height:1.8;
 }
-
 </style>
 </head>
 <body>
 
 <div class="container">
 
-<h1>🌍 LIFE IMPACT MAP</h1>
+<h1>🌍 Peta Dampak Kehidupan</h1>
 
-<div class="hero">
+<div class="grid">
 
-<div class="scoreCircle">
-
-<div id="lifeScore">0</div>
-
-<div>Life Impact Score</div>
-
-<div id="level">
-Pemula
+<div class="card">
+<h2>🧠 Ilmu Diamalkan</h2>
+<div class="number" id="books">1000000</div>
+<div class="progress"><span style="width:75%"></span></div>
 </div>
 
+<div class="card">
+<h2>🏆 Prestasi Diraih</h2>
+<div class="number" id="books">1000000</div>
+<div class="progress"><span style="width:75%"></span></div>
+</div>
+  
+<div class="card">
+<h2>🎯 Tujuan Dicapai</h2>
+<div class="number" id="learning">1000000</div>
+<div class="progress"><span style="width:90%"></span></div>
 </div>
 
+<div class="card">
+<h2>✨ Karakter Diperbaiki</h2>
+<div class="number" id="learning">1000000</div>
+<div class="progress"><span style="width:90%"></span></div>
+</div>
+  
+<div class="card">
+<h2>🤲 Kesalahan Diperbaiki</h2>
+<div class="number" id="learning">1000000</div>
+<div class="progress"><span style="width:90%"></span></div>
+</div>
+  
+<div class="card">
+<h2>🏠 Keluarga Dibahagiakan</h2>
+<div class="number" id="learning">1000000</div>
+<div class="progress"><span style="width:90%"></span></div>
+</div>
+  
+<div class="card">
+<h2>💡 karya Dibuat dan Diciptakan</h2>
+<div class="number" id="works">1000000</div>
+<div class="progress"><span style="width:70%"></span></div>
 </div>
 
-<div class="grid" id="cards"></div>
+<div class="card">
+<h2>🙏 Doa Dipanjatkan</h2>
+<div class="number" id="works">1000000</div>
+<div class="progress"><span style="width:70%"></span></div>
+</div>
+
+<div class="card">
+<h2>🤝 Orang Dibantu</h2>
+<div class="number" id="people">1000000</div>
+<div class="progress"><span style="width:88%"></span></div>
+</div>
+
+<div class="card">
+<h2>💭 Ingatan</h2>
+<div class="number" id="people">1000000</div>
+<div class="progress"><span style="width:88%"></span></div>
+</div>
+
+<div class="card">
+<h2>🌍 Niat</h2>
+<div class="number" id="people">1000000</div>
+<div class="progress"><span style="width:88%"></span></div>
+</div>
+  
+</div>
 
 <div class="panel">
 
-<h2>➕➖ Kelola Dampak Kehidupan</h2>
+<h2>➕➖ Kelola Data</h2>
 
-<select id="target"></select>
+<select id="target">
+<option value="books">🧠 Ilmu Diamalkan</option>
+<option value="people">🤝 Orang Dibantu</option>
+<option value="people">🤲 Kesalahan Diperbaiki</option>
+<option value="people">🎯 Tujuan Dicapai</option>
+<option value="people">🏆 Prestasi Diraih</option>
+<option value="people">✨ Karakter Diperbaiki</option>
+<option value="people">💡 Karya Dibuat dan diciptakan</option>
+<option value="people">🏠 Keluarga Dibahagiakan</option>
+<option value="people">🙏 Doa Dipanjatkan</option>
+<option value="people">💭 Ingatan</option>
+<option value="people">🌍 Niat</option>
+</select>
 
-<input
-type="number"
-id="jumlah"
-placeholder="Masukkan angka">
+<input type="number" id="jumlah" placeholder="Masukkan angka">
 
 <button onclick="tambahData()">
 ➕ Tambah
@@ -203,21 +212,43 @@ placeholder="Masukkan angka">
 
 </div>
 
-<div class="analysis">
+<div class="panel">
 
-<div class="card good">
+<h2>🧠 Visualisasi Dampak</h2>
 
-<h2>✅ Kelebihan</h2>
+<br>
 
-<ul id="kelebihan"></ul>
-
+<div style="display:flex;justify-content:center;">
+<div style="
+width:150px;
+height:150px;
+border-radius:50%;
+background:linear-gradient(135deg,#00d4ff,#00ff88);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:black;">
+Diri sendiri
+</div>
 </div>
 
-<div class="card bad">
+<div class="grid" style="margin-top:30px;">
 
-<h2>⚠ Perlu Ditingkatkan</h2>
-
-<ul id="kekurangan"></ul>
+<div class="card">📚 Pengetahuan — apa yang diketahui dan dipahami.</div>
+<div class="card">🎓 Pembelajaran — apa yang terus dipelajari sepanjang hidup.</div>
+<div class="card">🎨 Kreativitas — kemampuan menghasilkan ide dan solusi.</div>
+<div class="card">🧠 Ilmu Diamalkan — pengetahuan yang diterapkan dalam kehidupan.</div>
+<div class="card">🏆 Prestasi Diraih — pencapaian yang berhasil diperoleh.</div>
+<div class="card">🎯 Tujuan Dicapai — target dan cita-cita yang terwujud.</div>
+<div class="card">✨ Karakter Diperbaiki — sifat dan kebiasaan yang menjadi lebih baik.</div>
+<div class="card">🤲 Kesalahan Diperbaiki — kekeliruan yang diakui dan diperbaiki.</div>
+<div class="card">🏠 Keluarga Dibahagiakan — kebahagiaan yang diberikan kepada keluarga.</div>
+<div class="card">💡 Karya Dibuat dan Diciptakan — hasil nyata dan ide baru yang dihasilkan.</div>
+<div class="card">🙏 Doa Dipanjatkan — harapan dan permohonan yang disampaikan kepada Allah.</div>
+<div class="card">🤝 Orang Dibantu — manfaat yang diberikan kepada sesama.</div>
+<div class="card">💭 Ingatan — pengalaman dan pelajaran yang tersimpan.</div>
+<div class="card">🌍 Niat — tujuan dan alasan yang mendasari setiap tindakan.</div>
 
 </div>
 
@@ -226,268 +257,309 @@ placeholder="Masukkan angka">
 <div class="footer">
 
 <h3>
-Setiap ilmu yang diamalkan,
-setiap tujuan yang dicapai,
-setiap keluarga yang dibahagiakan,
-setiap karya yang diciptakan,
-dan setiap orang yang dibantu
-akan menjadi jejak dampak kehidupan.
+  ✨ Setiap ilmu yang diamalkan, setiap prestasi yang diraih, setiap tujuan yang dicapai, setiap karakter yang diperbaiki, 
+  setiap kesalahan yang dibenahi, setiap keluarga yang dibahagiakan, setiap karya yang dibuat dan diciptakan, 
+  setiap doa yang dipanjatkan, setiap orang yang dibantu, setiap ingatan yang ditinggalkan, dan 
+  setiap niat yang diluruskan akan menjadi dampak yang terus berkembang sepanjang kehidupan.
 </h3>
 
 </div>
 
 </div>
 
+  <section class="vision">
+
+<h1>✨ Analisis Dampak Kehidupan</h1>
+
+<div class="accordion">
+
+<button class="accBtn">
+🧠 Ilmu Diamalkan
+</button>
+
+<div class="accContent">
+<p>
+Ilmu yang diamalkan memiliki nilai yang jauh lebih besar
+daripada ilmu yang hanya disimpan dalam pikiran.
+
+Setiap pengetahuan yang diterapkan dalam kehidupan,
+dibagikan kepada orang lain, atau digunakan untuk
+menciptakan manfaat akan menghasilkan dampak nyata
+yang terus berkembang seiring waktu.
+
+</p>
+</div>
+
+<button class="accBtn">
+🏆 Prestasi Diraih
+</button>
+
+<div class="accContent">
+<p>
+Prestasi merupakan hasil dari usaha, disiplin,
+ketekunan, dan konsistensi dalam mencapai sesuatu.
+
+Setiap pencapaian menjadi bukti perkembangan diri
+dan menunjukkan bahwa kerja keras mampu
+mengubah tujuan menjadi kenyataan.
+
+</p>
+</div>
+
+<button class="accBtn">
+🎯 Tujuan Dicapai
+</button>
+
+<div class="accContent">
+<p>
+Setiap tujuan yang berhasil dicapai merupakan langkah
+menuju kehidupan yang lebih terarah dan bermakna.
+
+Tujuan membantu seseorang fokus pada hal yang penting
+dan memberikan alasan untuk terus bergerak maju.
+
+</p>
+</div>
+
+<button class="accBtn">
+✨ Karakter Diperbaiki
+</button>
+
+<div class="accContent">
+<p>
+Karakter yang baik dibangun melalui kebiasaan kecil
+yang dilakukan secara konsisten setiap hari.
+
+Kejujuran, kesabaran, disiplin, dan tanggung jawab
+akan membentuk pribadi yang kuat dan dipercaya.
+
+</p>
+</div>
+
+<button class="accBtn">
+🤲 Kesalahan Diperbaiki
+</button>
+
+<div class="accContent">
+<p>
+Kesalahan bukan akhir dari perjalanan,
+melainkan kesempatan untuk belajar dan berkembang.
+
+Setiap perbaikan membuat seseorang menjadi lebih bijaksana,
+lebih matang, dan lebih siap menghadapi masa depan.
+
+</p>
+</div>
+
+<button class="accBtn">
+🏠 Keluarga Dibahagiakan
+</button>
+
+<div class="accContent">
+<p>
+Keluarga adalah tempat pertama seseorang belajar
+tentang kasih sayang, pengorbanan, dan kebersamaan.
+
+Membahagiakan keluarga merupakan salah satu bentuk
+keberhasilan yang paling bernilai dalam kehidupan.
+
+</p>
+</div>
+
+<button class="accBtn">
+💡 Karya Dibuat dan Diciptakan
+</button>
+
+<div class="accContent">
+<p>
+Karya adalah wujud nyata dari ide, imajinasi,
+pengetahuan, dan kreativitas.
+
+Setiap karya yang dibuat atau diciptakan dapat
+menjadi sumber manfaat, inspirasi, dan perubahan
+bagi banyak orang.
+
+</p>
+</div>
+
+<button class="accBtn">
+🙏 Doa Dipanjatkan
+</button>
+
+<div class="accContent">
+<p>
+Doa adalah bentuk harapan, rasa syukur,
+dan hubungan antara manusia dengan Tuhannya.
+
+Setiap doa mencerminkan keinginan untuk menjadi lebih baik
+serta keyakinan bahwa selalu ada pertolongan
+di balik setiap usaha.
+
+</p>
+</div>
+
+<button class="accBtn">
+🤝 Orang Dibantu
+</button>
+
+<div class="accContent">
+<p>
+Membantu orang lain adalah salah satu cara
+meninggalkan dampak positif dalam kehidupan.
+
+Bantuan kecil sekalipun dapat memberikan harapan,
+meringankan beban, dan membuat dunia menjadi lebih baik.
+
+</p>
+</div>
+
+<button class="accBtn">
+💭 Ingatan
+</button>
+
+<div class="accContent">
+<p>
+Ingatan menyimpan pengalaman, pelajaran,
+dan momen yang membentuk perjalanan hidup.
+
+Setiap kenangan menjadi bagian dari identitas
+dan membantu seseorang memahami dirinya sendiri.
+
+</p>
+</div>
+
+<button class="accBtn">
+🎯 Niat
+</button>
+
+<div class="accContent">
+<p>
+Niat adalah awal dari setiap tindakan.
+
+Niat yang baik dapat mengarahkan pikiran,
+perkataan, dan perbuatan menuju tujuan yang lebih bermakna,
+serta memberi nilai pada setiap usaha yang dilakukan.
+
+</p>
+</div>
+
+</div>
+
+</section>
+</div>
+
+</section>
+<style>
+
+.vision{
+margin-top:60px;
+padding:40px;
+border-radius:25px;
+background:rgba(255,255,255,.05);
+}
+
+.vision h1{
+margin-bottom:25px;
+text-align:center;
+}
+
+.accBtn{
+width:100%;
+text-align:left;
+padding:18px;
+margin-top:10px;
+border:none;
+border-radius:15px;
+font-size:18px;
+cursor:pointer;
+background:#1b2545;
+color:white;
+}
+
+.accContent{
+display:none;
+padding:20px;
+line-height:2;
+background:rgba(255,255,255,.04);
+border-radius:15px;
+margin-top:5px;
+}
+
+.accContent.show{
+display:block;
+}
+
+</style>
 <script>
 
-const data = {
+document.querySelectorAll(".accBtn").forEach(btn=>{
 
-"🧠 Ilmu Diamalkan":120,
-"🏆 Prestasi Diraih":80,
-"🎯 Tujuan Dicapai":90,
-"✨ Karakter Diperbaiki":85,
-"🤲 Kesalahan Diperbaiki":70,
-"🏠 Keluarga Dibahagiakan":100,
-"💡 Karya Diciptakan":60,
-"🙏 Doa Dipanjatkan":110,
-"🤝 Orang Dibantu":150,
-"💭 Ingatan":75,
-"🌍 Niat":95
+btn.addEventListener("click",()=>{
 
-};
+let content = btn.nextElementSibling;
 
-const cards =
-document.getElementById("cards");
+content.classList.toggle("show");
 
-const target =
-document.getElementById("target");
+});
 
-function render(){
+});
 
-cards.innerHTML="";
-
-target.innerHTML="";
-
-let total=0;
-
-for(let key in data){
-
-total += data[key];
-
-cards.innerHTML += `
-
-<div class="card">
-
-<h2>${key}</h2>
-
-<div class="number">
-${data[key]}
-</div>
-
-<div class="progress">
-<span style="width:${Math.min(data[key],100)}%"></span>
-</div>
-
-</div>
-
-`;
-
-target.innerHTML += `
-<option value="${key}">
-${key}
-</option>
-`;
-
-}
-
-let score =
-Math.round(total /
-Object.keys(data).length);
-
-document
-.getElementById("lifeScore")
-.innerText=score;
-
-let level="Pemula";
-
-if(score>20) level="Berkembang";
-if(score>40) level="Produktif";
-if(score>60) level="Inspiratif";
-if(score>80) level="Visioner";
-if(score>95) level="Legendaris";
-
-document
-.getElementById("level")
-.innerText=level;
-
-analisis();
-
-localStorage.setItem(
-"lifeImpact",
-JSON.stringify(data)
-);
-
-}
-
-function analisis(){
-
-let plus=[];
-let minus=[];
-
-for(let key in data){
-
-if(data[key]>=100)
-plus.push(`<li>${key}</li>`);
-
-if(data[key]<80)
-minus.push(`<li>${key}</li>`);
-
-}
-
-document
-.getElementById("kelebihan")
-.innerHTML=
-plus.join("");
-
-document
-.getElementById("kekurangan")
-.innerHTML=
-minus.join("");
-
-}
+</script>
+<script>
 
 function tambahData(){
 
-let k=
-target.value;
+let target =
+document.getElementById("target").value;
 
-let j=
-parseInt(
-document
-.getElementById("jumlah")
-.value
-);
+let jumlah =
+parseInt(document.getElementById("jumlah").value);
 
-if(isNaN(j)) return;
+if(isNaN(jumlah)) return;
 
-data[k]+=j;
+let elemen =
+document.getElementById(target);
 
-render();
+let sekarang =
+parseInt(elemen.innerText);
 
+elemen.innerText =
+sekarang + jumlah;
+
+document.getElementById("jumlah").value="";
 }
 
 function kurangiData(){
 
-let k=
-target.value;
+let target =
+document.getElementById("target").value;
 
-let j=
-parseInt(
-document
-.getElementById("jumlah")
-.value
-);
+let jumlah =
+parseInt(document.getElementById("jumlah").value);
 
-if(isNaN(j)) return;
+if(isNaN(jumlah)) return;
 
-data[k]-=j;
+let elemen =
+document.getElementById(target);
 
-if(data[k]<0)
-data[k]=0;
+let sekarang =
+parseInt(elemen.innerText);
 
-render();
+let hasil =
+sekarang - jumlah;
 
+if(hasil < 0){
+hasil = 0;
 }
 
-let simpan =
-localStorage.getItem(
-"lifeImpact"
-);
+elemen.innerText =
+hasil;
 
-if(simpan){
-
-Object.assign(
-data,
-JSON.parse(simpan)
-);
-
+document.getElementById("jumlah").value="";
 }
 
-render();
-
-function formatAngka(n){
-
-const units = [
-"",
-"Ribu",
-"Juta",
-"Miliar",
-"Triliun",
-"Kuadriliun",
-"Kuintiliun",
-"Sekstiliun",
-"Septiliun",
-"Oktiliun",
-"Noniliun",
-"Desiliun",
-"Undesiliun",
-"Duodesiliun",
-"Tredesiliun",
-"Kuatuordesiliun",
-"Kuindesiliun",
-"Seksdesiliun",
-"Septendesiliun",
-"Oktodesiliun",
-"Novemdesiliun",
-"Vigintiliun",
-"Unvigintiliun",
-"Duovigintiliun",
-"Trevigintiliun",
-"Kuatuorvigintiliun",
-"Kuinvigintiliun",
-"Seksvigintiliun",
-"Septemvigintiliun",
-"Oktovigintiliun",
-"Novemvigintiliun",
-"Trigintiliun",
-"Untrigintiliun",
-"Duotrigintiliun",
-"Tretrigintiliun",
-"Kuatuortrigintiliun",
-"Kuintrigintiliun",
-"Sekstrigintiliun",
-"Septentrigintiliun",
-"Oktotrigintiliun",
-"Novemtrigintiliun",
-"Kuadragintiliun",
-"Unkuadragintiliun",
-"Duokuadragintiliun",
-"Trekuadragintiliun",
-"Kuatuorkuadragintiliun",
-"Kuinkuadragintiliun",
-"Sekskuadragintiliun",
-"Septenkuadragintiliun",
-"Oktokuadragintiliun",
-"Novemkuadragintiliun",
-"Kuinkuagintiliun",
-"Seksagintiliun",
-"Septuagintiliun",
-"Oktogintiliun",
-"Nonagintiliun",
-"Sentiliun"
-];
-
-let i = 0;
-
-while(n >= 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 && i < units.length-1){
-n /= 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
-i++;
-}
-
-return n.toFixed(2)+" "+units[i];
-
-}
 </script>
 
 </body>
 </html>
+,ganti jadi lebih bagus,menarik,suka,keren,penting,bermakna,lebih level mentok,jernih,jelas,sungguhan,dll
