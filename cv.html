@@ -1136,12 +1136,12 @@ Terhubung untuk project website modern, UI futuristik, AI dashboard, dan pengemb
 
 <div class="contact-box">
 <h3>📧 Email</h3>
-<p>lukmanhakimluki55@gmail.com</p>
+<p>lukmanhakimluki55@gmail.com | lukman.handsome07@gmail.com</p>
 </div>
 
 <div class="contact-box">
 <h3>📸 Instagram</h3>
-<p>lkmnhkmlk</p>
+<p>lkmnhkmlk | maslukih_com | lordlaki.indonesia | mrlukih | lhllvloginsight | jack_de_holister | luki48967 | lukman1120hakim | lukman_xxzzy | lukmanhakimsmait | jngancoba | personsultan | mrpemberireal | ig.lukilukmanhakim | luckyl4298 | jngan_coba | l_ukmanhakim</p>
 </div>
 
 <div class="contact-box">
@@ -1188,14 +1188,29 @@ function downloadCV() {
         "📄 CV berhasil diunduh!"
     );
 }
-function contactMe(){
+function contactMe() {
 
-showNotification(
-"💬 Hubungi melalui Email atau Instagram @MasLukih"
-);
+  showNotification("🔗 Mengarahkan ke halaman perusahaan...");
+
+  // delay biar notif kelihatan dulu
+  setTimeout(() => {
+    
+    // cek apakah file ada (basic safety)
+    fetch("perusahaan.html")
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "perusahaan.html";
+        } else {
+          showNotification("⚠️ Halaman perusahaan tidak ditemukan");
+        }
+      })
+      .catch(() => {
+        showNotification("⚠️ Tidak bisa membuka halaman perusahaan");
+      });
+
+  }, 1200);
 
 }
-
 /* ====================================
 NOTIFICATION SYSTEM
 ==================================== */
